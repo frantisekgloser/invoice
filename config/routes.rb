@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :posts
   resources :ininvoices
   resources :outinvoices
+  resources :inbills
+  resources :outbills
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
