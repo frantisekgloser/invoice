@@ -1,0 +1,74 @@
+class InbillsController < ApplicationController
+  before_action :set_inbill, only: [:show, :edit, :update, :destroy]
+
+  # GET /inbills
+  # GET /inbills.json
+  def index
+    @inbill = Inbill.all
+  end
+
+  # GET /inbill/1
+  # GET /inbill/1.json
+  def show
+  end
+
+  # GET /inbill/new
+  def new
+    @inbill = Inbill.new
+  end
+
+  # GET /inbills/1/edit
+  def edit
+  end
+
+  # POST /inbills
+  # POST /inbills.json
+  def create
+    @inbill = Inbill.new(inbill_params)
+
+    respond_to do |format|
+      if @inbill.save
+        format.html { redirect_to @inbill, notice: 'Bill was successfully created.' }
+        format.json { render :show, status: :created, location: @inbill }
+      else
+        format.html { render :new }
+        format.json { render json: @inbill.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /inbills/1
+  # PATCH/PUT /inbills/1.json
+  def update
+    respond_to do |format|
+      if @inbill.update(inbill_params)
+        format.html { redirect_to @inbill, notice: 'Incomming bill was successfully updated.' }
+        format.json { render :show, status: :ok, location: @inbill }
+      else
+        format.html { render :edit }
+        format.json { render json: @inbill.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /inbills/1
+  # DELETE /inbills/1.json
+  def destroy
+    @inbill.destroy
+    respond_to do |format|
+      format.html { redirect_to inbills_url, notice: 'Incomming bill was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_inbill
+      @inbill = Inbill.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def inbill_params
+      params.require(:inbill).permit(:name, :title, :content)
+    end
+end
