@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Incoming invoices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ininvoice.each do |ininvoice| %>
+      <tr>
+        <td><%= ininvoice.name %></td>
+        <td><%= ininvoice.title %></td>
+        <td><%= ininvoice.content %></td>
+        <td><%= link_to 'Show', ininvoice %></td>
+        <td><%= link_to 'Edit', edit_ininvoice_path(ininvoice) %></td>
+        <td><%= link_to 'Destroy', ininvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New incomming invoice', new_ininvoice_path %>
