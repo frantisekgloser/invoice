@@ -5,17 +5,59 @@
 
 <h1>Invoicing v1</h1>
 
+<br>
+<br>
+
+<% if user_signed_in? %>
+
 <form action=<%= outinvoices_path %>>
+
+  Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp     
+  <input type="text" name="name">
+  <br>
+  <br>
+  Street:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp    
+  <input type="text" name="street"> 
+  &nbsp&nbsp&nbspHouse number:
+  <input type="text" name="house_number">
+  <br>
+  <br>
+  City:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  <input type="text" name="city">
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCity part:
+  <input type="text" name="city_part">
+  <br>
+  <br>
+  Postal code:
+  <input type="text" name="postal_code">
+  <br>
+  <br>
+  Country:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  <input type="text" name="country">
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspProvince:
+  <input type="text" name="province">
+  <br>
+  <br>
+  <br>
+  <input type="submit" value="save data">
+
+</form>
+
+<br>
+<br>
+
+<div>
 
   Obdobi od:
   <input type="date" name="from">
   Obdobi do:
   <input type="date" name="till">
 
-  <input type="submit" value="outgoing invoices">
+  <input type="submit" value="outgoing invoices" <action=<%= outinvoices_path %>>
 
-</form>
+</div>
 
+<br>
 <br>
 
 <form action=<%= ininvoices_path %>>
@@ -30,6 +72,7 @@
 </form>
 
 <br>
+<br>
 
 <form action=<%= outbills_path %>>
 
@@ -43,6 +86,7 @@
 </form>
 
 <br>
+<br>
 
 <form action=<%= inbills_path %>>
 
@@ -54,6 +98,15 @@
   <input type="submit" value="incoming bills">
 
 </form>
+
+<% else %>
+
+  <br>
+  <br>
+  At first You have to log in!
+
+<% end %>
+
 
 </body>
 </html>

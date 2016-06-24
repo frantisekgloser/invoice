@@ -1,5 +1,6 @@
 class OutbillsController < ApplicationController
   before_action :set_outbill, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /outbills
   # GET /outbills.json
@@ -14,7 +15,7 @@ class OutbillsController < ApplicationController
 
   # GET /outbill/new
   def new
-    @outbill = Outbill.new
+    @outbill = current_user.outbills.build
   end
 
   # GET /outbills/1/edit
@@ -24,7 +25,7 @@ class OutbillsController < ApplicationController
   # POST /outbills
   # POST /outbills.json
   def create
-    @outbill = Outbill.new(outbill_params)
+    @outbill = current_user.outbills.build(outbill_params)
 
     respond_to do |format|
       if @outbill.save

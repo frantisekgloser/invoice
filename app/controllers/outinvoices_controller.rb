@@ -1,5 +1,6 @@
 class OutinvoicesController < ApplicationController
   before_action :set_outinvoice, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /outinvoices
   # GET /outinvoices.json
@@ -14,7 +15,7 @@ class OutinvoicesController < ApplicationController
 
   # GET /outinvoice/new
   def new
-    @outinvoice = Outinvoice.new
+    @outinvoice = current_user.outinvoices.build
   end
 
   # GET /outinvoices/1/edit
@@ -24,7 +25,7 @@ class OutinvoicesController < ApplicationController
   # POST /outinvoices
   # POST /outinvoices.json
   def create
-    @outinvoice = Outinvoice.new(outinvoice_params)
+    @outinvoice = current_user.outinvoices.build(outinvoice_params)
 
     respond_to do |format|
       if @outinvoice.save

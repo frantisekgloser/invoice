@@ -1,5 +1,6 @@
 class InbillsController < ApplicationController
-  before_action :set_inbill, only: [:show, :edit, :update, :destroy]
+  before_action :set_inbill, only: [:show, :edit, :update, :destroy] 
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /inbills
   # GET /inbills.json
@@ -14,7 +15,7 @@ class InbillsController < ApplicationController
 
   # GET /inbill/new
   def new
-    @inbill = Inbill.new
+    @inbill = current_user.inbills.build
   end
 
   # GET /inbills/1/edit
@@ -24,7 +25,7 @@ class InbillsController < ApplicationController
   # POST /inbills
   # POST /inbills.json
   def create
-    @inbill = Inbill.new(inbill_params)
+    @inbill = current_user.inbills.build(inbill_params)
 
     respond_to do |format|
       if @inbill.save
