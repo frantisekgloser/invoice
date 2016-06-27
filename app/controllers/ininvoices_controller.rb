@@ -5,7 +5,7 @@ class IninvoicesController < ApplicationController
   # GET /ininvoices
   # GET /ininvoices.json
   def index
-    @ininvoice = Ininvoice.all
+    @ininvoice = policy_scope(Ininvoice)
   end
 
   # GET /ininvoice/1

@@ -5,7 +5,7 @@ class OutbillsController < ApplicationController
   # GET /outbills
   # GET /outbills.json
   def index
-    @outbill = Outbill.all
+    @outbill = policy_scope(Outbill)
   end
 
   # GET /outbill/1

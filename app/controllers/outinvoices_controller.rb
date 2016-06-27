@@ -5,7 +5,7 @@ class OutinvoicesController < ApplicationController
   # GET /outinvoices
   # GET /outinvoices.json
   def index
-    @outinvoice = Outinvoice.all
+    @outinvoice = Opolicy_scope(Outinvoice)
   end
 
   # GET /outinvoice/1

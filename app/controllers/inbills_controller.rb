@@ -5,7 +5,7 @@ class InbillsController < ApplicationController
   # GET /inbills
   # GET /inbills.json
   def index
-    @inbill = Inbill.all
+    @inbill = policy_scope(Inbill)
   end
 
   # GET /inbill/1
