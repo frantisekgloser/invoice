@@ -1,4 +1,4 @@
-json.array!(@outinvoices) do |outinvoice|
-  json.extract! outinvoice, :id, :name, :title, :content
-  json.url outinvoice_url(outinvoice, format: :json)
+json.array!(@outbills) do |outbill|
+  json.extract! outbill, :id, :name, :title, :content
+  json.url outbill_url(outbill, format: :json)
 end
