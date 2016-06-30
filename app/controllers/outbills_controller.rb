@@ -1,32 +1,24 @@
 class OutbillsController < ApplicationController
   before_action :set_outbill, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  after_action :verify_policy_scoped, only: :index
+  skip_after_action :verify_authorized, only: :index
 
-  # GET /outbills
-  # GET /outbills.json
   def index
-     @outbill = Outbill.all
+    @outbills = policy_scope(Outbill)
   end
 
-  # GET /outbill/1
-  # GET /outbill/1.json
-  def show
+  def show?
   end
 
-  # GET /outbill/new
   def new
     @outbill = current_user.outbills.build
   end
 
-  # GET /outbills/1/edit
   def edit
   end
 
-  # POST /outbills
-  # POST /outbills.json
   def create
     @outbill = current_user.outbills.build(outbill_params)
-
     respond_to do |format|
       if @outbill.save
         format.html { redirect_to @outbill, notice: 'Outgoing bill was successfully created.' }
@@ -38,12 +30,11 @@ class OutbillsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /outbills/1
-  # PATCH/PUT /outbills/1.json
-  def update
+ def update
     respond_to do |format|
       if @outbill.update(outbill_params)
-        format.html { redirect_to @outbill, notice: 'Outgoing bill was successfully updated.' }
+        format.html { redirect_to outbills_url, notice: 'Outgoing bill was successfully updated.' }
+#        format.html { redirect_to @outbill, notice: 'Outgoing bill was successfully updated.' }
         format.json { render :show, status: :ok, location: @outbill }
       else
         format.html { render :edit }
@@ -52,24 +43,20 @@ class OutbillsController < ApplicationController
     end
   end
 
-  # DELETE /outbills/1
-  # DELETE /outbills/1.json
   def destroy
     @outbill.destroy
     respond_to do |format|
       format.html { redirect_to outbills_url, notice: 'Outgoing bill was successfully destroyed.' }
       format.json { head :no_content }
-    end
   end
+end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_outbill
       @outbill = Outbill.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def outbill_params
-      params.require(:outbill).permit(:name, :title, :content)
+      params.require(:outbill).permit(:name, :title, :content, :user_id)
     end
-end
+end    

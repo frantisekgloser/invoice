@@ -13,21 +13,19 @@
   </thead>
 
   <tbody>
-
-    <% @inbill.each do |inbill| %>
-
-      <tr>
-        <td><%= inbill.name %></td>
-        <td><%= inbill.title %></td>
-        <td><%= inbill.content %></td>
-        <td><%= link_to 'Show', inbill %></td>
-        <td><%= link_to 'Edit', edit_inbill_path(inbill) %></td>
-        <td><%= link_to 'Destroy', inbill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+      <% current_user.inbills.each do |inbill| %>
+        <tr>
+          <td><%= inbill.name %></td>
+          <td><%= inbill.title %></td>
+          <td><%= inbill.content %></td>
+          <td><%= link_to 'Show', inbill %></td>
+          <td><%= link_to 'Edit', edit_inbill_path(inbill) %></td>
+          <td><%= link_to 'Destroy', inbill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
   </tbody>
 </table>
 
 <br>
-
+    
 <%= link_to 'New incomming bill', new_inbill_path %>

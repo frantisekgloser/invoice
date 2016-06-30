@@ -13,21 +13,19 @@
   </thead>
 
   <tbody>
-
-    <% @outbill.each do |outbill| %>
-    
-      <tr>
-        <td><%= outbill.name %></td>
-        <td><%= outbill.title %></td>
-        <td><%= outbill.content %></td>
-        <td><%= link_to 'Show', outbill %></td>
-        <td><%= link_to 'Edit', edit_outbill_path(outbill) %></td>
-        <td><%= link_to 'Destroy', outbill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+      <% current_user.outbills.each do |outbill| %>
+        <tr>
+          <td><%= outbill.name %></td>
+          <td><%= outbill.title %></td>
+          <td><%= outbill.content %></td>
+          <td><%= link_to 'Show', outbill %></td>
+          <td><%= link_to 'Edit', edit_outbill_path(outbill) %></td>
+          <td><%= link_to 'Destroy', outbill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
   </tbody>
 </table>
 
 <br>
-
+    
 <%= link_to 'New outgoing bill', new_outbill_path %>

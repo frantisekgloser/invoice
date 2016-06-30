@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :ininvoices
+  resources :ininvoices, :inbills
   resources :outinvoices
-  resources :inbills
   resources :outbills
+  resources :users
 
   get 'home/index'
 

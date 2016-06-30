@@ -13,21 +13,19 @@
   </thead>
 
   <tbody>
-
-    <% @outinvoice.each do |outinvoice| %>
-    
-      <tr>
-        <td><%= outinvoice.name %></td>
-        <td><%= outinvoice.title %></td>
-        <td><%= outinvoice.content %></td>
-        <td><%= link_to 'Show', outinvoice %></td>
-        <td><%= link_to 'Edit', edit_outinvoice_path(outinvoice) %></td>
-        <td><%= link_to 'Destroy', outinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+      <% current_user.outinvoices.each do |outinvoice| %>
+        <tr>
+          <td><%= outinvoice.name %></td>
+          <td><%= outinvoice.title %></td>
+          <td><%= outinvoice.content %></td>
+          <td><%= link_to 'Show', outinvoice %></td>
+          <td><%= link_to 'Edit', edit_outinvoice_path(outinvoice) %></td>
+          <td><%= link_to 'Destroy', outinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
   </tbody>
 </table>
 
 <br>
-
+    
 <%= link_to 'New outgoing invoice', new_outinvoice_path %>

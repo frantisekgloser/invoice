@@ -1,32 +1,24 @@
 class OutinvoicesController < ApplicationController
   before_action :set_outinvoice, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  after_action :verify_policy_scoped, only: :index
+  skip_after_action :verify_authorized, only: :index
 
-  # GET /outinvoices
-  # GET /outinvoices.json
   def index
-    @outinvoice = Outinvoice.all
+    @outinvoices = policy_scope(Outinvoice)
   end
 
-  # GET /outinvoice/1
-  # GET /outinvoice/1.json
-  def show
+  def show?
   end
 
-  # GET /outinvoice/new
   def new
     @outinvoice = current_user.outinvoices.build
   end
 
-  # GET /outinvoices/1/edit
   def edit
   end
 
-  # POST /outinvoices
-  # POST /outinvoices.json
   def create
     @outinvoice = current_user.outinvoices.build(outinvoice_params)
-
     respond_to do |format|
       if @outinvoice.save
         format.html { redirect_to @outinvoice, notice: 'Outgoing invoice was successfully created.' }
@@ -38,12 +30,11 @@ class OutinvoicesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /outinvoices/1
-  # PATCH/PUT /outinvoices/1.json
-  def update
+ def update
     respond_to do |format|
       if @outinvoice.update(outinvoice_params)
-        format.html { redirect_to @outinvoice, notice: 'Outgoing invoice was successfully updated.' }
+        format.html { redirect_to outinvoices_url, notice: 'Outgoing invoice was successfully updated.' }
+#        format.html { redirect_to @outinvoice, notice: 'Outgoing invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @outinvoice }
       else
         format.html { render :edit }
@@ -52,24 +43,20 @@ class OutinvoicesController < ApplicationController
     end
   end
 
-  # DELETE /outinvoices/1
-  # DELETE /outinvoices/1.json
   def destroy
     @outinvoice.destroy
     respond_to do |format|
       format.html { redirect_to outinvoices_url, notice: 'Outgoing invoice was successfully destroyed.' }
       format.json { head :no_content }
-    end
   end
+end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_outinvoice
       @outinvoice = Outinvoice.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def outinvoice_params
-      params.require(:outinvoice).permit(:name, :title, :content)
+      params.require(:outinvoice).permit(:name, :title, :content, :user_id)
     end
-end
+end    

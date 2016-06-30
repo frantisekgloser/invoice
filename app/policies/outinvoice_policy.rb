@@ -1,4 +1,4 @@
-class InbillPolicy < ApplicationPolicy
+class OutinvoicePolicy < ApplicationPolicy
   class Scope
     attr_reader :user, :scope
 
@@ -8,7 +8,7 @@ class InbillPolicy < ApplicationPolicy
     end
 
     def resolve
-      scope.where(user, Inbill)
+      scope.where(user, Outinvoice)
     end
   end
 
