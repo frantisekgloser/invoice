@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-      <% current_user.ininvoices.each do |ininvoice| %>
+      <% @ininvoices.each do |ininvoice| %>
         <tr>
           <td><%= ininvoice.name %></td>
           <td><%= ininvoice.title %></td>

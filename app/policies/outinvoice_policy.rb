@@ -8,7 +8,7 @@ class OutinvoicePolicy < ApplicationPolicy
     end
 
     def resolve
-      scope.where(user, Outinvoice)
+      scope.where(user: user)
     end
   end
 

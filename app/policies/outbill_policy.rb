@@ -8,7 +8,7 @@ class OutbillPolicy < ApplicationPolicy
     end
 
     def resolve
-      scope.where(user, Outbill)
+      scope.where(user: user)
     end
   end
 

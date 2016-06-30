@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-      <% current_user.inbills.each do |inbill| %>
+      <% @inbills.each do |inbill| %>
         <tr>
           <td><%= inbill.name %></td>
           <td><%= inbill.title %></td>

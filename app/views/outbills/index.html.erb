@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-      <% current_user.outbills.each do |outbill| %>
+      <% @outbills.each do |outbill| %>
         <tr>
           <td><%= outbill.name %></td>
           <td><%= outbill.title %></td>
