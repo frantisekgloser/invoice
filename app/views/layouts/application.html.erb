@@ -19,8 +19,22 @@
 <%= link_to "Sign In", new_user_session_path %>
 &nbsp&nbsp&nbsp&nbsp
 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
+&nbsp&nbsp&nbsp&nbsp
+<b>
+<%= if current_user then 'currently logged user: ' + current_user.email
+	                else 'no one logged in' end %>
+</b>
 
-<%= yield %>
+<div id="main-container" class="container">
+    <div class="row">
+        <div class="col-xs-3">
+          <h1>Invoicing v1</h1>
+        </div>
+        <div class="col-xs-9">
+          <%= yield %>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

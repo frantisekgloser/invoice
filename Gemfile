@@ -45,5 +45,10 @@ group :development do
   gem 'spring'
   gem 'devise'
   gem 'pundit'
+  gem 'bootstrap'
+  gem 'pry'
+  gem 'bootstrap-sass' 
+  gem 'autoprefixer-rails'
+  gem 'pg'
 end
 
