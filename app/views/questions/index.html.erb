@@ -1,0 +1,20 @@
+<h2>Asked questions</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th>Asked at</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @questions.each do |question| %>
+        <tr>
+          <td><%= question.text %></td>
+          <td><%= question.created_at %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>

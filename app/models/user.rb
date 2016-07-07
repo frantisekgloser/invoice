@@ -9,4 +9,13 @@ class User < ActiveRecord::Base
   has_many :inbills
   has_many :outbills
 
+  def admin
+    @admin = true
+    self
+  end
+
+  def admin?
+    !!@admin
+  end
+
 end
