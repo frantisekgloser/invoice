@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :outbills
   resources :users
 
+  resources :questions, only: [:index, :new, :create]
+
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
