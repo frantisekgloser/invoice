@@ -7,7 +7,7 @@ class IninvoicesController < ApplicationController
     @ininvoices = policy_scope(Ininvoice)
   end
 
-  def show?
+  def show
   end
 
   def new

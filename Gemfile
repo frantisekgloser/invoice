@@ -50,5 +50,8 @@ group :development do
   gem 'bootstrap-sass' 
   gem 'autoprefixer-rails'
   gem 'pg'
+  gem 'rspec'
+  gem 'autotest'
+  gem 'blueprint'
 end
 

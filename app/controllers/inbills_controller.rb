@@ -7,7 +7,7 @@ class InbillsController < ApplicationController
     @inbills = policy_scope(Inbill)
   end
 
-  def show?
+  def show
   end
 
   def new

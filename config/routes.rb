@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :outinvoices
   resources :outbills
   resources :users
+  resources :tradeSubjects, controller: 'tradesubjects'
 
   get 'home/index'
 

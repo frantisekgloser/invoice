@@ -5,7 +5,37 @@
 
 <% if user_signed_in? %>
 
+<!--<form action=<%= tradeSubjects_path %>> 
+<%= if @tradeSubject == nil then @tradeSubject = tradesubjects.create  end -%>
+<%= form_for(@tradeSubject) do |f| %>
+  <% if @tradeSubject.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tradeSubject.errors.count, "error") %> prohibited this post from being saved:</h2>
 
+      <ul>
+      <% @tradeSubject.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :'name' %><br>
+    <%= f.text_field :current_user.tradeSubjects.name %>
+  </div>
+  <div class="field">
+    <%= f.label :'Identification number' %><br>
+    <%= f.text_field :current_user.tradeSubjects.identificationNumber %>
+  </div>
+  <div class="field">
+    <%= f.label :'VAT' %><br>
+    <%= f.text_area :current_user.tradeSubjects.VAT %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>-->
 
   Street:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp    
   <input type="text" name="street"> 
@@ -98,6 +128,7 @@ else
   At first You have to Sign In!
 
 <% end %>
+
 
 </body>
 </html>

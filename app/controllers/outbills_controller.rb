@@ -7,7 +7,7 @@ class OutbillsController < ApplicationController
     @outbills = policy_scope(Outbill)
   end
 
-  def show?
+  def show
   end
 
   def new
