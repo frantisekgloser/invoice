@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  note: MyText
+  unit_price: 1.5
+  currency_id: 
+  vat_charge_id: 
+  trade_subject_id: 
+  user_id: 
+
+two:
+  name: MyString
+  note: MyText
+  unit_price: 1.5
+  currency_id: 
+  vat_charge_id: 
+  trade_subject_id: 
+  user_id: 

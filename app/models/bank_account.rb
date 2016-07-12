@@ -3,5 +3,6 @@ class BankAccount < ActiveRecord::Base
   belongs_to :currency
   belongs_to :user
 
-  attr_accessible :name, :number, :iban  
+  has_many :payments, :dependent => :destroy
+
 end

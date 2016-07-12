@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-07-12
+  start: 2016-07-12 09:43:16
+  stop: 2016-07-12 09:43:16
+  invoiced: false
+  task_id: 
+  user_id: 
+
+two:
+  date: 2016-07-12
+  start: 2016-07-12 09:43:16
+  stop: 2016-07-12 09:43:16
+  invoiced: false
+  task_id: 
+  user_id: 

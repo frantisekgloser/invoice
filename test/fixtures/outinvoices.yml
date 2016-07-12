@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  generated_on_date: 2016-07-12
+  taxable_supply_date: 2016-07-12
+  due_date: 2016-07-12
+  total_computed_base: 1.5
+  total_computed_vat: 1.5
+  total_corrected_base: 1.5
+  total_corrected_vat: 1.5
+  reverse_charge: false
+  paid: false
+  note: MyText
+  original_invoice: 
+  original_invoice_md5: MyString
+  translated_invoice: 
+  translated_invoice_md5: MyString
+  outsequence_id: 
+  trade_subject_id: 
+  currency_id: 
+  exchange_rate_id: 
+  user_id: 
+
+two:
+  number: 1
+  generated_on_date: 2016-07-12
+  taxable_supply_date: 2016-07-12
+  due_date: 2016-07-12
+  total_computed_base: 1.5
+  total_computed_vat: 1.5
+  total_corrected_base: 1.5
+  total_corrected_vat: 1.5
+  reverse_charge: false
+  paid: false
+  note: MyText
+  original_invoice: 
+  original_invoice_md5: MyString
+  translated_invoice: 
+  translated_invoice_md5: MyString
+  outsequence_id: 
+  trade_subject_id: 
+  currency_id: 
+  exchange_rate_id: 
+  user_id: 

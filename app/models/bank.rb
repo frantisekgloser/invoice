@@ -4,5 +4,4 @@ class Bank < ActiveRecord::Base
   has_many :exchange_rates, :dependent => :destroy
   has_many :bank_accounts, :dependent => :destroy
 
-  attr_accessible :name, :code, :swift
 end

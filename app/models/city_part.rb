@@ -4,6 +4,4 @@ class CityPart < ActiveRecord::Base
 
   has_many :streets, :dependent => :destroy 
 
-  attr_accessible :name, :postal_code
-
 end

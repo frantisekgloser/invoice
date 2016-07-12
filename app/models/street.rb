@@ -3,6 +3,6 @@ class Street < ActiveRecord::Base
   belongs_to :city_part
   belongs_to :user
 
-  attr_accessible :name
+  has_many :house_numbers, :dependent => :destroy
 
 end

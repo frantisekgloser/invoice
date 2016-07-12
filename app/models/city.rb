@@ -5,7 +5,6 @@ class City < ActiveRecord::Base
 
   has_many :city_parts, :dependent => :destroy  
   has_many :streets, :dependent => :destroy 
-
-  attr_accessible :name, :postal_code
+  has_many :house_numbers, :dependent => :destroy
 
 end

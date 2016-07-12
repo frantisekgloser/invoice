@@ -3,6 +3,4 @@ class ReportType < ActiveRecord::Base
 
   has_many :reports, :dependent => :destroy
 
-  attr_accessible :name
-
 end

@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711130135) do
+ActiveRecord::Schema.define(version: 20160712133044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "address_links", force: :cascade do |t|
+    t.integer  "address_type_id"
+    t.integer  "house_number_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "address_links", ["address_type_id"], name: "index_address_links_on_address_type_id", using: :btree
+  add_index "address_links", ["house_number_id"], name: "index_address_links_on_house_number_id", using: :btree
+  add_index "address_links", ["user_id"], name: "index_address_links_on_user_id", using: :btree
 
   create_table "address_types", force: :cascade do |t|
     t.string   "name"
@@ -95,6 +107,20 @@ ActiveRecord::Schema.define(version: 20160711130135) do
 
   add_index "currencies", ["user_id"], name: "index_currencies_on_user_id", using: :btree
 
+  create_table "day_entries", force: :cascade do |t|
+    t.date     "date"
+    t.time     "start"
+    t.time     "stop"
+    t.boolean  "invoiced"
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "day_entries", ["task_id"], name: "index_day_entries_on_task_id", using: :btree
+  add_index "day_entries", ["user_id"], name: "index_day_entries_on_user_id", using: :btree
+
   create_table "exchange_rates", force: :cascade do |t|
     t.float    "rate"
     t.date     "date"
@@ -109,6 +135,19 @@ ActiveRecord::Schema.define(version: 20160711130135) do
   add_index "exchange_rates", ["currency_id"], name: "index_exchange_rates_on_currency_id", using: :btree
   add_index "exchange_rates", ["user_id"], name: "index_exchange_rates_on_user_id", using: :btree
 
+  create_table "house_numbers", force: :cascade do |t|
+    t.string   "house_number", null: false
+    t.integer  "city_id"
+    t.integer  "street_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "house_numbers", ["city_id"], name: "index_house_numbers_on_city_id", using: :btree
+  add_index "house_numbers", ["street_id"], name: "index_house_numbers_on_street_id", using: :btree
+  add_index "house_numbers", ["user_id"], name: "index_house_numbers_on_user_id", using: :btree
+
   create_table "inbills", force: :cascade do |t|
     t.string   "name"
     t.string   "title"
@@ -119,6 +158,106 @@ ActiveRecord::Schema.define(version: 20160711130135) do
   end
 
   add_index "inbills", ["user_id"], name: "index_inbills_on_user_id", using: :btree
+
+  create_table "income_reports", force: :cascade do |t|
+    t.integer  "number"
+    t.date     "date"
+    t.float    "to_pay"
+    t.float    "to_receive"
+    t.text     "note"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "income_reports", ["user_id"], name: "index_income_reports_on_user_id", using: :btree
+
+  create_table "ininvoice_items", force: :cascade do |t|
+    t.float    "amount"
+    t.text     "note"
+    t.integer  "ininvoice_id"
+    t.integer  "item_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "ininvoice_items", ["ininvoice_id"], name: "index_ininvoice_items_on_ininvoice_id", using: :btree
+  add_index "ininvoice_items", ["item_id"], name: "index_ininvoice_items_on_item_id", using: :btree
+  add_index "ininvoice_items", ["user_id"], name: "index_ininvoice_items_on_user_id", using: :btree
+
+  create_table "ininvoice_payments", force: :cascade do |t|
+    t.float    "amount"
+    t.integer  "payment_id"
+    t.integer  "ininvoice_id"
+    t.integer  "exchange_rate_id"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "ininvoice_payments", ["exchange_rate_id"], name: "index_ininvoice_payments_on_exchange_rate_id", using: :btree
+  add_index "ininvoice_payments", ["ininvoice_id"], name: "index_ininvoice_payments_on_ininvoice_id", using: :btree
+  add_index "ininvoice_payments", ["payment_id"], name: "index_ininvoice_payments_on_payment_id", using: :btree
+  add_index "ininvoice_payments", ["user_id"], name: "index_ininvoice_payments_on_user_id", using: :btree
+
+  create_table "ininvoices", force: :cascade do |t|
+    t.integer  "number"
+    t.date     "generated_on_date"
+    t.date     "taxable_supply_date"
+    t.date     "due_date"
+    t.float    "total_computed_base"
+    t.float    "total_computed_vat"
+    t.float    "total_corrected_base"
+    t.float    "total_corrected_vat"
+    t.boolean  "reverse_charge"
+    t.boolean  "paid"
+    t.text     "note"
+    t.binary   "original_invoice"
+    t.string   "original_invoice_md5"
+    t.binary   "translated_invoice"
+    t.string   "translated_invoice_md5"
+    t.integer  "insequence_id"
+    t.integer  "trade_subject_id"
+    t.integer  "currency_id"
+    t.integer  "exchange_rate_id"
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "ininvoices", ["currency_id"], name: "index_ininvoices_on_currency_id", using: :btree
+  add_index "ininvoices", ["exchange_rate_id"], name: "index_ininvoices_on_exchange_rate_id", using: :btree
+  add_index "ininvoices", ["insequence_id"], name: "index_ininvoices_on_insequence_id", using: :btree
+  add_index "ininvoices", ["trade_subject_id"], name: "index_ininvoices_on_trade_subject_id", using: :btree
+  add_index "ininvoices", ["user_id"], name: "index_ininvoices_on_user_id", using: :btree
+
+  create_table "insequences", force: :cascade do |t|
+    t.string   "name"
+    t.text     "note"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "insequences", ["user_id"], name: "index_insequences_on_user_id", using: :btree
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.text     "note"
+    t.float    "unit_price"
+    t.integer  "currency_id"
+    t.integer  "vat_charge_id"
+    t.integer  "trade_subject_id"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "items", ["currency_id"], name: "index_items_on_currency_id", using: :btree
+  add_index "items", ["trade_subject_id"], name: "index_items_on_trade_subject_id", using: :btree
+  add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
+  add_index "items", ["vat_charge_id"], name: "index_items_on_vat_charge_id", using: :btree
 
   create_table "outbills", force: :cascade do |t|
     t.string   "name"
@@ -131,6 +270,76 @@ ActiveRecord::Schema.define(version: 20160711130135) do
 
   add_index "outbills", ["user_id"], name: "index_outbills_on_user_id", using: :btree
 
+  create_table "outinvoice_items", force: :cascade do |t|
+    t.float    "amount"
+    t.text     "note"
+    t.integer  "outinvoice_id"
+    t.integer  "item_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "outinvoice_items", ["item_id"], name: "index_outinvoice_items_on_item_id", using: :btree
+  add_index "outinvoice_items", ["outinvoice_id"], name: "index_outinvoice_items_on_outinvoice_id", using: :btree
+  add_index "outinvoice_items", ["user_id"], name: "index_outinvoice_items_on_user_id", using: :btree
+
+  create_table "outinvoice_payments", force: :cascade do |t|
+    t.float    "amount"
+    t.integer  "payment_id"
+    t.integer  "outinvoice_id"
+    t.integer  "exchange_rate_id"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "outinvoice_payments", ["exchange_rate_id"], name: "index_outinvoice_payments_on_exchange_rate_id", using: :btree
+  add_index "outinvoice_payments", ["outinvoice_id"], name: "index_outinvoice_payments_on_outinvoice_id", using: :btree
+  add_index "outinvoice_payments", ["payment_id"], name: "index_outinvoice_payments_on_payment_id", using: :btree
+  add_index "outinvoice_payments", ["user_id"], name: "index_outinvoice_payments_on_user_id", using: :btree
+
+  create_table "outinvoices", force: :cascade do |t|
+    t.integer  "number"
+    t.date     "generated_on_date"
+    t.date     "taxable_supply_date"
+    t.date     "due_date"
+    t.float    "total_computed_base"
+    t.float    "total_computed_vat"
+    t.float    "total_corrected_base"
+    t.float    "total_corrected_vat"
+    t.boolean  "reverse_charge"
+    t.boolean  "paid"
+    t.text     "note"
+    t.binary   "original_invoice"
+    t.string   "original_invoice_md5"
+    t.binary   "translated_invoice"
+    t.string   "translated_invoice_md5"
+    t.integer  "outsequence_id"
+    t.integer  "trade_subject_id"
+    t.integer  "currency_id"
+    t.integer  "exchange_rate_id"
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "outinvoices", ["currency_id"], name: "index_outinvoices_on_currency_id", using: :btree
+  add_index "outinvoices", ["exchange_rate_id"], name: "index_outinvoices_on_exchange_rate_id", using: :btree
+  add_index "outinvoices", ["outsequence_id"], name: "index_outinvoices_on_outsequence_id", using: :btree
+  add_index "outinvoices", ["trade_subject_id"], name: "index_outinvoices_on_trade_subject_id", using: :btree
+  add_index "outinvoices", ["user_id"], name: "index_outinvoices_on_user_id", using: :btree
+
+  create_table "outsequences", force: :cascade do |t|
+    t.string   "name"
+    t.text     "note"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "outsequences", ["user_id"], name: "index_outsequences_on_user_id", using: :btree
+
   create_table "payment_types", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
@@ -139,6 +348,41 @@ ActiveRecord::Schema.define(version: 20160711130135) do
   end
 
   add_index "payment_types", ["user_id"], name: "index_payment_types_on_user_id", using: :btree
+
+  create_table "payments", force: :cascade do |t|
+    t.date     "date"
+    t.float    "amount"
+    t.text     "note"
+    t.integer  "payment_type_id"
+    t.integer  "currency_id"
+    t.integer  "bank_account_id"
+    t.integer  "trade_subject_id"
+    t.integer  "vat_report_id"
+    t.integer  "income_report_id"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "payments", ["bank_account_id"], name: "index_payments_on_bank_account_id", using: :btree
+  add_index "payments", ["currency_id"], name: "index_payments_on_currency_id", using: :btree
+  add_index "payments", ["income_report_id"], name: "index_payments_on_income_report_id", using: :btree
+  add_index "payments", ["payment_type_id"], name: "index_payments_on_payment_type_id", using: :btree
+  add_index "payments", ["trade_subject_id"], name: "index_payments_on_trade_subject_id", using: :btree
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
+  add_index "payments", ["vat_report_id"], name: "index_payments_on_vat_report_id", using: :btree
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name",             null: false
+    t.text     "note"
+    t.integer  "trade_subject_id"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "projects", ["trade_subject_id"], name: "index_projects_on_trade_subject_id", using: :btree
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
   create_table "provinces", force: :cascade do |t|
     t.string   "name"
@@ -186,140 +430,38 @@ ActiveRecord::Schema.define(version: 20160711130135) do
   add_index "streets", ["city_part_id"], name: "index_streets_on_city_part_id", using: :btree
   add_index "streets", ["user_id"], name: "index_streets_on_user_id", using: :btree
 
-  create_table "table_addressLinks", force: :cascade do |t|
-    t.integer  "addressType_id", default: 1, null: false
-    t.integer  "houseNumber_id",             null: false
-    t.integer  "user_id",                    null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
-  create_table "table_dayEntries", force: :cascade do |t|
-    t.integer  "task_id",                    null: false
-    t.date     "date"
-    t.time     "start"
-    t.time     "stop"
-    t.boolean  "invoiced",   default: false
-    t.integer  "user_id",                    null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
-  create_table "table_houseNumbers", force: :cascade do |t|
-    t.integer  "house_number", null: false
-    t.integer  "city_id"
-    t.integer  "street_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "table_ininvoiceItems", force: :cascade do |t|
-    t.integer  "ininvoice_id", null: false
-    t.integer  "item_id",      null: false
-    t.float    "amount",       null: false
-    t.text     "note"
-    t.integer  "user_id",      null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "table_ininvoicePayments", force: :cascade do |t|
-    t.float    "amount",          default: 0.0, null: false
-    t.integer  "payment_id",                    null: false
-    t.integer  "ininvoice_id",                  null: false
-    t.integer  "exchangeRate_id",               null: false
-    t.integer  "user_id",                       null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-  end
-
-  create_table "table_items", force: :cascade do |t|
-    t.string   "name",            null: false
-    t.text     "description"
-    t.float    "unit_price"
-    t.integer  "currency_id",     null: false
-    t.integer  "vat_id",          null: false
-    t.integer  "tradeSubject_id", null: false
-    t.integer  "user_id",         null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "table_outinvoiceItems", force: :cascade do |t|
-    t.integer  "outinvoice_id", null: false
-    t.integer  "item_id",       null: false
-    t.float    "amount",        null: false
-    t.text     "note"
-    t.integer  "user_id",       null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  create_table "table_outinvoicePayments", force: :cascade do |t|
-    t.float    "amount",          default: 0.0, null: false
-    t.integer  "payment_id",                    null: false
-    t.integer  "outinvoice_id",                 null: false
-    t.integer  "exchangeRate_id",               null: false
-    t.integer  "user_id",                       null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-  end
-
-  create_table "table_payments", force: :cascade do |t|
-    t.date     "date",                          null: false
-    t.float    "amount",          default: 0.0, null: false
-    t.integer  "typePayment_id",                null: false
-    t.integer  "currency_id",                   null: false
-    t.integer  "bankAccount_id",                null: false
-    t.integer  "tradeSubject_id",               null: false
-    t.integer  "vatReport_id",                  null: false
-    t.integer  "incomeReport_id",               null: false
-    t.integer  "user_id",                       null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-  end
-
-  create_table "table_projects", force: :cascade do |t|
-    t.integer  "tradeSubject_id", null: false
-    t.string   "name",            null: false
-    t.text     "note"
-    t.integer  "user_id",         null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "table_taskTypes", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "user_id",    null: false
+  create_table "task_types", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "table_tasks", force: :cascade do |t|
+  add_index "task_types", ["user_id"], name: "index_task_types_on_user_id", using: :btree
+
+  create_table "tasks", force: :cascade do |t|
     t.string   "name",       null: false
-    t.integer  "project_id", null: false
     t.string   "link"
-    t.integer  "user_id",    null: false
+    t.text     "note"
+    t.integer  "project_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "table_tradeSubjects", force: :cascade do |t|
+  add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
+
+  create_table "trade_subjects", force: :cascade do |t|
     t.string   "name",                  null: false
     t.integer  "identification_number", null: false
-    t.integer  "VAT"
-    t.integer  "user_id",               null: false
+    t.integer  "vat",                   null: false
+    t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end
 
-  create_table "table_vatCharges", force: :cascade do |t|
-    t.integer  "country_id", null: false
-    t.float    "percentage", null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "trade_subjects", ["user_id"], name: "index_trade_subjects_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -339,6 +481,33 @@ ActiveRecord::Schema.define(version: 20160711130135) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "vat_charges", force: :cascade do |t|
+    t.float    "percentage", null: false
+    t.integer  "country_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "vat_charges", ["country_id"], name: "index_vat_charges_on_country_id", using: :btree
+  add_index "vat_charges", ["user_id"], name: "index_vat_charges_on_user_id", using: :btree
+
+  create_table "vat_reports", force: :cascade do |t|
+    t.integer  "number"
+    t.date     "date"
+    t.float    "to_pay"
+    t.float    "to_receive"
+    t.text     "note"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "vat_reports", ["user_id"], name: "index_vat_reports_on_user_id", using: :btree
+
+  add_foreign_key "address_links", "address_types"
+  add_foreign_key "address_links", "house_numbers"
+  add_foreign_key "address_links", "users"
   add_foreign_key "address_types", "users"
   add_foreign_key "bank_accounts", "banks"
   add_foreign_key "bank_accounts", "currencies"
@@ -351,12 +520,57 @@ ActiveRecord::Schema.define(version: 20160711130135) do
   add_foreign_key "city_parts", "users"
   add_foreign_key "countries", "users"
   add_foreign_key "currencies", "users"
+  add_foreign_key "day_entries", "tasks"
+  add_foreign_key "day_entries", "users"
   add_foreign_key "exchange_rates", "banks"
   add_foreign_key "exchange_rates", "currencies"
   add_foreign_key "exchange_rates", "users"
+  add_foreign_key "house_numbers", "cities"
+  add_foreign_key "house_numbers", "streets"
+  add_foreign_key "house_numbers", "users"
   add_foreign_key "inbills", "users"
+  add_foreign_key "income_reports", "users"
+  add_foreign_key "ininvoice_items", "ininvoices"
+  add_foreign_key "ininvoice_items", "items"
+  add_foreign_key "ininvoice_items", "users"
+  add_foreign_key "ininvoice_payments", "exchange_rates"
+  add_foreign_key "ininvoice_payments", "ininvoices"
+  add_foreign_key "ininvoice_payments", "payments"
+  add_foreign_key "ininvoice_payments", "users"
+  add_foreign_key "ininvoices", "currencies"
+  add_foreign_key "ininvoices", "exchange_rates"
+  add_foreign_key "ininvoices", "insequences"
+  add_foreign_key "ininvoices", "trade_subjects"
+  add_foreign_key "ininvoices", "users"
+  add_foreign_key "insequences", "users"
+  add_foreign_key "items", "currencies"
+  add_foreign_key "items", "trade_subjects"
+  add_foreign_key "items", "users"
+  add_foreign_key "items", "vat_charges"
   add_foreign_key "outbills", "users"
+  add_foreign_key "outinvoice_items", "items"
+  add_foreign_key "outinvoice_items", "outinvoices"
+  add_foreign_key "outinvoice_items", "users"
+  add_foreign_key "outinvoice_payments", "exchange_rates"
+  add_foreign_key "outinvoice_payments", "outinvoices"
+  add_foreign_key "outinvoice_payments", "payments"
+  add_foreign_key "outinvoice_payments", "users"
+  add_foreign_key "outinvoices", "currencies"
+  add_foreign_key "outinvoices", "exchange_rates"
+  add_foreign_key "outinvoices", "outsequences"
+  add_foreign_key "outinvoices", "trade_subjects"
+  add_foreign_key "outinvoices", "users"
+  add_foreign_key "outsequences", "users"
   add_foreign_key "payment_types", "users"
+  add_foreign_key "payments", "bank_accounts"
+  add_foreign_key "payments", "currencies"
+  add_foreign_key "payments", "income_reports"
+  add_foreign_key "payments", "payment_types"
+  add_foreign_key "payments", "trade_subjects"
+  add_foreign_key "payments", "users"
+  add_foreign_key "payments", "vat_reports"
+  add_foreign_key "projects", "trade_subjects"
+  add_foreign_key "projects", "users"
   add_foreign_key "provinces", "countries"
   add_foreign_key "provinces", "users"
   add_foreign_key "report_types", "users"
@@ -365,4 +579,11 @@ ActiveRecord::Schema.define(version: 20160711130135) do
   add_foreign_key "streets", "cities"
   add_foreign_key "streets", "city_parts"
   add_foreign_key "streets", "users"
+  add_foreign_key "task_types", "users"
+  add_foreign_key "tasks", "projects"
+  add_foreign_key "tasks", "users"
+  add_foreign_key "trade_subjects", "users"
+  add_foreign_key "vat_charges", "countries"
+  add_foreign_key "vat_charges", "users"
+  add_foreign_key "vat_reports", "users"
 end
