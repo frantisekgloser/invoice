@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712133044) do
+ActiveRecord::Schema.define(version: 20160714141250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160712133044) do
   create_table "banks", force: :cascade do |t|
     t.string   "name"
     t.integer  "code"
-    t.integer  "swift"
+    t.string   "swift"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -147,17 +147,6 @@ ActiveRecord::Schema.define(version: 20160712133044) do
   add_index "house_numbers", ["city_id"], name: "index_house_numbers_on_city_id", using: :btree
   add_index "house_numbers", ["street_id"], name: "index_house_numbers_on_street_id", using: :btree
   add_index "house_numbers", ["user_id"], name: "index_house_numbers_on_user_id", using: :btree
-
-  create_table "inbills", force: :cascade do |t|
-    t.string   "name"
-    t.string   "title"
-    t.text     "content"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "inbills", ["user_id"], name: "index_inbills_on_user_id", using: :btree
 
   create_table "income_reports", force: :cascade do |t|
     t.integer  "number"
@@ -258,17 +247,6 @@ ActiveRecord::Schema.define(version: 20160712133044) do
   add_index "items", ["trade_subject_id"], name: "index_items_on_trade_subject_id", using: :btree
   add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
   add_index "items", ["vat_charge_id"], name: "index_items_on_vat_charge_id", using: :btree
-
-  create_table "outbills", force: :cascade do |t|
-    t.string   "name"
-    t.string   "title"
-    t.text     "content"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "outbills", ["user_id"], name: "index_outbills_on_user_id", using: :btree
 
   create_table "outinvoice_items", force: :cascade do |t|
     t.float    "amount"
@@ -528,7 +506,6 @@ ActiveRecord::Schema.define(version: 20160712133044) do
   add_foreign_key "house_numbers", "cities"
   add_foreign_key "house_numbers", "streets"
   add_foreign_key "house_numbers", "users"
-  add_foreign_key "inbills", "users"
   add_foreign_key "income_reports", "users"
   add_foreign_key "ininvoice_items", "ininvoices"
   add_foreign_key "ininvoice_items", "items"
@@ -547,7 +524,6 @@ ActiveRecord::Schema.define(version: 20160712133044) do
   add_foreign_key "items", "trade_subjects"
   add_foreign_key "items", "users"
   add_foreign_key "items", "vat_charges"
-  add_foreign_key "outbills", "users"
   add_foreign_key "outinvoice_items", "items"
   add_foreign_key "outinvoice_items", "outinvoices"
   add_foreign_key "outinvoice_items", "users"
