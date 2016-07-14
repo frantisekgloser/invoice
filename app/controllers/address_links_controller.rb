@@ -53,7 +53,7 @@ end
 
   private
     def set_address_link
-      @address_link = Address_link.find(params[:id])
+      @address_link = AddressLink.find(params[:id])
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def address_link_params
