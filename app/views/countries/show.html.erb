@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @country.name %>
+</p>
+
+<%= link_to 'Edit', edit_country_path(@country) %> |
+<br>
+<br>
+<%= link_to 'Back', countries_path %>

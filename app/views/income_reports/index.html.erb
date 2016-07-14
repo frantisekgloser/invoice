@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Income reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Date</th>
+      <th>To pay</th>
+      <th>To receive</th>
+      <th>Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @income_reports.each do |income_report| %>
+        <tr>
+          <td><%= income_report.number %></td>
+          <td><%= income_report.date %></td>
+          <td><%= income_report.to_pay %></td>
+          <td><%= income_report.to_receive %></td>
+          <td><%= income_report.note %></td>
+          <td><%= link_to 'Show', income_report %></td>
+          <td><%= link_to 'Edit', edit_income_report_path(income_report) %></td>
+          <td><%= link_to 'Destroy', income_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+    
+<%= link_to 'New income report', new_income_report_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @trade_subject.name %>
+</p>
+<p>
+  <strong>Identification number:</strong>
+  <%= @trade_subject.identification_number %>
+</p>
+<p>
+  <strong>VAT:</strong>
+  <%= @trade_subject.vat %>
+</p>
+
+<%= link_to 'Edit', edit_trade_subject_path(@trade_subject) %> |
+<br>
+<br>
+<%= link_to 'Back', trade_subjects_path %>

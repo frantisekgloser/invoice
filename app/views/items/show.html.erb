@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @item.name %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%= @item.note %>
+</p>
+<p>
+  <strong>Unit price:</strong>
+  <%= @item.unit_price %>
+</p>
+<p>
+  <strong>Currency:</strong>
+  <%= @item.currency_id %>
+</p>
+<p>
+  <strong>VAT charge:</strong>
+  <%= @item.vat_charge_id %>
+</p>
+<p>
+  <strong>Trade subject:</strong>
+  <%= @item.trade_subject_id %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<br>
+<br>
+<%= link_to 'Back', items_path %>

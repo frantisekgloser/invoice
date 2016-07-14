@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Percentage:</strong>
+  <%= @vat_charge.percentage %>
+</p>
+<p>
+  <strong>Country:</strong>
+  <%= @vat_charge.country_id %>
+</p>
+
+<%= link_to 'Edit', edit_vat_charge_path(@vat_charge) %> |
+<br>
+<br>
+<%= link_to 'Back', vat_charges_path %>

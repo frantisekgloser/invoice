@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>VAT reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Date</th>
+      <th>To pay</th>
+      <th>To receive</th>
+      <th>Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @vat_reports.each do |vat_report| %>
+        <tr>
+          <td><%= vat_report.number %></td>
+          <td><%= vat_report.date %></td>
+          <td><%= vat_report.to_pay %></td>
+          <td><%= vat_report.to_receive %></td>
+          <td><%= vat_report.note  %></td>
+          <td><%= link_to 'Show', vat_report %></td>
+          <td><%= link_to 'Edit', edit_vat_report_path(vat_report) %></td>
+          <td><%= link_to 'Destroy', vat_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+    
+<%= link_to 'New vat_report', new_vat_report_path %>

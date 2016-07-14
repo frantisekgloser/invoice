@@ -1,13 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Outgoing invoices</h1>
+<h1>Incoming invoice</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Content</th>
+      <th>Number</th>
+      <th>Generated on date</th>
+      <th>Taxable supply date</th>
+      <th>Due date</th>
+      <th>Total computed base</th>
+      <th>Total computed VAT</th>
+      <th>Total corrected base</th>
+      <th>Total corrected VAT</th>
+      <th>Reverse charge</th>
+      <th>Paid</th>
+      <th>Note</th>
+      <th>Original invoice</th>
+      <th>Original invoice md5</th>
+      <th>Translated invoice</th>
+      <th>Translated invoice md5</th>
+      <th>Sequence</th>
+      <th>Trade subject</th>
+      <th>Currency</th>
+      <th>Exchange rate</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,9 +31,25 @@
   <tbody>
       <% @outinvoices.each do |outinvoice| %>
         <tr>
-          <td><%= outinvoice.name %></td>
-          <td><%= outinvoice.title %></td>
-          <td><%= outinvoice.content %></td>
+          <td><%= outinvoice.number %></td>
+          <td><%= outinvoice.generated_on_date %></td>
+          <td><%= outinvoice.taxable_supply_date %></td>
+          <td><%= outinvoice.due_date %></td>
+          <td><%= outinvoice.total_computed_base %></td>
+          <td><%= outinvoice.total_computed_vat %></td>
+          <td><%= outinvoice.total_corrected_base %></td>
+          <td><%= outinvoice.total_corrected_vat %></td>
+          <td><%= outinvoice.reverse_charge %></td>
+          <td><%= outinvoice.paid %></td>
+          <td><%= outinvoice.note %></td>
+          <td><%= outinvoice.original_invoice %></td>
+          <td><%= outinvoice.original_invoice_md5 %></td>
+          <td><%= outinvoice.translated_invoice %></td>
+          <td><%= outinvoice.translated_invoice_md5 %></td>
+          <td><%= if outinvoice.outsequence_id then outinvoice.outsequence.name end %></td>
+          <td><%= if outinvoice.trade_subject_id then outinvoice.trade_subject.name end %></td>
+          <td><%= if outinvoice.currency_id then outinvoice.currency.name end %></td>
+          <td><%= if outinvoice.exchange_rate_id then outinvoice.exchange_rate.rate end %></td>
           <td><%= link_to 'Show', outinvoice %></td>
           <td><%= link_to 'Edit', edit_outinvoice_path(outinvoice) %></td>
           <td><%= link_to 'Destroy', outinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>

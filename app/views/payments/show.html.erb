@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @payment.date %>
+</p>
+<p>
+  <strong>Amount:</strong>
+  <%= @payment.amount %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%= @payment.note %>
+</p>
+<p>
+  <strong>Payment type:</strong>
+  <%= @payment.payment_type_id %>
+</p>
+<p>
+  <strong>Currency:</strong>
+  <%= @payment.currency_id %>
+</p>
+<p>
+  <strong>Bank account:</strong>
+  <%= @payment.bank_account_id %>
+</p>
+<p>
+  <strong>Trade subject:</strong>
+  <%= @payment.trade_subject_id %>
+</p>
+<p>
+  <strong>VAT report:</strong>
+  <%= @payment.vat_report_id %>
+</p>
+<p>
+  <strong>Income report:</strong>
+  <%= @payment.income_report_id %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<br>
+<br>
+<%= link_to 'Back', payments_path %>

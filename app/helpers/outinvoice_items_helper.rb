@@ -1,0 +1,2 @@
+module OutinvoiceItemsHelper
+end

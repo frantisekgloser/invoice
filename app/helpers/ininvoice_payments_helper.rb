@@ -1,0 +1,2 @@
+module IninvoicePaymentsHelper
+end

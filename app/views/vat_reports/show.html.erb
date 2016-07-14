@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @vat_report.number %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= @vat_report.date %>
+</p>
+<p>
+  <strong>To pay:</strong>
+  <%= @vat_report.to_pay %>
+</p>
+<p>
+  <strong>To receive:</strong>
+  <%= @vat_report.to_receive %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%= @vat_report.note %>
+</p>
+
+<%= link_to 'Edit', edit_vat_report_path(@vat_report) %> |
+<br>
+<br>
+<%= link_to 'Back', vat_reports_path %>

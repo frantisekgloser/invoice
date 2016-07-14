@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bank account:</strong>
+  <%= @bank_account.name %>
+</p>
+<p>
+  <strong>Number:</strong>
+  <%= @bank_account.number %>
+</p>
+<p>
+  <strong>IBAN:</strong>
+  <%= @bank_account.iban %>
+</p>
+<p>
+  <strong>Bank:</strong>
+  <%= @bank_account.bank.name %>
+</p>
+<p>
+  <strong>Currency:</strong>
+  <%= @bank_account.currency.name %>
+</p>
+ 
+<%= link_to 'Edit', edit_bank_account_path(@bank_account) %> |
+<br>
+<br>
+<%= link_to 'Back', bank_accounts_path %>

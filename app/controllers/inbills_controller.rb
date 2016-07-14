@@ -4,7 +4,7 @@ class InbillsController < ApplicationController
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @inbills = policy_scope(Inbill)
+    @inbills = current_user.inbills.all
   end
 
   def show

@@ -1,0 +1,26 @@
+<%= form_for(@insequence) do |f| %>
+  <% if @insequence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@insequence.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @insequence.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :'Insequence' %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :'Note' %><br>
+    <%= f.text_field :note %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<%= form_for(@task_type) do |f| %>
+  <% if @task_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task_type.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @task_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :'Task type' %><br>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

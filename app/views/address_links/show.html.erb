@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address type:</strong>
+  <%= @address_link.address_type.name %>
+</p>
+
+<p>
+  <strong>House number:</strong>
+  <%= @address_link.house_number.house_number %>
+</p>
+
+<%= link_to 'Edit', edit_address_link_path(@address_link) %> |
+<br>
+<br>
+<%= link_to 'Back', address_links_path %>

@@ -5,9 +5,25 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Content</th>
+      <th>Number</th>
+      <th>Generated on date</th>
+      <th>Taxable supply date</th>
+      <th>Due date</th>
+      <th>Total computed base</th>
+      <th>Total computed VAT</th>
+      <th>Total corrected base</th>
+      <th>Total corrected VAT</th>
+      <th>Reverse charge</th>
+      <th>Paid</th>
+      <th>Note</th>
+      <th>Original invoice</th>
+      <th>Original invoice md5</th>
+      <th>Translated invoice</th>
+      <th>Translated invoice md5</th>
+      <th>Sequence</th>
+      <th>Trade subject</th>
+      <th>Currency</th>
+      <th>Exchange rate</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,9 +31,25 @@
   <tbody>
       <% @ininvoices.each do |ininvoice| %>
         <tr>
-          <td><%= ininvoice.name %></td>
-          <td><%= ininvoice.title %></td>
-          <td><%= ininvoice.content %></td>
+          <td><%= ininvoice.number %></td>
+          <td><%= ininvoice.generated_on_date %></td>
+          <td><%= ininvoice.taxable_supply_date %></td>
+          <td><%= ininvoice.due_date %></td>
+          <td><%= ininvoice.total_computed_base %></td>
+          <td><%= ininvoice.total_computed_vat %></td>
+          <td><%= ininvoice.total_corrected_base %></td>
+          <td><%= ininvoice.total_corrected_vat %></td>
+          <td><%= ininvoice.reverse_charge %></td>
+          <td><%= ininvoice.paid %></td>
+          <td><%= ininvoice.note %></td>
+          <td><%= ininvoice.original_invoice %></td>
+          <td><%= ininvoice.original_invoice_md5 %></td>
+          <td><%= ininvoice.translated_invoice %></td>
+          <td><%= ininvoice.translated_invoice_md5 %></td>
+          <td><%= if ininvoice.insequence_id then ininvoice.insequence.name end %></td>
+          <td><%= if ininvoice.trade_subject_id then ininvoice.trade_subject.name end %></td>
+          <td><%= if ininvoice.currency_id then ininvoice.currency.name end %></td>
+          <td><%= if ininvoice.exchange_rate_id then ininvoice.exchange_rate.rate end %></td>
           <td><%= link_to 'Show', ininvoice %></td>
           <td><%= link_to 'Edit', edit_ininvoice_path(ininvoice) %></td>
           <td><%= link_to 'Destroy', ininvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>

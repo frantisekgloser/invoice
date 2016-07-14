@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @currency.name %>
+</p>
+
+<%= link_to 'Edit', edit_currency_path(@currency) %> |
+<br>
+<br>
+<%= link_to 'Back', currencies_path %>

@@ -1,0 +1,26 @@
+<%= form_for(@vat_charge) do |f| %>
+  <% if @vat_charge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vat_charge.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @vat_charge.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :'Percentage' %><br>
+    <%= f.text_field :percentage %>
+  </div>
+  <div class="field">
+    <%= f.label :'Country' %><br>
+    <%= f.text_field :country_id %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

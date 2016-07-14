@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Day entry date:</strong>
+  <%= @day_entry.date %>
+</p>
+<p>
+  <strong>Day entry from:</strong>
+  <%= @day_entry.start %>
+</p>
+<p>
+  <strong>Day entry till:</strong>
+  <%= @day_entry.stop %>
+</p>
+<p>
+  <strong>Invoiced?</strong>
+  <%= @day_entry.invoiced %>
+</p>
+<p>
+  <strong>Task:</strong>
+  <%= @day_entry.task.name %>
+</p>
+
+<%= link_to 'Edit', edit_day_entry_path(@day_entry) %> |
+<br>
+<br>
+<%= link_to 'Back', day_entries_path %>

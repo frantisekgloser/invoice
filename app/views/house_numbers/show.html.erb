@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>House number:</strong>
+  <%= @house_number.house_number %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @house_number.city_id %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @house_number.street_id %>
+</p>
+
+<%= link_to 'Edit', edit_house_number_path(@house_number) %> |
+<br>
+<br>
+<%= link_to 'Back', house_numbers_path %>

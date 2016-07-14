@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address type:</strong>
+  <%= @address_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_address_type_path(@address_type) %> |
+<br>
+<br>
+<%= link_to 'Back', address_types_path %>

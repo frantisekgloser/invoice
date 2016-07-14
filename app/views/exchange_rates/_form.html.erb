@@ -1,0 +1,34 @@
+<%= form_for(@exchange_rate) do |f| %>
+  <% if @exchange_rate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exchange_rate.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @exchange_rate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :'Exchange rate' %><br>
+    <%= f.text_field :rate %>
+  </div>
+  <div class="field">
+    <%= f.label :'Exchange rate date' %><br>
+    <%= f.text_field :date %>
+  </div>
+  <div class="field">
+    <%= f.label :'Bank' %><br>
+    <%= f.text_field :bank_id %>
+  </div>
+  <div class="field">
+    <%= f.label :'Currency' %><br>
+    <%= f.text_field :currency_id %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

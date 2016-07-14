@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @income_report.number %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= @income_report.date %>
+</p>
+<p>
+  <strong>To pay:</strong>
+  <%= @income_report.to_pay %>
+</p>
+<p>
+  <strong>To receive:</strong>
+  <%= @income_report.to_receive %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%= @income_report.note %>
+</p>
+
+<%= link_to 'Edit', edit_income_report_path(@income_report) %> |
+<br>
+<br>
+<%= link_to 'Back', income_reports_path %>

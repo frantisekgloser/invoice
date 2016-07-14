@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>VAT charges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Percentage</th>
+      <th>Country</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @vat_charges.each do |vat_charge| %>
+        <tr>
+          <td><%= vat_charge.percentage %></td>
+          <td><%= if vat_charge.country_id then vat_charge.country.name end  %></td>
+          <td><%= link_to 'Show', vat_charge %></td>
+          <td><%= link_to 'Edit', edit_vat_charge_path(vat_charge) %></td>
+          <td><%= link_to 'Destroy', vat_charge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+    
+<%= link_to 'New vat_charge', new_vat_charge_path %>

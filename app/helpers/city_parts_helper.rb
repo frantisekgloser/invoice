@@ -1,0 +1,2 @@
+module CityPartsHelper
+end

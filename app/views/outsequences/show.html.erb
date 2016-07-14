@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sequence:</strong>
+  <%= @outsequence.name %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%= @outsequence.note %>
+</p>
+
+<%= link_to 'Edit', edit_outsequence_path(@outsequence) %> |
+<br>
+<br>
+<%= link_to 'Back', outsequences_path %>

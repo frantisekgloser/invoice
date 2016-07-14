@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sequences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sequence</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @outsequences.each do |outsequence| %>
+        <tr>
+          <td><%= outsequence.name %></td>
+          <td><%= outsequence.note %></td>
+          <td><%= link_to 'Show', outsequence %></td>
+          <td><%= link_to 'Edit', edit_outsequence_path(outsequence) %></td>
+          <td><%= link_to 'Destroy', outsequence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+    
+<%= link_to 'New sequence', new_outsequence_path %>

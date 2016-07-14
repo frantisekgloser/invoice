@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Trade subjects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Identification number</th>
+      <th>VAT</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @trade_subjects.each do |trade_subject| %>
+        <tr>
+          <td><%= trade_subject.name %></td>
+          <td><%= trade_subject.identification_number %></td>
+          <td><%= trade_subject.vat %></td>
+          <td><%= link_to 'Show', trade_subject %></td>
+          <td><%= link_to 'Edit', edit_trade_subject_path(trade_subject) %></td>
+          <td><%= link_to 'Destroy', trade_subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+    
+<%= link_to 'New trade subject', new_trade_subject_path %>

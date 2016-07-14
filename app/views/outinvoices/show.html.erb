@@ -1,18 +1,80 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @outinvoice.name %>
+ <p>
+  <strong>Number:</strong>
+ <%= @outinvoice.number %>
 </p>
-
 <p>
-  <strong>Title:</strong>
-  <%= @outinvoice.title %>
+  <strong>Generated on date:</strong>
+  <%= @outinvoice.generated_on_date %>
 </p>
-
 <p>
-  <strong>Content:</strong>
-  <%= @outinvoice.content %>
+  <strong>Taxable supply date:</strong>
+  <%= @outinvoice.taxable_supply_date %>
+</p>
+<p>
+  <strong>Due date:</strong>
+  <%= @outinvoice.due_date %>
+</p>
+<p>
+  <strong>Total computed base:</strong>
+  <%= @outinvoice.total_computed_base %>
+</p>
+<p>
+  <strong>Total computed VAT:</strong>
+  <%= @outinvoice.total_computed_vat %>
+</p>
+<p>
+  <strong>Total corrected base:</strong>
+  <%= @outinvoice.total_corrected_base %>
+</p>
+<p>
+  <strong>Total corrected VAT:</strong>
+  <%= @outinvoice.total_corrected_vat %>
+</p>
+<p>
+  <strong>Reverse charge:</strong>
+  <%= @outinvoice.reverse_charge %>
+</p>
+<p>
+  <strong>Paid:</strong>
+  <%= @outinvoice.paid %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%= @outinvoice.note %>
+</p>
+<p>
+  <strong>Original invoice:</strong>
+  <%= @outinvoice.original_invoice %>
+</p>
+<p>
+  <strong>Original invoice md5:</strong>
+  <%= @outinvoice.original_invoice_md5 %>
+</p>
+<p>
+  <strong>Translated invoice:</strong>
+  <%= @outinvoice.translated_invoice %>
+</p>
+<p>
+  <strong>Translated invoice:</strong>
+  <%= @outinvoice.translated_invoice_md5 %>
+</p>
+<p>
+  <strong>Sequence:</strong>
+  <%= @outinvoice.outsequence_id %>
+</p>
+<p>
+  <strong>Trade subject:</strong>
+  <%= @outinvoice.trade_subject_id %>
+</p>
+<p>
+  <strong>Currency:</strong>
+  <%= @outinvoice.currency_id %>
+</p>
+<p>
+  <strong>Exchange rate:</strong>
+  <%= @outinvoice.exchange_rate_id %>
 </p>
 
 <%= link_to 'Edit', edit_outinvoice_path(@outinvoice) %> |

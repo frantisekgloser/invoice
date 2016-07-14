@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bank:</strong>
+  <%= @bank.name %>
+</p>
+<p>
+  <strong>Code:</strong>
+  <%= @bank.code %>
+</p>
+<p>
+  <strong>SWIFT:</strong>
+  <%= @bank.swift %>
+</p>
+
+<%= link_to 'Edit', edit_bank_path(@bank) %> |
+<br>
+<br>
+<%= link_to 'Back', banks_path %>

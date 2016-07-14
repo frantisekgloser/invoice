@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sequence:</strong>
+  <%= @insequence.name %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%= @insequence.note %>
+</p>
+
+<%= link_to 'Edit', edit_insequence_path(@insequence) %> |
+<br>
+<br>
+<%= link_to 'Back', insequences_path %>

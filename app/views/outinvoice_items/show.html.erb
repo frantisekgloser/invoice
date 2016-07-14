@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @outinvoice_item.amount %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%= @outinvoice_item.note %>
+</p>
+<p>
+  <strong>Outgoing invoice:</strong>
+  <%= @outinvoice_item.outinvoice_id %>
+</p>
+<p>
+  <strong>Item:</strong>
+  <%= @outinvoice_item.item_id %>
+</p>
+
+<%= link_to 'Edit', edit_outinvoice_item_path(@outinvoice_item) %> |
+<br>
+<br>
+<%= link_to 'Back', outinvoice_items_path %>

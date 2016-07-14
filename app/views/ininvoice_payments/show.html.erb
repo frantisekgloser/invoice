@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @ininvoice_payment.amount %>
+</p>
+<p>
+  <strong>Payment:</strong>
+  <%= @ininvoice_payment.payment_id %>
+</p>
+<p>
+  <strong>Incomming invoice:</strong>
+  <%= @ininvoice_payment.ininvoice_id %>
+</p>
+<p>
+  <strong>Exchange rate:</strong>
+  <%= @ininvoice_payment.exchange_rate_id %>
+</p>
+
+<%= link_to 'Edit', edit_ininvoice_payment_path(@ininvoice_payment) %> |
+<br>
+<br>
+<%= link_to 'Back', ininvoice_payments_path %>

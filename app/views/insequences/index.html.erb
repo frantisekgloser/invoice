@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sequences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sequence</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @insequences.each do |insequence| %>
+        <tr>
+          <td><%= insequence.name %></td>
+          <td><%= insequence.note %></td>
+          <td><%= link_to 'Show', insequence %></td>
+          <td><%= link_to 'Edit', edit_insequence_path(insequence) %></td>
+          <td><%= link_to 'Destroy', insequence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+    
+<%= link_to 'New sequence', new_insequence_path %>

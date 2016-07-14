@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Outgoing invoice items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Note</th>
+      <th>Outgoing invoice</th>
+      <th>Item</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @outinvoice_items.each do |outinvoice_item| %>
+        <tr>
+          <td><%= outinvoice_item.amount %></td>
+          <td><%= outinvoice_item.note %></td>
+          <td><%= if outinvoice_item.outinvoice_id then outinvoice_item.outinvoice.number end %></td>
+          <td><%= if outinvoice_item.item_id then outinvoice_item.item.name end %></td>
+          <td><%= link_to 'Show', outinvoice_item %></td>
+          <td><%= link_to 'Edit', edit_outinvoice_item_path(outinvoice_item) %></td>
+          <td><%= link_to 'Destroy', outinvoice_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+    
+<%= link_to 'New outgoing invoice item', new_outinvoice_item_path %>

@@ -1,0 +1,25 @@
+<%= form_for(@address_link) do |f| %>
+  <% if @address_link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@address_link.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @address_link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :address_type %><br>
+    <%= f.text_field :address_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :house_number %><br>
+    <%= f.text_field :house_number_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

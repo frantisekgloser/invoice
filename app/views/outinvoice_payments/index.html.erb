@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Outgoing invoice payments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Payment</th>
+      <th>Outgoing invoice</th>
+      <th>Exchange rate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @outinvoice_payments.each do |outinvoice_payment| %>
+        <tr>
+          <td><%= outinvoice_payment.amount %></td>
+          <td><%= outinvoice_payment.payment_id %></td>
+          <td><%= if outinvoice_payment.outinvoice_id then outinvoice_payment.outinvoice.number end %></td>
+          <td><%= if outinvoice_payment.exchange_rate_id then outinvoice_payment.exchange_rate.rate end %></td>
+          <td><%= link_to 'Show', outinvoice_payment %></td>
+          <td><%= link_to 'Edit', edit_outinvoice_payment_path(outinvoice_payment) %></td>
+          <td><%= link_to 'Destroy', outinvoice_payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+    
+<%= link_to 'New outgoing invoice payment', new_outinvoice_payment_path %>

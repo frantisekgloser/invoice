@@ -1,0 +1,38 @@
+<%= form_for(@day_entry) do |f| %>
+  <% if @day_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@day_entry.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @day_entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :'Day entry date' %><br>
+    <%= f.text_field :date %>
+  </div>
+  <div class="field">
+    <%= f.label :'Day entry from' %><br>
+    <%= f.text_field :start %>
+  </div>
+  <div class="field">
+    <%= f.label :'Day entry till' %><br>
+    <%= f.text_field :stop %>
+  </div>
+  <div class="field">
+    <%= f.label :'Invoiced?' %><br>
+    <%= f.text_field :invoiced %>
+  </div>
+  <div class="field">
+    <%= f.label :'Task' %><br>
+    <%= f.text_field :task.name %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

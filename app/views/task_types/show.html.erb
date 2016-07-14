@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Task type:</strong>
+  <%= @task_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_task_type_path(@task_type) %> |
+<br>
+<br>
+<%= link_to 'Back', task_types_path %>

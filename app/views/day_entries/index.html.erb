@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Day entries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Day entry date</th>
+      <th>Day entry from</th>
+      <th>Day entry till</th>
+      <th>Invoiced?</th>
+      <th>Task</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @day_entries.each do |day_entry| %>
+        <tr>
+          <td><%= day_entry.date %></td>
+          <td><%= day_entry.start %></td>
+          <td><%= day_entry.stop %></td>
+          <td><%= day_entry.invoiced %></td>
+          <td><%= if day_entry.task_id then day_entry.task.name end %></td>
+          <td><%= link_to 'Show', day_entry %></td>
+          <td><%= link_to 'Edit', edit_day_entry_path(day_entry) %></td>
+          <td><%= link_to 'Destroy', day_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+    
+<%= link_to 'New day entry', new_day_entry_path %>

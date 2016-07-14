@@ -12,16 +12,80 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :Number %><br>
+    <%= f.text_field :number %>
   </div>
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :'Generated on date' %><br>
+    <%= f.text_field :generated_on_date %>
   </div>
   <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.label :'Taxable supply date' %><br>
+    <%= f.text_area :taxable_supply_date %>
+  </div>
+  <div class="field">
+    <%= f.label :'Due date' %><br>
+    <%= f.text_area :due_date %>
+  </div>
+  <div class="field">
+    <%= f.label :'Total computed base' %><br>
+    <%= f.text_area :total_computed_base %>
+  </div>
+  <div class="field">
+    <%= f.label :'Total computed VAT' %><br>
+    <%= f.text_area :total_computed_vat %>
+  </div>
+  <div class="field">
+    <%= f.label :'Total corrected base' %><br>
+    <%= f.text_area :total_corrected_base %>
+  </div>
+  <div class="field">
+    <%= f.label :'Total corrected VAT' %><br>
+    <%= f.text_area :total_corrected_vat %>
+  </div>
+  <div class="field">
+    <%= f.label :'Reverse charge' %><br>
+    <%= f.text_area :reverse_charge %>
+  </div>
+  <div class="field">
+    <%= f.label :'Paid' %><br>
+    <%= f.text_area :paid %>
+  </div>
+  <div class="field">
+    <%= f.label :Note %><br>
+    <%= f.text_area :note %>
+  </div>
+  <div class="field">
+    <%= f.label :'Original invoice' %><br>
+    <%= f.text_area :original_invoice %>
+  </div>
+  <div class="field">
+    <%= f.label :'Original invoice md5' %><br>
+    <%= f.text_area :original_invoice_md5 %>
+  </div>
+  <div class="field">
+    <%= f.label :'Translated invoice' %><br>
+    <%= f.text_area :translated_invoice %>
+  </div>
+  <div class="field">
+    <%= f.label :'Translated invoice md5' %><br>
+    <%= f.text_area :translated_invoice_md5 %>
+  </div>
+  <div class="field">
+    <%= f.label :Sequence %><br>
+    <%= f.text_area :insequence_id %>
+  </div>
+  <div class="field">
+    <%= f.label :'Trade subject' %><br>
+    <%= f.text_area :trade_subject_id %>
+  </div>
+  <div class="field">
+    <%= f.label :'Currency' %><br>
+    <%= f.text_area :currency_id %>
+  </div>
+  <div class="field">
+    <%= f.label :'Exchange rate' %><br>
+    <%= f.text_area :exchange_rate_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
