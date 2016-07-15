@@ -1,8 +1,27 @@
 <h1>Editation of payment</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @payment %> |
+<br>
+<br>
+<%= link_to 'New payment type', new_payment_type_path %>
+<br>
+<br>
+<%= link_to 'New currency', new_currency_path %>
+<br>
+<br>
+<%= link_to 'New bank account', new_bank_account_path %>
+<br>
+<br>
+<%= link_to 'New trade subject', new_trade_subject_path %>
+<br>
+<br>
+<%= link_to 'New VAT report', new_vat_report_path %>
+<br>
+<br>
+<%= link_to 'New income report', new_income_report_path %>
+<br>
+<br>
+<%= link_to 'Show', @payment %>
 <br>
 <br>
 <%= link_to 'Back', payments_path %>

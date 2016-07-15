@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :'Date' %><br>
-    <%= f.text_field :date %>
+    <%= f.date_select :date %>
   </div>
   <div class="field">
     <%= f.label :'To pay' %><br>
@@ -25,9 +25,10 @@
   </div>
   <div class="field">
     <%= f.label :'Report type' %><br>
-    <%= f.text_field :report_type_id %>
+    <%= f.collection_select(:report_type_id, current_user.report_types.all, :id, :name) %>
   </div>
-  
+  <br>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

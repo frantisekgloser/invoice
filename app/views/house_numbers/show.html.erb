@@ -7,12 +7,12 @@
 
 <p>
   <strong>City:</strong>
-  <%= @house_number.city_id %>
+  <%= if @house_number.city_id then @house_number.city.name end %>
 </p>
 
 <p>
   <strong>Street:</strong>
-  <%= @house_number.street_id %>
+  <%= if @house_number.street_id then @house_number.street.name end %>
 </p>
 
 <%= link_to 'Edit', edit_house_number_path(@house_number) %> |

@@ -17,13 +17,14 @@
   </div>
   <div class="field">
     <%= f.label :'City' %><br>
-    <%= f.text_field :city_id %>
+    <%= f.collection_select(:city_id, current_user.cities.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :'City part' %><br>
-    <%= f.text_field :city_part_id %>
+    <%= f.collection_select(:city_part_id, current_user.city_parts.all, :id, :name) %>
   </div>
-  
+  <br>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

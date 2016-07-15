@@ -21,9 +21,10 @@
   </div>
   <div class="field">
     <%= f.label :'Trade subject' %><br>
-    <%= f.text_field :trade_subject_id %>
+    <%= f.collection_select(:trade_subject_id, current_user.trade_subjects.all, :id, :name) %>
   </div>
-  
+  <br>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

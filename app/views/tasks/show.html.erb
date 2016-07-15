@@ -14,7 +14,7 @@
 </p>
 <p>
   <strong>Project:</strong>
-  <%= @task.project_id %>
+  <%= if @task.project_id then @task.project.name end %>
 </p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |

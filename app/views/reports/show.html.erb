@@ -14,7 +14,7 @@
 </p>
 <p>
   <strong>Report type:</strong>
-  <%= @report.report_type_id %>
+  <%= if @report.report_type_id then @report.report_type.name end %>
 </p>
 
 <%= link_to 'Edit', edit_report_path(@report) %> |

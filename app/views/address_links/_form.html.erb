@@ -12,13 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :address_type %><br>
-    <%= f.text_field :address_type_id %>
+    <%= f.label :'Address type' %><br>
+    <%= f.collection_select(:address_type_id, current_user.address_types.all, :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label :house_number %><br>
-    <%= f.text_field :house_number_id %>
+    <%= f.label :'House number' %><br>
+    <%= f.collection_select(:house_number_id, current_user.house_numbers.all, :id, :house_number) %>
   </div>
+
+  <br>
+  <br>
+
   <div class="actions">
     <%= f.submit %>
   </div>

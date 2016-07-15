@@ -10,11 +10,11 @@
 </p>
 <p>
   <strong>Outgoing invoice:</strong>
-  <%= @outinvoice_payment.outinvoice_id %>
+  <%= if @outinvoice_payment.outinvoice_id then @outinvoice_payment.outinvoice.number end %>
 </p>
 <p>
   <strong>Exchange rate:</strong>
-  <%= @outinvoice_payment.exchange_rate_id %>
+  <%= if @outinvoice_payment.exchange_rate_id then @outinvoice_payment.exchange_rate.rate end %>
 </p>
 
 <%= link_to 'Edit', edit_outinvoice_payment_path(@outinvoice_payment) %> |

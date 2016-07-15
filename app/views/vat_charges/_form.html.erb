@@ -17,9 +17,10 @@
   </div>
   <div class="field">
     <%= f.label :'Country' %><br>
-    <%= f.text_field :country_id %>
+    <%= f.collection_select(:country_id, current_user.countries.all, :id, :name) %>
   </div>
-  
+  <br>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

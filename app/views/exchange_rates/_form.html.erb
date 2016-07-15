@@ -17,17 +17,18 @@
   </div>
   <div class="field">
     <%= f.label :'Exchange rate date' %><br>
-    <%= f.text_field :date %>
+    <%= f.date_select :date %>
   </div>
   <div class="field">
     <%= f.label :'Bank' %><br>
-    <%= f.text_field :bank_id %>
+    <%= f.collection_select(:bank_id, current_user.banks.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :'Currency' %><br>
-    <%= f.text_field :currency_id %>
+    <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>
   </div>
-  
+  <br>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

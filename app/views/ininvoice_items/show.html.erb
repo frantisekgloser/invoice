@@ -10,11 +10,11 @@
 </p>
 <p>
   <strong>Incomming invoice:</strong>
-  <%= @ininvoice_item.ininvoice_id %>
+  <%= if @ininvoice_item.ininvoice_id then @ininvoice_item.ininvoice.number end %>
 </p>
 <p>
   <strong>Item:</strong>
-  <%= @ininvoice_item.item_id %>
+  <%= if @ininvoice_item.item_id then @ininvoice_item.item.name end %>
 </p>
 
 <%= link_to 'Edit', edit_ininvoice_item_path(@ininvoice_item) %> |

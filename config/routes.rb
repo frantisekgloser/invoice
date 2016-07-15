@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :address_links, controller: 'address_links'
   resources :address_types, :banks, :bank_accounts, :cities, :city_parts
   resources :countries, :currencies, :day_entries, :exchange_rates, :house_numbers
-  resources :inbills, :income_reports, :ininvoices, :ininvoice_items, :ininvoice_payments
-  resources :insequences, :items, :outbills, :outinvoices, :outinvoice_items, :outinvoice_payments
+  resources :income_reports, :ininvoices, :ininvoice_items, :ininvoice_payments
+  resources :insequences, :items, :outinvoices, :outinvoice_items, :outinvoice_payments
   resources :outsequences, :payments, :payment_types, :projects, :provinces, :reports
   resources :report_types, :streets, :tasks, :task_types, :trade_subjects, :users
   resources :vat_charges, :vat_reports

@@ -10,11 +10,11 @@
 </p>
 <p>
   <strong>Bank:</strong>
-  <%= @exchange_rate.bank_id %>
+  <%= if @exchange_rate.bank_id then @exchange_rate.bank.name end %>
 </p>
 <p>
   <strong>Currency:</strong>
-  <%= @exchange_rate.currency_id %>
+  <%= if @exchange_rate.currency_id then @exchange_rate.currency.name end %>
 </p>
 
 <%= link_to 'Edit', edit_exchange_rate_path(@exchange_rate) %> |

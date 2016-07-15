@@ -18,7 +18,7 @@
 </p>
 <p>
   <strong>Task:</strong>
-  <%= @day_entry.task.name %>
+  <%= if @day_entry.task_id then @day_entry.task.name end %>
 </p>
 
 <%= link_to 'Edit', edit_day_entry_path(@day_entry) %> |

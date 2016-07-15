@@ -62,19 +62,19 @@
 </p>
 <p>
   <strong>Sequence:</strong>
-  <%= @ininvoice.insequence_id %>
+  <%= if @ininvoice.insequence_id then @ininvoice.insequence.name end %>
 </p>
 <p>
   <strong>Trade subject:</strong>
-  <%= @ininvoice.trade_subject_id %>
+  <%= if @ininvoice.trade_subject_id then @ininvoice.trade_subject.name end %>
 </p>
 <p>
   <strong>Currency:</strong>
-  <%= @ininvoice.currency_id %>
+  <%= if @ininvoice.currency_id then @ininvoice.currency.name end %>
 </p>
 <p>
   <strong>Exchange rate:</strong>
-  <%= @ininvoice.exchange_rate_id %>
+  <%= if @ininvoice.exchange_rate_id then @ininvoice.exchange_rate.rate end %>
 </p>
 
 <%= link_to 'Edit', edit_ininvoice_path(@ininvoice) %> |

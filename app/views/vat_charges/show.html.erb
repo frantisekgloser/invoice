@@ -6,7 +6,7 @@
 </p>
 <p>
   <strong>Country:</strong>
-  <%= @vat_charge.country_id %>
+  <%= if @vat_charge.country_id then @vat_charge.country.name end %>
 </p>
 
 <%= link_to 'Edit', edit_vat_charge_path(@vat_charge) %> |

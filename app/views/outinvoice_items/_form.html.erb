@@ -21,13 +21,14 @@
   </div>
   <div class="field">
     <%= f.label :'Invoice' %><br>
-    <%= f.text_field :outinvoice_id %>
+      <%= f.collection_select(:outinvoice_id, current_user.outinvoices.all, :id, :number) %>
   </div>
   <div class="field">
     <%= f.label :'Item' %><br>
-    <%= f.text_field :item_id %>
+    <%= f.collection_select(:item_id, current_user.items.all, :id, :name) %>
   </div>
-  
+  <br>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -2,12 +2,12 @@
 
 <p>
   <strong>Address type:</strong>
-  <%= @address_link.address_type.name %>
+  <%= if @address_link.address_type_id then @address_link.address_type.name end %>
 </p>
 
 <p>
   <strong>House number:</strong>
-  <%= @address_link.house_number.house_number %>
+  <%= if @address_link.house_number_id then @address_link.house_number.house_number end %>
 </p>
 
 <%= link_to 'Edit', edit_address_link_path(@address_link) %> |

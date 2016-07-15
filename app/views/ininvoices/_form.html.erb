@@ -17,15 +17,15 @@
   </div>
   <div class="field">
     <%= f.label :'Generated on date' %><br>
-    <%= f.text_field :generated_on_date %>
+    <%= f.date_select :generated_on_date %>
   </div>
   <div class="field">
     <%= f.label :'Taxable supply date' %><br>
-    <%= f.text_area :taxable_supply_date %>
+    <%= f.date_select :taxable_supply_date %>
   </div>
   <div class="field">
     <%= f.label :'Due date' %><br>
-    <%= f.text_area :due_date %>
+    <%= f.date_select :due_date %>
   </div>
   <div class="field">
     <%= f.label :'Total computed base' %><br>
@@ -45,11 +45,11 @@
   </div>
   <div class="field">
     <%= f.label :'Reverse charge' %><br>
-    <%= f.text_area :reverse_charge %>
+    <%= f.check_box :reverse_charge %>
   </div>
   <div class="field">
     <%= f.label :'Paid' %><br>
-    <%= f.text_area :paid %>
+    <%= f.check_box :paid %>
   </div>
   <div class="field">
     <%= f.label :Note %><br>
@@ -57,7 +57,7 @@
   </div>
   <div class="field">
     <%= f.label :'Original invoice' %><br>
-    <%= f.text_area :original_invoice %>
+    <%= f.file_field :original_invoice %>
   </div>
   <div class="field">
     <%= f.label :'Original invoice md5' %><br>
@@ -65,7 +65,7 @@
   </div>
   <div class="field">
     <%= f.label :'Translated invoice' %><br>
-    <%= f.text_area :translated_invoice %>
+    <%= f.file_field :translated_invoice %>
   </div>
   <div class="field">
     <%= f.label :'Translated invoice md5' %><br>
@@ -73,20 +73,22 @@
   </div>
   <div class="field">
     <%= f.label :Sequence %><br>
-    <%= f.text_area :insequence_id %>
+    <%= f.collection_select(:insequence_id, current_user.insequences.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :'Trade subject' %><br>
-    <%= f.text_area :trade_subject_id %>
+    <%= f.collection_select(:trade_subject_id, current_user.trade_subjects.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :'Currency' %><br>
-    <%= f.text_area :currency_id %>
+    <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :'Exchange rate' %><br>
-    <%= f.text_area :exchange_rate_id %>
+    <%= f.collection_select(:exchange_rate_id, current_user.exchange_rates.all, :id, :rate) %>
   </div>
+  <br>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -10,7 +10,7 @@
 </p>
 <p>
   <strong>City:</strong>
-  <%= @city_part.city.name %>
+  <%= if @city_part.city_id then @city_part.city.name end %>
 </p>
 
 <%= link_to 'Edit', edit_city_part_path(@city_part) %> |

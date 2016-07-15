@@ -25,17 +25,18 @@
   </div>
   <div class="field">
     <%= f.label :'Currency' %><br>
-    <%= f.text_field :currency_id %>
+    <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :'VAT charge' %><br>
-    <%= f.text_field :vat_charge %>
+    <%= f.collection_select(:vat_charge_id, current_user.vat_charges.all, :id, :percentage) %>
   </div>
   <div class="field">
     <%= f.label :'Trade subject' %><br>
-    <%= f.text_field :trade_subject_id %>
+    <%= f.collection_select(:trade_subject_id, current_user.trade_subjects.all, :id, :name) %>
   </div>
-            
+  <br>
+  <br>          
   <div class="actions">
     <%= f.submit %>
   </div>

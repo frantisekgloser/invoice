@@ -14,15 +14,15 @@
 </p>
 <p>
   <strong>Currency:</strong>
-  <%= @item.currency_id %>
+  <%= if @item.currency_id then @item.currency.name end %>
 </p>
 <p>
   <strong>VAT charge:</strong>
-  <%= @item.vat_charge_id %>
+  <%= if @item.vat_charge_id then @item.vat_charge.percentage end %>
 </p>
 <p>
   <strong>Trade subject:</strong>
-  <%= @item.trade_subject_id %>
+  <%= if @item.trade_subject_id then @item.trade_subject.name end %>
 </p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |

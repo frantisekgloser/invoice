@@ -13,24 +13,27 @@
 
   <div class="field">
     <%= f.label :'Day entry date' %><br>
-    <%= f.text_field :date %>
+    <%= f.date_select :date %>
   </div>
   <div class="field">
     <%= f.label :'Day entry from' %><br>
-    <%= f.text_field :start %>
+    <%= f.time_select :start %>
   </div>
   <div class="field">
     <%= f.label :'Day entry till' %><br>
-    <%= f.text_field :stop %>
+    <%= f.time_select :stop %>
   </div>
   <div class="field">
     <%= f.label :'Invoiced?' %><br>
-    <%= f.text_field :invoiced %>
+    <%= f.check_box :invoiced %>
   </div>
   <div class="field">
     <%= f.label :'Task' %><br>
-    <%= f.text_field :task_id %>
+    <%= f.collection_select(:task_id, current_user.tasks.all, :id, :name) %>
   </div>
+  
+  <br>
+  <br>
   
   <div class="actions">
     <%= f.submit %>

@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   has_many :outinvoices, :dependent => :destroy 
   has_many :outsequences, :dependent => :destroy
   has_many :payment_types, :dependent => :destroy
+  has_many :payments, :dependent => :destroy
   has_many :projects, :dependent => :destroy
   has_many :provinces, :dependent => :destroy
   has_many :report_types, :dependent => :destroy

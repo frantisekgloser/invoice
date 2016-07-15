@@ -6,11 +6,11 @@
 </p>
 <p>
   <strong>City:</strong>
-  <%= @street.city_id %>
+  <%= if @street.city_id then @street.city.name end %>
 </p>
 <p>
   <strong>City part:</strong>
-  <%= @street.city_part_id %>
+  <%= if @street.city_part_id then @street.city_part.name end %>
 </p>
 
 <%= link_to 'Edit', edit_street_path(@street) %> |

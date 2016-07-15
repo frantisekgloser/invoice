@@ -10,7 +10,7 @@
 </p>
 <p>
   <strong>Trade subject:</strong>
-  <%= @project.trade_subject_id %>
+  <%= if @project.trade_subject_id then @project.trade_subject.name end %>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

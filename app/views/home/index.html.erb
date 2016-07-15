@@ -50,9 +50,9 @@
 
 <form action=<%= outinvoices_path %>>
 
-  Obdobi od:
+  Range from:
   <input type="date" name="from">
-  Obdobi do:
+  Range till:
   <input type="date" name="till">
 
   <input type="submit" value="outgoing invoices" <action=<%= outinvoices_path %>>
@@ -64,60 +64,15 @@
 
 <form action=<%= ininvoices_path %>>
 
-  Obdobi od:
+  Range from:
   <input type="date" name="from">
-  Obdobi do:
+  Range till:
   <input type="date" name="till">
 
   <input type="submit" value="incomming invoices" <action=<%= ininvoices_path %>>
 
 </form>
 
-
-  <br>
-  <br>
-
-  <table>
-    <thead>
-      <tr>
-        <td><%= link_to 'Address types', address_types_path %></td>
-        <td><%= link_to 'Banks', banks_path %></td>
-        <td><%= link_to 'Countries', countries_path %></td>
-        <td><%= link_to 'Currencies', currencies_path %></td>
-        <td><%= link_to 'Income reports', income_reports_path %></td>
-        <td><%= link_to 'Incomming invoices sequences', insequences_path %></td>
-        <td><%= link_to 'Outgoing invoices sequences', outsequences_path %></td>
-        <td><%= link_to 'Payment types', payment_types_path %></td>
-        <td><%= link_to 'Report types', report_types_path %></td>
-        <td><%= link_to 'Task types', task_types_path %></td>
-        <td><%= link_to 'Trade subjects', trade_subjects_path %></td>
-        <td><%= link_to 'VAT reports', vat_reports_path %></td>
-
-      </tr>
-    </thead>   
-  </table>
-
-  <table>
-    <thead>
-      <tr>
-        <td><%= link_to 'Address links', address_links_path %></td>
-        <td><%= link_to 'Bank accounts', bank_accounts_path %></td>
-        <td><%= link_to 'Cities', cities_path %></td>
-        <td><%= link_to 'City parts', city_parts_path %></td>
-        <td><%= link_to 'Day entries', day_entries_path %></td>
-        <td><%= link_to 'Exchange rates', exchange_rates_path %></td>
-        <td><%= link_to 'House numbers', house_numbers_path %></td>
-        <td><%= link_to 'Payments', payments_path %></td>
-        <td><%= link_to 'Projects', projects_path %></td>
-        <td><%= link_to 'Provinces', provinces_path %></td>
-        <td><%= link_to 'Reports', reports_path %></td>
-        <td><%= link_to 'Streets', streets_path %></td>
-        <td><%= link_to 'Tasks', tasks_path %></td>
-        <td><%= link_to 'VAT charges', vat_charges_path %></td>
-
-      </tr>
-    </thead>   
-  </table>
 
 <% else %>
 

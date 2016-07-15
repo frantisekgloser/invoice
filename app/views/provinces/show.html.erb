@@ -6,7 +6,7 @@
 </p>
 <p>
   <strong>Country:</strong>
-  <%= @province.country_id %>
+  <%= if @province.country_id then @province.country.name end %>
 </p>
 
 <%= link_to 'Edit', edit_province_path(@province) %> |

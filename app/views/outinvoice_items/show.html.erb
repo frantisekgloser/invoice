@@ -10,11 +10,11 @@
 </p>
 <p>
   <strong>Outgoing invoice:</strong>
-  <%= @outinvoice_item.outinvoice_id %>
+  <%= if @outinvoice_item.outinvoice_id then @outinvoice_item.outinvoice.number end %>
 </p>
 <p>
   <strong>Item:</strong>
-  <%= @outinvoice_item.item_id %>
+  <%= if @outinvoice_item.item_id then @outinvoice_item.item.name end %>
 </p>
 
 <%= link_to 'Edit', edit_outinvoice_item_path(@outinvoice_item) %> |

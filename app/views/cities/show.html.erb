@@ -10,11 +10,11 @@
 </p>
 <p>
   <strong>Country:</strong>
-  <%= @city.country.name %>
+  <%= if @city.country_id then @city.country.name end %>
 </p>
 <p>
   <strong>Province:</strong>
-  <%= @city.province.name %>
+  <%= if @city.province_id then @city.province.name end %>
 </p>
 
 <%= link_to 'Edit', edit_city_path(@city) %> |

@@ -14,27 +14,27 @@
 </p>
 <p>
   <strong>Payment type:</strong>
-  <%= @payment.payment_type_id %>
+  <%= if @payment.payment_type_id then @payment.payment_type.name end %>
 </p>
 <p>
   <strong>Currency:</strong>
-  <%= @payment.currency_id %>
+  <%= if @payment.currency_id then @payment.currency.name end %>
 </p>
 <p>
   <strong>Bank account:</strong>
-  <%= @payment.bank_account_id %>
+  <%= if @payment.bank_account_id then @payment.bank_account.name end %>
 </p>
 <p>
   <strong>Trade subject:</strong>
-  <%= @payment.trade_subject_id %>
+  <%= if @payment.trade_subject_id then @payment.trade_subject.name end %>
 </p>
 <p>
   <strong>VAT report:</strong>
-  <%= @payment.vat_report_id %>
+  <%= if @payment.vat_report_id then @payment.vat_report.number end %>
 </p>
 <p>
   <strong>Income report:</strong>
-  <%= @payment.income_report_id %>
+  <%= if @payment.income_report_id then @payment.income_report.number end %>
 </p>
 
 <%= link_to 'Edit', edit_payment_path(@payment) %> |

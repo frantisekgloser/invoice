@@ -14,11 +14,11 @@
 </p>
 <p>
   <strong>Bank:</strong>
-  <%= @bank_account.bank.name %>
+  <%= if @bank_account.bank_id then @bank_account.bank.name end %>
 </p>
 <p>
   <strong>Currency:</strong>
-  <%= @bank_account.currency.name %>
+  <%= if @bank_account.currency_id then @bank_account.currency.name end %>
 </p>
  
 <%= link_to 'Edit', edit_bank_account_path(@bank_account) %> |
