@@ -34,7 +34,6 @@ class OutinvoicePaymentsController < ApplicationController
     respond_to do |format|
       if @outinvoice_payment.update(outinvoice_payment_params)
         format.html { redirect_to outinvoice_payments_url, notice: 'Outgoing invoice payment was successfully updated.' }
-#        format.html { redirect_to @outinvoice_payment, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @outinvoice_payment }
       else
         format.html { render :edit }

@@ -34,7 +34,6 @@ class OutinvoiceItemsController < ApplicationController
     respond_to do |format|
       if @outinvoice_item.update(outinvoice_item_params)
         format.html { redirect_to outinvoice_items_url, notice: 'Outgoing invoice item was successfully updated.' }
-#        format.html { redirect_to @outinvoice_item, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @outinvoice_item }
       else
         format.html { render :edit }

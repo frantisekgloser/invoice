@@ -41,11 +41,11 @@
   </div>
   <div class="field">
     <%= f.label :'VAT report' %><br>
-    <%= f.collection_select(:vat_report_id, current_user.vat_reports.all, :id, :number) %>
+    <%= f.collection_select(:vat_report_id, current_user.vat_reports.all, :id, :number, :include_blank => true) %>
   </div>
   <div class="field">
     <%= f.label :'Income report' %><br>
-    <%= f.collection_select(:income_report_id, current_user.income_reports.all, :id, :number) %>
+    <%= f.collection_select(:income_report_id, current_user.income_reports.all, :id, :number, :include_blank => true) %>
   </div>
   <br>
   <br>

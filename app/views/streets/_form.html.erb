@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :'City part' %><br>
-    <%= f.collection_select(:city_part_id, current_user.city_parts.all, :id, :name) %>
+    <%= f.collection_select(:city_part_id, current_user.city_parts.all, :id, :name, :include_blank => true) %>
   </div>
   <br>
   <br>

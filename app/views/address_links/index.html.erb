@@ -6,7 +6,9 @@
   <thead>
     <tr>
       <th>Address type</th>
+      <th>Street</th>
       <th>House number</th>
+      <th>City</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +17,9 @@
       <% @address_links.each do |address_link| %>
         <tr>
           <td><%= if address_link.address_type_id then address_link.address_type.name end %></td>
-          <td><%= if address_link.house_number_id then address_link.house_number.house_number end %></td>
+          <td><%= if address_link.house_number_id &&  address_link.house_number.street_id then address_link.house_number.street.name end %> </td>
+          <td><%= if address_link.house_number_id then address_link.house_number.house_number end %> </td> 
+          <td><%= if address_link.house_number_id then address_link.house_number.city.name end %> </td> 
           <td><%= link_to 'Show', address_link %></td>
           <td><%= link_to 'Edit', edit_address_link_path(address_link) %></td>
           <td><%= link_to 'Destroy', address_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>

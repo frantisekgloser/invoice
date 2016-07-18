@@ -34,7 +34,6 @@ class CitiesController < ApplicationController
     respond_to do |format|
       if @city.update(city_params)
         format.html { redirect_to cities_url, notice: 'City was successfully updated.' }
-#        format.html { redirect_to @city, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @city }
       else
         format.html { render :edit }

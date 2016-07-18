@@ -2,7 +2,6 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -20,7 +19,80 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
+  <br>
+  <div class="field">
+    <%= f.label :'Trade subject' %><br />
+    <%= f.email_field :trade_subject %>
+  </div>
+  <div class="field">
+    <%= f.label :'Identification number' %><br />
+    <%= f.email_field :identification_number %>
+  </div>
+  <div class="field">
+    <%= f.label :'VAT' %><br />
+    <%= f.email_field :vat %>
+  </div>
+  <div class="field">
+    <%= f.label :'Street' %><br />
+    <%= f.email_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :'house_number' %><br />
+    <%= f.email_field :house_number %>
+  </div>
+  <div class="field">
+    <%= f.label :'City part' %><br />
+    <%= f.email_field :city_part %>
+  </div>
+  <div class="field">
+    <%= f.label :'City' %><br />
+    <%= f.email_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :'Postal code' %><br />
+    <%= f.email_field :postal_code %>
+  </div>
+  <div class="field">
+    <%= f.label :'Province' %><br />
+    <%= f.email_field :province %>
+  </div>
+  <div class="field">
+    <%= f.label :'Country' %><br />
+    <%= f.email_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :'Phone' %><br />
+    <%= f.email_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :'E-mail' %><br />
+    <%= f.email_field :mail %>
+  </div>
+  <div class="field">
+    <%= f.label :'WWW' %><br />
+    <%= f.email_field :web %>
+  </div>
+  <div class="field">
+    <%= f.label :'Note' %><br />
+    <%= f.email_field :note %>
+  </div>
+  <div class="field">
+    <%= f.label :'Bank' %><br />
+    <%= f.email_field :bank %>
+  </div>
+  <div class="field">
+    <%= f.label :'Bank account' %><br />
+    <%= f.email_field :bank_account %>
+  </div>
+  <div class="field">
+    <%= f.label :'IBAN' %><br />
+    <%= f.email_field :iban %>
+  </div>
+  <div class="field">
+    <%= f.label :'SWIFT' %><br />
+    <%= f.email_field :swift %>
+  </div>
+  <br>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

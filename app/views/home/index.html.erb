@@ -5,6 +5,74 @@
 
 <% if user_signed_in? %>
 
+  <%= form_for(current_user) do |f| %>
+  <% if current_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(current_user.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% current_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <br>
+      <th><%= f.label :'Trade subject: ' %></th>
+      <td><%= f.text_field :trade_subject %></td>
+      <th><%= f.label :'Identification number: ' %></th>
+      <td><%= f.text_field :identification_number %></td>
+      <th><%= f.label :'VAT: ' %></th>
+      <td><%= f.text_field :vat %></td>  
+      <br>
+      <br>
+      <th><%= f.label :'Street:    ' %></th>
+      <td><%= f.text_field :street %></td>
+      <th><%= f.label :'House number: ' %></th>
+      <td><%= f.text_field :house_number %></td>
+      <br>
+      <br>
+      <th><%= f.label :'City:    ' %></th>
+      <td><%= f.text_field :city %></td>
+      <th><%= f.label :'City part: ' %></th>
+      <td><%= f.text_field :city_part %></td>
+      <th><%= f.label :'Postal code: ' %></th>
+      <td><%= f.text_field :postal_code %></td>
+      <br>
+      <br>
+      <th><%= f.label :'Country: ' %></th>
+      <td><%= f.text_field :country %></td>
+      <th><%= f.label :'Province: ' %></th>
+      <td><%= f.text_field :province %></td>
+      <br>
+      <br>
+      <th><%= f.label :'Phone: ' %></th>
+      <td><%= f.text_field :phone %></td>
+      <th><%= f.label :'E-mail: ' %></th>
+      <td><%= f.text_field :mail %></td>
+      <th><%= f.label :'WWW: ' %></th>
+      <td><%= f.text_field :web %></td>
+      <br>
+      <br>
+      <th><%= f.label :'Note: ' %></th>
+      <td><%= f.text_field :note %></td>
+      <br>
+      <br>
+      <th><%= f.label :'Bank: ' %></th>
+      <td><%= f.text_field :bank %></td>
+      <th><%= f.label :'Bank account: ' %></th>
+      <td><%= f.text_field :bank_account %></td>
+      <th><%= f.label :'IBAN: ' %></th>
+      <td><%= f.text_field :iban %></td>
+      <th><%= f.label :'SWIFT: ' %></th>
+      <td><%= f.text_field :swift %></td>
+    <br>
+    <br>
+    <input type="submit" value="Update data" <action=<%= edit_user_path(current_user) %>>
+
+  </form>
+  <br>
   <table>
     <thead>
       <tr>
@@ -73,7 +141,7 @@
 
 </form>
 
-
+<% end %>
 <% else %>
 
   <br>

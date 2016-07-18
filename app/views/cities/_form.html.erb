@@ -26,12 +26,9 @@
   <br>
   <div class="field">
     <%= f.label :'Province' %><br>
-    <%= f.collection_select(:province_id, current_user.provinces.all, :id, :name) %>
+    <%= f.collection_select(:province_id, current_user.provinces.all, :id, :name, :include_blank => true) %>
   </div>
-  
   <br>
-  <br>
-
   <div class="actions">
     <%= f.submit %>
   </div>

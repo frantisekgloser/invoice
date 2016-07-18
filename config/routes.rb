@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :insequences, :items, :outinvoices, :outinvoice_items, :outinvoice_payments
   resources :outsequences, :payments, :payment_types, :projects, :provinces, :reports
   resources :report_types, :streets, :tasks, :task_types, :trade_subjects, :users
-  resources :vat_charges, :vat_reports
+  resources :vat_charges, :vat_reports, :users
   #resources :tradeSubjects, controller: 'tradesubjects'
 
   get 'home/index'
