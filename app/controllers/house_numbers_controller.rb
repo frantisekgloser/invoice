@@ -1,10 +1,10 @@
 class HouseNumbersController < ApplicationController
   before_action :set_house_number, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @house_numbers = current_user.house_numbers.all
+    @house_numbers = policy_scope(HouseNumber)
   end
 
   def show

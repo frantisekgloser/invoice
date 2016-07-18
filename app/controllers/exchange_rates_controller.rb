@@ -1,10 +1,10 @@
 class ExchangeRatesController < ApplicationController
   before_action :set_exchange_rate, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @exchange_rates = current_user.exchange_rates.all
+    @exchange_rates = policy_scope(ExchangeRate)
   end
 
   def show

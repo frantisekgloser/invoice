@@ -1,0 +1,3 @@
+class IninvoicePaymentPolicy < ApplicationPolicy
+
+end

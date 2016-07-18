@@ -1,10 +1,10 @@
 class OutinvoicePaymentsController < ApplicationController
   before_action :set_outinvoice_payment, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @outinvoice_payments = current_user.outinvoice_payments.all
+    @outinvoice_payments = policy_scope(OutinvoicePayment)
   end
 
   def show

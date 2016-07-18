@@ -1,10 +1,10 @@
 class OutinvoiceItemsController < ApplicationController
   before_action :set_outinvoice_item, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @outinvoice_items = current_user.outinvoice_items.all
+    @outinvoice_items = policy_scope(OutinvoiceItem)
   end
 
   def show

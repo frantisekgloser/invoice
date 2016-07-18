@@ -1,0 +1,3 @@
+class CityPolicy < ApplicationPolicy
+
+end

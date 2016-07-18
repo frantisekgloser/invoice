@@ -1,10 +1,10 @@
 class VatChargesController < ApplicationController
   before_action :set_vat_charge, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @vat_charges = current_user.vat_charges.all
+    @vat_charges = policy_scope(VatCharge)
   end
 
   def show

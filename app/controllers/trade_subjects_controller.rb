@@ -1,10 +1,10 @@
 class TradeSubjectsController < ApplicationController
   before_action :set_trade_subject, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @trade_subjects = current_user.trade_subjects.all
+    @trade_subjects = policy_scope(TradeSubject)
   end
 
   def show

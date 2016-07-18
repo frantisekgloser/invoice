@@ -1,10 +1,10 @@
 class BankAccountsController < ApplicationController
   before_action :set_bank_account, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @bank_accounts = current_user.bank_accounts.all
+    @bank_accounts = policy_scope(BankAccount)
   end
 
   def show

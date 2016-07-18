@@ -1,10 +1,10 @@
 class ReportTypesController < ApplicationController
   before_action :set_report_type, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @report_types = current_user.report_types.all
+    @report_types = policy_scope(ReportType)
   end
 
   def show

@@ -1,0 +1,3 @@
+class ProvincePolicy < ApplicationPolicy
+
+end

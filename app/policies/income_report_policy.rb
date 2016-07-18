@@ -1,0 +1,3 @@
+class IncomeReportPolicy < ApplicationPolicy
+
+end

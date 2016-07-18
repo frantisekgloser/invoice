@@ -1,10 +1,10 @@
 class IninvoicePaymentsController < ApplicationController
   before_action :set_ininvoice_payment, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @ininvoice_payments = current_user.ininvoice_payments.all
+    @ininvoice_payments = policy_scope(IninvoicePayment)
   end
 
   def show

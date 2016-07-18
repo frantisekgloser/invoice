@@ -1,0 +1,3 @@
+class ReportTypePolicy < ApplicationPolicy
+
+end

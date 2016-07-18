@@ -1,0 +1,3 @@
+class ExchangeRatePolicy < ApplicationPolicy
+
+end

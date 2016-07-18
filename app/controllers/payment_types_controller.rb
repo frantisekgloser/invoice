@@ -1,10 +1,10 @@
 class PaymentTypesController < ApplicationController
   before_action :set_payment_type, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @payment_types = current_user.payment_types.all
+    @payment_types = policy_scope(PaymentType)
   end
 
   def show

@@ -1,10 +1,10 @@
 class AddressLinksController < ApplicationController
   before_action :set_address_link, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @address_links = current_user.address_links.all
+    @address_links = policy_scope(AddressLink)
   end
 
   def show

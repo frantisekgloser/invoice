@@ -1,0 +1,3 @@
+class DayEntryPolicy < ApplicationPolicy
+
+end

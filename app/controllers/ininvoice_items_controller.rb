@@ -1,10 +1,10 @@
 class IninvoiceItemsController < ApplicationController
   before_action :set_ininvoice_item, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @ininvoice_items = current_user.ininvoice_items.all
+    @ininvoice_items = policy_scope(IninvoiceItem)
   end
 
   def show

@@ -1,10 +1,10 @@
 class DayEntriesController < ApplicationController
   before_action :set_day_entry, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @day_entries = current_user.day_entries.all
+    @day_entries = policy_scope(DayEntry)
   end
 
   def show

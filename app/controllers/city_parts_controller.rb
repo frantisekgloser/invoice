@@ -1,10 +1,10 @@
 class CityPartsController < ApplicationController
   before_action :set_city_part, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @city_parts = current_user.city_parts.all
+    @city_parts = policy_scope(CityPart)
   end
 
   def show

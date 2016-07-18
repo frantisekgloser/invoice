@@ -1,10 +1,10 @@
 class IncomeReportsController < ApplicationController
   before_action :set_income_report, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @income_reports = current_user.income_reports.all
+    @income_reports = policy_scope(IncomeReport)
   end
 
   def show

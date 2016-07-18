@@ -1,0 +1,3 @@
+class VatChargePolicy < ApplicationPolicy
+
+end

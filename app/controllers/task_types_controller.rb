@@ -1,10 +1,10 @@
 class TaskTypesController < ApplicationController
   before_action :set_task_type, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @task_types = current_user.task_types.all
+    @task_types = policy_scope(TaskType)
   end
 
   def show

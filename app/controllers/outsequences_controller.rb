@@ -1,10 +1,10 @@
 class OutsequencesController < ApplicationController
   before_action :set_outsequence, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @outsequences = current_user.outsequences.all
+    @outsequences = policy_scope(Outsequence)
   end
 
   def show

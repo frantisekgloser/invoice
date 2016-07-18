@@ -1,10 +1,10 @@
 class CurrenciesController < ApplicationController
   before_action :set_currency, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @currencies = current_user.currencies.all
+    @currencies = policy_scope(Currency)
   end
 
   def show

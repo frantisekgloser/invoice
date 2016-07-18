@@ -1,0 +1,3 @@
+class VatReportPolicy < ApplicationPolicy
+
+end

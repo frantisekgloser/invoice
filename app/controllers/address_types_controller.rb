@@ -1,10 +1,10 @@
 class AddressTypesController < ApplicationController
   before_action :set_address_type, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @address_types = current_user.address_types.all
+    @address_types = policy_scope(AddressType)
   end
 
   def show

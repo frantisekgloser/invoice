@@ -1,10 +1,10 @@
 class ProvincesController < ApplicationController
   before_action :set_province, only: [:show, :edit, :update, :destroy]
- # after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @provinces = current_user.provinces.all
+    @provinces = policy_scope(Province)
   end
 
   def show

@@ -1,0 +1,3 @@
+class PaymentTypePolicy < ApplicationPolicy
+
+end

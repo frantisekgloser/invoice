@@ -1,10 +1,10 @@
 class StreetsController < ApplicationController
   before_action :set_street, only: [:show, :edit, :update, :destroy]
-#  after_action :verify_policy_scoped, only: :index
+  after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @streets = current_user.streets.all
+    @streets = policy_scope(Street)
   end
 
   def show

@@ -1,0 +1,3 @@
+class CurrencyPolicy < ApplicationPolicy
+
+end

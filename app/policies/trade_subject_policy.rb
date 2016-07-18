@@ -1,0 +1,3 @@
+class TradeSubjectPolicy < ApplicationPolicy
+
+end

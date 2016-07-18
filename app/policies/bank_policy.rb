@@ -1,0 +1,3 @@
+class BankPolicy < ApplicationPolicy
+
+end
