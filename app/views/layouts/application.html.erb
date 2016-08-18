@@ -2,39 +2,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Invoice v1</title>
+  <span class="col-sm-3 col-md-1 col-md-offset-1"><%= link_to 'Home', '/' %></span>
+  <span class="col-sm-3 col-md-1"><%= link_to "Sign Up", new_user_registration_path %></span>
+    <span class="col-sm-3 col-md-1"><%= link_to "Sign In", new_user_session_path %></span>
+    <span class="col-sm-3 col-md-1"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></span>
+    <span class="col-sm-12 col-md-4"><b><%= if current_user then 'currently logged user: ' + current_user.email
+                  else 'no one logged in' end %></b></span>
+  <br>
+  <title>Invoicing v1</title>
+  <center><h1>Invoicing v1</h1></center>
 
- <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> 
+    <%= csrf_meta_tags %>
 
 </head>
+
 <body>
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-<%= link_to 'Home', '/' %>
-&nbsp&nbsp&nbsp&nbsp
-<%= link_to "Sign Up", new_user_registration_path %>
-&nbsp&nbsp&nbsp&nbsp
-<%= link_to "Sign In", new_user_session_path %>
-&nbsp&nbsp&nbsp&nbsp
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
-&nbsp&nbsp&nbsp&nbsp
-<b>
-<%= if current_user then 'currently logged user: ' + current_user.email
-	                else 'no one logged in' end %>
-</b>
-
-<div id="main-container" class="container">
+<br>
+<div id="main-container" class="container-fluid">
     <div class="row">
-        <div class="col-xs-3">
-          <h1>Invoicing v1</h1>
-        </div>
-        <div class="col-xs-9">
           <%= yield %>
-        </div>
     </div>
 </div>
 
 </body>
+
 </html>

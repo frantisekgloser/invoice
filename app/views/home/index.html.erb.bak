@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<body>
+
+<% if user_signed_in? %>
+
+  <%= form_for(current_user) do |f| %>
+  <% if current_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(current_user.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% current_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <br>
+    <div class="row">
+  <div class="col-sm-8">
+    .col-sm-8
+    <div class="row">
+      <div class="col-lg-6">.col-sm-6</div>
+      <div class="col-lg-6">.col-sm-6</div>
+    </div>
+  </div>
+  <div class="col-sm-4">.col-sm-4</div>
+</div>
+    <br>
+    <div id="userdata" class="container">
+      <span class="row">
+        <span class="col-sm-6"><%= f.label :'Trade subject: ' %></span>
+        <span class="col-sm-6"><%= f.text_field :trade_subject %></span>
+      </span>
+      <span class="row">
+        <span id="column2" class="col-xs-3">
+          <th><%= f.label :'Identification number: ' %><%= f.text_field :identification_number %></th>
+          <td></td>
+        </span>
+        <div id="column3" class="col-xs-3">
+          <th><%= f.label :'VAT: ' %></th>
+          <td><%= f.text_field :vat %></td> 
+        </div> 
+      </div>
+      <div class="row">
+        <div id="column1" class="col-xs-3">
+          <th><%= f.label :'Street:    ' %></th>
+          <td><%= f.text_field :street %></td>
+        </div>
+        <div id="column2" class="col-xs-1">
+          <th><%= f.label :'House number: ' %></th>
+          <td><%= f.text_field :house_number %></td>
+        </div>
+        <div id="column3" class="col-xs-3">
+          <th><%= f.label :'City:    ' %></th>
+          <td><%= f.text_field :city %></td>
+        </div>
+        <div id="column4" class="col-xs-3">
+          <th><%= f.label :'City part: ' %></th>
+          <td><%= f.text_field :city_part %></td>
+        </div>
+        <div id="column3" class="col-xs-2">
+          <th><%= f.label :'Postal code: ' %></th>
+          <td><%= f.text_field :postal_code %></td>
+        </div> 
+      </div>
+      <div class="row">
+        <div id="column1" class="col-xs-3">
+          <th><%= f.label :'Country: ' %></th>
+          <td><%= f.text_field :country %></td>
+        </div>
+        <div id="column2" class="col-xs-3">
+          <th><%= f.label :'Province: ' %></th>
+          <td><%= f.text_field :province %></td>
+        </div> 
+      </div>
+      <div class="row">
+        <div id="column1" class="col-xs-3">
+          <th><%= f.label :'Phone: ' %></th>
+          <td><%= f.text_field :phone %></td>
+        </div>
+        <div id="column2" class="col-xs-3">
+          <th><%= f.label :'E-mail: ' %></th>
+          <td><%= f.text_field :mail %></td>
+        </div>
+        <div id="column3" class="col-xs-3">
+          <th><%= f.label :'WWW: ' %></th>
+          <td><%= f.text_field :web %></td>
+        </div> 
+      </div>
+      <div class="row">
+        <div id="column1" class="col-xs-12">
+          <th><%= f.label :'Note: ' %></th>
+          <td><%= f.text_field :note %></td>
+        </div> 
+      </div>
+      <div class="row">
+        <div id="column1" class="col-xs-3">
+          <th><%= f.label :'Bank: ' %></th>
+          <td><%= f.text_field :bank %></td>
+        </div>
+        <div id="column2" class="col-xs-3">
+          <th><%= f.label :'Bank account: ' %></th>
+          <td><%= f.text_field :bank_account %></td>
+        </div>
+        <div id="column3" class="col-xs-3">
+          <th><%= f.label :'IBAN: ' %></th>
+          <td><%= f.text_field :iban %></td>
+        </div>
+        <div id="column4" class="col-xs-3">
+          <th><%= f.label :'SWIFT: ' %></th>
+          <td><%= f.text_field :swift %></td>
+        </div> 
+      </div>
+    </div>
+
+    <br>
+    <input type="submit" value="Update data" <action=<%= edit_user_path(current_user) %>>
+
+  </form>
+  <br>
+  <table>
+    <thead>
+      <tr>
+        <td><%= link_to 'Countries', countries_path %></td>
+        <td><%= link_to 'Provinces', provinces_path %></td>
+        <td><%= link_to 'Cities', cities_path %></td>
+        <td><%= link_to 'City parts', city_parts_path %></td>
+        <td><%= link_to 'Streets', streets_path %></td>
+        <td><%= link_to 'Addresses', house_numbers_path %></td>
+        <td><%= link_to 'Address types', address_types_path %></td>
+        <td><%= link_to 'Address links', address_links_path %></td>
+        <td><%= link_to 'Trade subjects', trade_subjects_path %></td>
+        <td><%= link_to 'Projects', projects_path %></td>
+        
+        <td><%= link_to 'Task types', task_types_path %></td>
+        <td><%= link_to 'Tasks', tasks_path %></td>
+      </tr>
+    </thead>   
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <td><%= link_to 'Day entries', day_entries_path %></td>
+        <td><%= link_to 'Incomming invoices sequences', insequences_path %></td>
+        <td><%= link_to 'Outgoing invoices sequences', outsequences_path %></td>
+        <td><%= link_to 'Currencies', currencies_path %></td>
+        <td><%= link_to 'Exchange rates', exchange_rates_path %></td>
+        <td><%= link_to 'Banks', banks_path %></td>
+        <td><%= link_to 'Bank accounts', bank_accounts_path %></td>
+        <td><%= link_to 'Payment types', payment_types_path %></td>
+        <td><%= link_to 'Payments', payments_path %></td>
+        <td><%= link_to 'Income reports', income_reports_path %></td>
+        <td><%= link_to 'Report types', report_types_path %></td>
+        <td><%= link_to 'Reports', reports_path %></td>
+        <td><%= link_to 'VAT charges', vat_charges_path %></td>
+        <td><%= link_to 'VAT reports', vat_reports_path %></td>
+      </tr>
+    </thead>   
+  </table>
+
+  <br>
+  <br>
+
+<form action=<%= outinvoices_path %>>
+
+  Range from:
+  <input type="date" name="from">
+  Range till:
+  <input type="date" name="till">
+
+  <input type="submit" value="outgoing invoices" <action=<%= outinvoices_path %>>
+
+</form>
+
+<br>
+<br>
+
+<form action=<%= ininvoices_path %>>
+
+  Range from:
+  <input type="date" name="from">
+  Range till:
+  <input type="date" name="till">
+
+  <input type="submit" value="incomming invoices" <action=<%= ininvoices_path %>>
+
+</form>
+
+<% end %>
+<% else %>
+
+  <br>
+  <br>
+  At first You have to Sign In!
+
+<% end %>
+
+</body>
+</html>

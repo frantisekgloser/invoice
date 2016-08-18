@@ -21,80 +21,57 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
-  <br>
-  <div class="field">
-    <%= f.label :'Trade subject' %><br />
-    <%= f.email_field :trade_subject, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'Identification number' %><br />
-    <%= f.email_field :identification_number, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'VAT' %><br />
-    <%= f.email_field :vat, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'Street' %><br />
-    <%= f.email_field :street, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'house_number' %><br />
-    <%= f.email_field :house_number, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'City part' %><br />
-    <%= f.email_field :city_part, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'City' %><br />
-    <%= f.email_field :city, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'Postal code' %><br />
-    <%= f.email_field :postal_code, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'Province' %><br />
-    <%= f.email_field :province, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'Country' %><br />
-    <%= f.email_field :country, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'Phone' %><br />
-    <%= f.email_field :phone, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'E-mail' %><br />
-    <%= f.email_field :mail, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'WWW' %><br />
-    <%= f.email_field :web, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'Note' %><br />
-    <%= f.email_field :note, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'Bank' %><br />
-    <%= f.email_field :bank, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'Bank account' %><br />
-    <%= f.email_field :bank_account, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'IBAN' %><br />
-    <%= f.email_field :iban, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :'SWIFT' %><br />
-    <%= f.email_field :swift, autofocus: true %>
-  </div>
-  <br>
+    <br>
+      <th><%= f.label :'Trade subject: ' %></th>
+      <td><%= f.text_field :trade_subject %></td>
+      <th><%= f.label :'Identification number: ' %></th>
+      <td><%= f.text_field :identification_number %></td>
+      <th><%= f.label :'VAT: ' %></th>
+      <td><%= f.text_field :vat %></td>  
+      <br>
+      <br>
+      <th><%= f.label :'Street:    ' %></th>
+      <td><%= f.text_field :street %></td>
+      <th><%= f.label :'House number: ' %></th>
+      <td><%= f.text_field :house_number %></td>
+      <br>
+      <br>
+      <th><%= f.label :'City:    ' %></th>
+      <td><%= f.text_field :city %></td>
+      <th><%= f.label :'City part: ' %></th>
+      <td><%= f.text_field :city_part %></td>
+      <th><%= f.label :'Postal code: ' %></th>
+      <td><%= f.text_field :postal_code %></td>
+      <br>
+      <br>
+      <th><%= f.label :'Country: ' %></th>
+      <td><%= f.text_field :country %></td>
+      <th><%= f.label :'Province: ' %></th>
+      <td><%= f.text_field :province %></td>
+      <br>
+      <br>
+      <th><%= f.label :'Phone: ' %></th>
+      <td><%= f.text_field :phone %></td>
+      <th><%= f.label :'E-mail: ' %></th>
+      <td><%= f.text_field :mail %></td>
+      <th><%= f.label :'WWW: ' %></th>
+      <td><%= f.text_field :web %></td>
+      <br>
+      <br>
+      <th><%= f.label :'Note: ' %></th>
+      <td><%= f.text_field :note %></td>
+      <br>
+      <br>
+      <th><%= f.label :'Bank: ' %></th>
+      <td><%= f.text_field :bank %></td>
+      <th><%= f.label :'Bank account: ' %></th>
+      <td><%= f.text_field :bank_account %></td>
+      <th><%= f.label :'IBAN: ' %></th>
+      <td><%= f.text_field :iban %></td>
+      <th><%= f.label :'SWIFT: ' %></th>
+      <td><%= f.text_field :swift %></td>
+    <br>
+    <br>
  
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

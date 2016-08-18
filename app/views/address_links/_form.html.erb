@@ -16,8 +16,8 @@
     <%= f.collection_select(:address_type_id, current_user.address_types.all, :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label :'House number' %><br>
-    <%= f.collection_select(:house_number_id, current_user.house_numbers.all, :id, :house_number) %>
+    <%= f.label :'Address' %><br>
+    <%= f.collection_select(:house_number_id, current_user.house_numbers.all, :id, :address_complete ) %>
   </div>
 
   <br>

@@ -34,7 +34,6 @@ class AddressLinksController < ApplicationController
     respond_to do |format|
       if @address_link.update(address_link_params)
         format.html { redirect_to address_links_url, notice: 'Address link was successfully updated.' }
-#        format.html { redirect_to @address_link, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @address_link }
       else
         format.html { render :edit }
