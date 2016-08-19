@@ -1,12 +1,16 @@
-<h1>New city</h1>
-
+<h2>New city</h2>
+<br>
 <%= render 'form' %>
 <br>
 <br>
-<%= link_to 'New country', new_country_path %>
-<br>
-<br>
-<%= link_to 'New province', new_province_path %>
-<br>
-<br>
-<%= link_to 'Back', cities_path %>
+<div class="row">   
+  <span class="col-sm-4 col-md-2 col-md-offset-1">
+    <%= button_to 'New country', new_country_path, method: 'get' %>
+  </span>
+  <span class="col-sm-4 col-md-2">
+    <%= button_to 'New province', new_province_path, method: 'get' %>
+  </span>
+  <span class="col-sm-4 col-md-2">
+    <%= button_to 'Back', cities_path, method: 'get' %>
+  </span>
+</div>

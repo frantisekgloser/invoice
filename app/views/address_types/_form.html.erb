@@ -11,15 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Address type' %><br>
-    <%= f.text_field :name %>
-  </div>
-   
-  <br>
-  <br>
- 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <span class="col-sm-5 col-md-3 col-md-offset-1">
+      <%= f.label :'Address type' %>
+      <%= f.text_field :name %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>    
   </div>
 <% end %>

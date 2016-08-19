@@ -1,11 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @country.name %>
-</p>
-
-<%= link_to 'Edit', edit_country_path(@country) %> |
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>Country:</strong>
+    <%= @country.name %>
+  </span>
+</div>
 <br>
-<br>
-<%= link_to 'Back', countries_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_country_path(@country), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', countries_path, method: 'get' %>
+  </span>
+</div>

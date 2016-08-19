@@ -1,23 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>City:</strong>
-  <%= @city.name %>
-</p>
-<p>
-  <strong>Postal code:</strong>
-  <%= @city.postal_code %>
-</p>
-<p>
-  <strong>Country:</strong>
-  <%= if @city.country_id then @city.country.name end %>
-</p>
-<p>
-  <strong>Province:</strong>
-  <%= if @city.province_id then @city.province.name end %>
-</p>
-
-<%= link_to 'Edit', edit_city_path(@city) %> 
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>City:</strong>
+    <%= @city.name %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Postal code:</strong>
+    <%= @city.postal_code %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Country:</strong>
+    <%= if @city.country_id then @city.country.name end %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Province:</strong>
+    <%= if @city.province_id then @city.province.name end %>
+  </span>
+</div>
 <br>
-<br>
-<%= link_to 'Back', cities_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_city_path(@city), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', cities_path, method: 'get' %>
+  </span>
+</div>

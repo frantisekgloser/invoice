@@ -1,12 +1,16 @@
-<h1>New address link</h1>
-
+<h2>New address link</h2>
+<br>
 <%= render 'form' %>
 <br>
 <br>
-<%= link_to 'New address type', new_address_type_path %>
-<br>
-<br>
-<%= link_to 'New address', new_house_number_path %>
-<br>
-<br>
-<%= link_to 'Back', address_links_path %>
+<div class="row">   
+  <span class="col-sm-4 col-md-2 col-md-offset-1">
+    <%= button_to 'New address type', new_address_type_path, method: 'get' %>
+  </span>
+  <span class="col-sm-4 col-md-2">
+    <%= button_to 'New address', new_house_number_path, method: 'get' %>
+  </span>
+  <span class="col-sm-4 col-md-2">
+    <%= button_to 'Back', address_links_path, method: 'get' %>
+  </span>
+</div>

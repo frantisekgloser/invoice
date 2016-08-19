@@ -2,77 +2,68 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
+  <div class="row">
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, size: 18 %>
+  </span>
+  <span class="col-sm-12 col-md-4">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "off", size: 18 %>
+  </span>
+  <span class="col-sm-12 col-md-4">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", size: 18 %>
+  </span>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+  <br>
+  <br>
+  </tabl  e>
+    <div class="row">
+      <span class="col-sm-5 col-md-2 col-md-offset-1"><%= f.label :'Trade subject:' %></span>
+      <span class="col-sm-7 col-md-4"><%= f.text_field :trade_subject, size: 25 %></span>
+      <span class="col-sm-5 col-md-1"><%= f.label :'Phone:' %></span>
+      <span class="col-sm-7 col-md-4"><%= f.phone_field :phone, size: 30 %></span>
+      <span class="col-sm-5 col-md-2 col-md-offset-1"><%= f.label :'Identification number:' %></span>
+      <span class="col-sm-7 col-md-4"><%= f.text_field :identification_number, size: 25 %></span>
+      <span class="col-sm-5 col-md-1"><%= f.label :'E-mail:' %></span>
+      <span class="col-sm-7 col-md-4"><%= f.email_field :mail, size: 30 %></span>
+      <span class="col-sm-5 col-md-2 col-md-offset-1"><%= f.label :'VAT:' %></span>
+      <span class="col-sm-7 col-md-4"><%= f.text_field :vat, size: 25  %></span>
+      <span class="col-sm-5 col-md-1"><%= f.label :'WWW:' %></span>
+      <span class="col-sm-7 col-md-4"><%= f.url_field :web, size: 30 %></span>
+    </div>
     <br>
-      <th><%= f.label :'Trade subject: ' %></th>
-      <td><%= f.text_field :trade_subject %></td>
-      <th><%= f.label :'Identification number: ' %></th>
-      <td><%= f.text_field :identification_number %></td>
-      <th><%= f.label :'VAT: ' %></th>
-      <td><%= f.text_field :vat %></td>  
-      <br>
-      <br>
-      <th><%= f.label :'Street:    ' %></th>
-      <td><%= f.text_field :street %></td>
-      <th><%= f.label :'House number: ' %></th>
-      <td><%= f.text_field :house_number %></td>
-      <br>
-      <br>
-      <th><%= f.label :'City:    ' %></th>
-      <td><%= f.text_field :city %></td>
-      <th><%= f.label :'City part: ' %></th>
-      <td><%= f.text_field :city_part %></td>
-      <th><%= f.label :'Postal code: ' %></th>
-      <td><%= f.text_field :postal_code %></td>
-      <br>
-      <br>
-      <th><%= f.label :'Country: ' %></th>
-      <td><%= f.text_field :country %></td>
-      <th><%= f.label :'Province: ' %></th>
-      <td><%= f.text_field :province %></td>
-      <br>
-      <br>
-      <th><%= f.label :'Phone: ' %></th>
-      <td><%= f.text_field :phone %></td>
-      <th><%= f.label :'E-mail: ' %></th>
-      <td><%= f.text_field :mail %></td>
-      <th><%= f.label :'WWW: ' %></th>
-      <td><%= f.text_field :web %></td>
-      <br>
-      <br>
-      <th><%= f.label :'Note: ' %></th>
-      <td><%= f.text_field :note %></td>
-      <br>
-      <br>
-      <th><%= f.label :'Bank: ' %></th>
-      <td><%= f.text_field :bank %></td>
-      <th><%= f.label :'Bank account: ' %></th>
-      <td><%= f.text_field :bank_account %></td>
-      <th><%= f.label :'IBAN: ' %></th>
-      <td><%= f.text_field :iban %></td>
-      <th><%= f.label :'SWIFT: ' %></th>
-      <td><%= f.text_field :swift %></td>
+    <div class="row">
+      <span class="col-sm-5 col-md-2 col-md-offset-1"><%= f.label :'Street, house number:' %></span>
+      <span class="col-sm-5 col-md-2"><%= f.text_field :street, size: 25 %></span>
+      <span class="col-sm-2"><%= f.text_field :house_number, size: 15 %></span>
+      <span class="col-sm-5 col-md-1"><%= f.label :'Bank:' %></span>
+      <span class="col-sm-7 col-md-4"><%= f.text_field :bank, size: 30 %></span>
+      <span class="col-sm-5 col-md-2 col-md-offset-1"><%= f.label :'City, city part:' %></span>
+      <span class="col-sm-4 col-md-2"><%= f.text_field :city, size: 25 %></span>
+      <span class="col-sm-3 col-md-2"><%= f.text_field :city_part, size: 15 %></span>
+      <span class="col-sm-5 col-md-1"><%= f.label :'Account:' %></span>
+      <span class="col-sm-7 col-md-4"><%= f.text_field :bank_account, size: 30 %></span>
+      <span class="col-sm-5 col-md-2 col-md-offset-1"><%= f.label :'Country, province:' %></span>
+      <span class="col-sm-4 col-md-2"><%= f.text_field :country, size: 25 %></span>
+      <span class="col-sm-3 col-md-2"><%= f.text_field :province, size: 15 %></span> 
+      <span class="col-sm-5 col-md-1"><%= f.label :'IBAN: ' %></span>
+      <span class="col-sm-7 col-md-4"><%= f.text_field :iban, size: 30 %></span>
+      <span class="col-sm-5 col-md-2 col-md-offset-1"><%= f.label :'Postal code:' %></span>
+      <span class="col-sm-7 col-md-4"><%= f.text_field :postal_code, size: 10 %></span>
+      <span class="col-sm-5 col-md-1"><%= f.label :'SWIFT: ' %></span>
+      <span class="col-sm-7 col-md-4"><%= f.text_field :swift, size: 30 %></span>
+    </div>
     <br>
-    <br>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+    <div class="row">
+      <span class="col-sm-3 col-md-1 col-md-offset-1"><%= f.label :'Note:' %></span>
+      <span class="col-sm-9 col-md-7"><%= f.text_area :note, size: "58x3" %></span>
+      <span class="actions">
+        <h1><%= f.submit "Sign up" %></h1>
+      </span>
+    </div>
 <% end %>
-<br>
-<%= render "devise/shared/links" %>

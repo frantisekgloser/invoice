@@ -1,27 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Bank account:</strong>
-  <%= @bank_account.name %>
-</p>
-<p>
-  <strong>Number:</strong>
-  <%= @bank_account.number %>
-</p>
-<p>
-  <strong>IBAN:</strong>
-  <%= @bank_account.iban %>
-</p>
-<p>
-  <strong>Bank:</strong>
-  <%= if @bank_account.bank_id then @bank_account.bank.name end %>
-</p>
-<p>
-  <strong>Currency:</strong>
-  <%= if @bank_account.currency_id then @bank_account.currency.name end %>
-</p>
- 
-<%= link_to 'Edit', edit_bank_account_path(@bank_account) %> |
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>Bank account:</strong>
+    <%= @bank_account.name %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Number:</strong>
+    <%= @bank_account.number %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>IBAN:</strong>
+    <%= @bank_account.iban %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Bank:</strong>
+    <%= if @bank_account.bank_id then @bank_account.bank.name end %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Currency:</strong>
+    <%= if @bank_account.currency_id then @bank_account.currency.name end %>
+  </span>
+</div>
 <br>
-<br>
-<%= link_to 'Back', bank_accounts_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_bank_account_path(@bank_account), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', bank_accounts_path, method: 'get' %>
+  </span>
+</div>

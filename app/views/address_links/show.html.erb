@@ -1,16 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Address type:</strong>
-  <%= if @address_link.address_type_id then @address_link.address_type.name end %>
-</p>
-
-<p>
-  <strong>House number:</strong>
-  <%= if @address_link.house_number_id then @address_link.house_number.house_number end %>
-</p>
-
-<%= link_to 'Edit', edit_address_link_path(@address_link) %> |
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>Address type: </strong>
+    <%= if @address_link.address_type_id then @address_link.address_type.name end %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>House number:</strong>
+    <%= if @address_link.house_number_id then @address_link.house_number.house_number end %>
+  </span>
+</div>
 <br>
-<br>
-<%= link_to 'Back', address_links_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_address_link_path(@address_link), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', address_links_path, method: 'get' %>
+  </span>
+</div>

@@ -11,19 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Address type' %><br>
-    <%= f.collection_select(:address_type_id, current_user.address_types.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :'Address' %><br>
-    <%= f.collection_select(:house_number_id, current_user.house_numbers.all, :id, :address_complete ) %>
-  </div>
-
-  <br>
-  <br>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <span class="col-sm-5 col-md-2 col-md-offset-1">
+      <%= f.label :'Address type' %>
+      <%= f.collection_select(:address_type_id, current_user.address_types.all, :id, :name) %>
+    </span>
+    <span class="col-sm-4 col-md-3">
+      <%= f.label :'Address' %>
+      <%= f.collection_select(:house_number_id, current_user.house_numbers.all, :id, :address_complete ) %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

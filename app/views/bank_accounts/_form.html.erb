@@ -11,31 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Bank account' %><br>
-    <%= f.text_field :name %>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'Bank account' %>
+      <%= f.text_field :name %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'Number' %>
+      <%= f.text_field :number %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'IBAN' %>
+      <%= f.text_field :iban %>
+    </span>
   </div>
-  <div class="field">
-    <%= f.label :'Number' %><br>
-    <%= f.text_field :number %>
-  </div>
-  <div class="field">
-    <%= f.label :'IBAN' %><br>
-    <%= f.text_field :iban %>
-  </div>
-  <div class="field">
-    <%= f.label :'Bank' %><br>
-    <%= f.collection_select(:bank_id, current_user.banks.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :'Currency' %><br>
-    <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>
-  </div>
-    
   <br>
-  <br>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'Bank' %>
+      <%= f.collection_select(:bank_id, current_user.banks.all, :id, :name) %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'Currency' %>
+      <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

@@ -11,25 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'City' %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :'Postal code' %><br>
-    <%= f.text_field :postal_code %>
-  </div>
-  <div class="field">
-    <%= f.label :'Country' %><br>
-    <%= f.collection_select(:country_id, current_user.countries.all, :id, :name) %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :'Province' %><br>
-    <%= f.collection_select(:province_id, current_user.provinces.all, :id, :name, :include_blank => true) %>
-  </div>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <span class="col-sm-12 col-md-2 col-md-offset-1">
+      <%= f.label :'City' %>
+      <%= f.text_field :name %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'Postal code' %>
+      <%= f.text_field :postal_code %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'Country' %>
+      <%= f.collection_select(:country_id, current_user.countries.all, :id, :name) %>
+    </span>
+    <span class="col-sm-2 col-md-2">
+      <%= f.label :'Province' %>
+      <%= f.collection_select(:province_id, current_user.provinces.all, :id, :name, :include_blank => true) %>
+     </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

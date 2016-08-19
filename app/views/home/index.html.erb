@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <html>
-<body style="background-color: #FCF3CF">
+<body>
 
 <% if user_signed_in? %>
 
@@ -58,8 +58,8 @@
         <br>
         <div class="row">
         <span class="col-sm-3 col-md-1 col-md-offset-1"><%= f.label :'Note:' %></span>
-        <span class="col-sm-9 col-md-7"><%= f.text_area :note, size: "58x3" %></span>
-        <span class="col-sm-12 col-md-1"><input type="submit" value="Update my user data" <action=<%= edit_user_path(current_user) %>></span>
+        <span class="col-sm-9 col-md-6"><%= f.text_area :note, size: "58x3" %></span>
+        <span class="col-sm-12 col-md-1"><h3><input type="submit" value="Update my data" <action=<%= edit_user_path(current_user) %>></h3></span>
         </div>
         <br>
       </fieldset>

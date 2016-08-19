@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Country' %><br>
+  <div class="row">
+    <span class="col-sm-8 col-md-3 col-md-offset-1">
+    <%= f.label :'Country' %>
     <%= f.text_field :name %>
-  </div>
-  <br>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
+     </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

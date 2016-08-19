@@ -1,11 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Currency:</strong>
-  <%= @currency.name %>
-</p>
-
-<%= link_to 'Edit', edit_currency_path(@currency) %> |
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>Currency:</strong>
+    <%= @currency.name %>
+  </span>
+</div>
 <br>
-<br>
-<%= link_to 'Back', currencies_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_currency_path(@currency), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', currencies_path, method: 'get' %>
+  </span>
+</div>

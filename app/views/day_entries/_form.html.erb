@@ -11,31 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Day entry date' %><br>
-    <%= f.date_select :date %>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'Day entry date' %>
+      <%= f.date_select :date %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'Day entry from' %>
+      <%= f.time_select :start %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'Day entry till' %>
+      <%= f.time_select :stop %>
+    </span>
   </div>
-  <div class="field">
-    <%= f.label :'Day entry from' %><br>
-    <%= f.time_select :start %>
-  </div>
-  <div class="field">
-    <%= f.label :'Day entry till' %><br>
-    <%= f.time_select :stop %>
-  </div>
-  <div class="field">
-    <%= f.label :'Invoiced?' %><br>
-    <%= f.check_box :invoiced %>
-  </div>
-  <div class="field">
-    <%= f.label :'Task' %><br>
-    <%= f.collection_select(:task_id, current_user.tasks.all, :id, :name) %>
-  </div>
-  
   <br>
-  <br>
-  
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'Invoiced?' %>
+      <%= f.check_box :invoiced %>
+    </span>
+    <span class="col-sm-4 col-md-5">
+      <%= f.label :'Task' %>
+      <%= f.collection_select(:task_id, current_user.tasks.all, :id, :name) %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

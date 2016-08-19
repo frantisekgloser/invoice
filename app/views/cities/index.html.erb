@@ -1,33 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Cities</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>City</th>
-      <th>Postal code</th>
-      <th>Country</th>
-      <th>Province</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-      <% @cities.each do |city| %>
-        <tr>
-          <td><%= city.name %></td>
-          <td><%= city.postal_code %></td>
-          <td><%= if city.country_id then city.country.name end %></td>
-          <td><%= if city.province_id then city.province.name end%></td>
-          <td><%= link_to 'Show', city %></td>
-          <td><%= link_to 'Edit', edit_city_path(city) %></td>
-          <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-  </tbody>
-</table>
-
+<h2>Cities</h2>
 <br>
-    
-<%= link_to 'New city', new_city_path %>
+<div class="row">
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <h4>City</h4>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <h4>Postal code</h4>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <h4>Country</h4>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <h4>Province</h4>
+  </span>
+</div>
+
+<% @cities.each do |city| %>
+  <div class="row">
+    <span class="col-sm-12 col-md-2 col-md-offset-1">
+      <h5>
+        <%= city.name %>
+      </h5>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <h5>
+        <%= city.postal_code %>
+      </h5>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <h5>
+        <%= if city.country_id then city.country.name end %>
+      </h5>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <h5>
+        <%= if city.province_id then city.province.name end%>
+      </h5>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Show', city, method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Edit', edit_city_path(city), method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </span>
+  </div>
+<% end %>
+<br>
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <%= button_to 'New city', new_city_path, method: 'get' %>
+  </span>
+</div>

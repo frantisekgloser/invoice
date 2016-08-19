@@ -11,23 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'City part' %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :'Postal code' %><br>
-    <%= f.text_field :postal_code %>
-  </div>
-  <div class="field">
-    <%= f.label :'City' %><br>
-    <%= f.collection_select(:city_id, current_user.cities.all, :id, :name) %>
-  </div>
-  
-  <br>
-  <br>
-  
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'City part' %>
+      <%= f.text_field :name %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'Postal code' %>
+      <%= f.text_field :postal_code %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'City' %>
+      <%= f.collection_select(:city_id, current_user.cities.all, :id, :name) %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

@@ -11,23 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Bank' %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :'Code' %><br>
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :'SWIFT' %><br>
+  <div class="row">
+    <span class="col-sm-4 col-md-3 col-md-offset-1">
+      <%= f.label :'Bank' %>
+      <%= f.text_field :name %>
+    </span>
+    <span class="col-sm-2 col-md-3">
+      <%= f.label :'Code' %>
+      <%= f.text_field :code %>
+    </span>
+    <span class="col-sm-3 col-md-3">
+     <%= f.label :'SWIFT' %>
     <%= f.text_field :swift %>
-  </div>
-  
-  <br>
-  <br>
-
-  <div class="actions">
-    <%= f.submit %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>
