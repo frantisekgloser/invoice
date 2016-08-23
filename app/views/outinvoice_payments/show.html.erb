@@ -1,23 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @outinvoice_payment.amount %>
-</p>
-<p>
-  <strong>Payment:</strong>
-  <%= @outinvoice_payment.payment_id %>
-</p>
-<p>
-  <strong>Outgoing invoice:</strong>
-  <%= if @outinvoice_payment.outinvoice_id then @outinvoice_payment.outinvoice.number end %>
-</p>
-<p>
-  <strong>Exchange rate:</strong>
-  <%= if @outinvoice_payment.exchange_rate_id then @outinvoice_payment.exchange_rate.rate end %>
-</p>
-
-<%= link_to 'Edit', edit_outinvoice_payment_path(@outinvoice_payment) %> |
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>Amount:</strong>
+    <%= @outinvoice_payment.amount %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Payment:</strong>
+    <%= @outinvoice_payment.payment_id %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Outgoing invoice:</strong>
+    <%= if @outinvoice_payment.outinvoice_id then @outinvoice_payment.outinvoice.number end %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Exchange rate:</strong>
+    <%= if @outinvoice_payment.exchange_rate_id then @outinvoice_payment.exchange_rate.rate end %>
+  </span>
+</div>
 <br>
-<br>
-<%= link_to 'Back', outinvoice_payments_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_outinvoice_payment_path(@outinvoice_payment), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', outinvoice_payments_path, method: 'get' %>
+  </span>
+</div>

@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @trade_subject.name %>
-</p>
-<p>
-  <strong>Identification number:</strong>
-  <%= @trade_subject.identification_number %>
-</p>
-<p>
-  <strong>VAT:</strong>
-  <%= @trade_subject.vat %>
-</p>
-
-<%= link_to 'Edit', edit_trade_subject_path(@trade_subject) %> |
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>Name:</strong>
+    <%= @trade_subject.name %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Identification number:</strong>
+    <%= @trade_subject.identification_number %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>VAT:</strong>
+    <%= @trade_subject.vat %>
+  </span>
+</div>
 <br>
-<br>
-<%= link_to 'Back', trade_subjects_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_trade_subject_path(@trade_subject), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', trade_subjects_path, method: 'get' %>
+  </span>
+</div>

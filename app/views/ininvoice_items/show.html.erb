@@ -1,23 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @ininvoice_item.amount %>
-</p>
-<p>
-  <strong>Note:</strong>
-  <%= @ininvoice_item.note %>
-</p>
-<p>
-  <strong>Incomming invoice:</strong>
-  <%= if @ininvoice_item.ininvoice_id then @ininvoice_item.ininvoice.number end %>
-</p>
-<p>
-  <strong>Item:</strong>
-  <%= if @ininvoice_item.item_id then @ininvoice_item.item.name end %>
-</p>
-
-<%= link_to 'Edit', edit_ininvoice_item_path(@ininvoice_item) %> |
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>Amount:</strong>
+    <%= @ininvoice_item.amount %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Note:</strong>
+    <%= @ininvoice_item.note %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Incomming invoice:</strong>
+    <%= if @ininvoice_item.ininvoice_id then @ininvoice_item.ininvoice.number end %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Item:</strong>
+    <%= if @ininvoice_item.item_id then @ininvoice_item.item.name end %>
+  </span>
+</div>
 <br>
-<br>
-<%= link_to 'Back', ininvoice_items_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_ininvoice_item_path(@ininvoice_item), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', ininvoice_items_path, method: 'get' %>
+  </span>
+</div>

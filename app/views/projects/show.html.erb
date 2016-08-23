@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
-<p>
-  <strong>Note:</strong>
-  <%= @project.note %>
-</p>
-<p>
-  <strong>Trade subject:</strong>
-  <%= if @project.trade_subject_id then @project.trade_subject.name end %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>Name:</strong>
+    <%= @project.name %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Note:</strong>
+    <%= @project.note %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Trade subject:</strong>
+    <%= if @project.trade_subject_id then @project.trade_subject.name end %>
+  </span>
+</div>
 <br>
-<br>
-<%= link_to 'Back', projects_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_project_path(@project), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', projects_path, method: 'get' %>
+  </span>
+</div>

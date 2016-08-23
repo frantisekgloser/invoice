@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Task type' %><br>
-    <%= f.text_field :name %>
-  </div>
-  <br>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'Task type' %>
+      <%= f.text_field :name %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

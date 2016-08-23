@@ -11,21 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Name' %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :'Identification number' %><br>
-    <%= f.text_field :identification_number %>
-  </div>
-  <div class="field">
-    <%= f.label :"VAT" %><br>
-    <%= f.text_field :vat %>
-  </div>
-  <br>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'Name' %>
+      <%= f.text_field :name %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'Identification number' %>
+      <%= f.text_field :identification_number %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :"VAT" %>
+      <%= f.text_field :vat %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

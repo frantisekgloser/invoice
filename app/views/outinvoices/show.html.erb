@@ -1,83 +1,107 @@
 <p id="notice"><%= notice %></p>
 
- <p>
-  <strong>Number:</strong>
- <%= @outinvoice.number %>
-</p>
-<p>
-  <strong>Generated on date:</strong>
-  <%= @outinvoice.generated_on_date %>
-</p>
-<p>
-  <strong>Taxable supply date:</strong>
-  <%= @outinvoice.taxable_supply_date %>
-</p>
-<p>
-  <strong>Due date:</strong>
-  <%= @outinvoice.due_date %>
-</p>
-<p>
-  <strong>Total computed base:</strong>
-  <%= @outinvoice.total_computed_base %>
-</p>
-<p>
-  <strong>Total computed VAT:</strong>
-  <%= @outinvoice.total_computed_vat %>
-</p>
-<p>
-  <strong>Total corrected base:</strong>
-  <%= @outinvoice.total_corrected_base %>
-</p>
-<p>
-  <strong>Total corrected VAT:</strong>
-  <%= @outinvoice.total_corrected_vat %>
-</p>
-<p>
-  <strong>Reverse charge:</strong>
-  <%= @outinvoice.reverse_charge %>
-</p>
-<p>
-  <strong>Paid:</strong>
-  <%= @outinvoice.paid %>
-</p>
-<p>
-  <strong>Note:</strong>
-  <%= @outinvoice.note %>
-</p>
-<p>
-  <strong>Original invoice:</strong>
-  <%= @outinvoice.original_invoice %>
-</p>
-<p>
-  <strong>Original invoice md5:</strong>
-  <%= @outinvoice.original_invoice_md5 %>
-</p>
-<p>
-  <strong>Translated invoice:</strong>
-  <%= @outinvoice.translated_invoice %>
-</p>
-<p>
-  <strong>Translated invoice:</strong>
-  <%= @outinvoice.translated_invoice_md5 %>
-</p>
-<p>
-  <strong>Sequence:</strong>
-  <%= if @outinvoice.outsequence_id then @outinvoice.outsequence.name end %>
-</p>
-<p>
-  <strong>Trade subject:</strong>
-  <%= if @outinvoice.trade_subject_id then @outinvoice.trade_subject.name end %>
-</p>
-<p>
-  <strong>Currency:</strong>
-  <%= if @outinvoice.currency_id then @outinvoice.currency.name end %>
-</p>
-<p>
-  <strong>Exchange rate:</strong>
-  <%= if @outinvoice.exchange_rate_id then @outinvoice.exchange_rate.rate end %>
-</p>
-
-<%= link_to 'Edit', edit_outinvoice_path(@outinvoice) %> |
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>Sequence:</strong>
+    <%= if @outinvoice.outsequence_id then @outinvoice.outsequence.name end %>
+  </span>
+  <span class="col-sm-12 col-md-3">
+    <strong>Number:</strong>
+    <%= @outinvoice.number %>
+  </span>
+  <span class="col-sm-12 col-md-3">
+    <strong>Generated on date:</strong>
+    <%= @outinvoice.generated_on_date %>
+  </span>
+</div>
 <br>
+<div class="row">
+  <span class="col-sm-12 col-md-5 col-md-offset-1">
+    <strong>Trade subject:</strong>
+    <%= if @outinvoice.trade_subject_id then @outinvoice.trade_subject.name end %>
+  </span>
+  <span class="col-sm-12 col-md-3">
+    <strong>Taxable supply date:</strong>
+    <%= @outinvoice.taxable_supply_date %>
+  </span>
+</div>
 <br>
-<%= link_to 'Back', outinvoices_path %>
+<div class="row">
+  <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <strong>Reverse charge:</strong>
+    <%= @outinvoice.reverse_charge %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Paid:</strong>
+    <%= @outinvoice.paid %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Due date:</strong>
+    <%= @outinvoice.due_date %>
+  </span>
+</div>
+<br>
+<div class="row">
+  <span class="col-sm-12 col-md-5 col-md-offset-1">
+    <strong>Original invoice:</strong>
+    <%= @outinvoice.original_invoice %>
+  </span>
+  <span class="col-sm-12 col-md-3">
+    <strong>Currency:</strong>
+    <%= if @outinvoice.currency_id then @outinvoice.currency.name end %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Exchange rate:</strong>
+    <%= if @outinvoice.exchange_rate_id then @outinvoice.exchange_rate.rate end %>
+  </span>
+</div>
+<br>
+<div class="row">
+  <span class="col-sm-12 col-md-5 col-md-offset-1">
+    <strong>Original invoice md5:</strong>
+    <%= @outinvoice.original_invoice_md5 %>
+  </span>
+  <span class="col-sm-12 col-md-3">
+    <strong>Total computed base:</strong>
+    <%= @outinvoice.total_computed_base %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Total computed VAT:</strong>
+    <%= @outinvoice.total_computed_vat %>
+  </span>
+</div>
+<br>
+<div class="row">  
+  <span class="col-sm-12 col-md-5 col-md-offset-1">
+    <strong>Translated invoice:</strong>
+    <%= @outinvoice.translated_invoice %>
+  </span>
+  <span class="col-sm-12 col-md-3">
+    <strong>Total corrected base:</strong>
+    <%= @outinvoice.total_corrected_base %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Total corrected VAT:</strong>
+    <%= @outinvoice.total_corrected_vat %>
+  </span>
+</div>
+<br>
+<div class="row">  
+  <span class="col-sm-12 col-md-5 col-md-offset-1">
+    <strong>Translated invoice:</strong>
+    <%= @outinvoice.translated_invoice_md5 %>
+  </span>
+  <span class="col-sm-12 col-md-5">
+    <strong>Note:</strong>
+    <%= @outinvoice.note %>
+  </span>
+</div>
+<br>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_outinvoice_path(@outinvoice), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', outinvoices_path, method: 'get' %>
+  </span>
+</div>

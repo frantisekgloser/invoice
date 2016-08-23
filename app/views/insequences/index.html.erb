@@ -1,29 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sequences</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Sequence</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-      <% @insequences.each do |insequence| %>
-        <tr>
-          <td><%= insequence.name %></td>
-          <td><%= insequence.note %></td>
-          <td><%= link_to 'Show', insequence %></td>
-          <td><%= link_to 'Edit', edit_insequence_path(insequence) %></td>
-          <td><%= link_to 'Destroy', insequence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-  </tbody>
-</table>
-
+<h2>Incomming invoices sequences</h2>
 <br>
+<div class="row">
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <h4>Sequence</h4>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <h4>Note</h4>
+  </span>
+</div>
+
+<% @insequences.each do |insequence| %>
+  <div class="row">
+    <span class="col-sm-12 col-md-2 col-md-offset-1">
+      <h5>
+        <%= insequence.name %>
+      </h5>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <h5>
+        <%= insequence.note %>
+      </h5>
+    </span>    
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Show', insequence, method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Edit', edit_insequence_path(insequence), method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Destroy', insequence, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </span>
+  </div>
+<% end %>
 <br>
-    
-<%= link_to 'New sequence', new_insequence_path %>
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <%= button_to 'New sequence', new_insequence_path, method: 'get' %>
+  </span>
+</div>

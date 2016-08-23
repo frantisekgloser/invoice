@@ -11,21 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Name' %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :'Note' %><br>
-    <%= f.text_field :note %>
-  </div>
-  <div class="field">
-    <%= f.label :'Trade subject' %><br>
-    <%= f.collection_select(:trade_subject_id, current_user.trade_subjects.all, :id, :name) %>
-  </div>
-  <br>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'Name' %>
+      <%= f.text_field :name %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'Note' %>
+      <%= f.text_field :note %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'Trade subject' %>
+      <%= f.collection_select(:trade_subject_id, current_user.trade_subjects.all, :id, :name) %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

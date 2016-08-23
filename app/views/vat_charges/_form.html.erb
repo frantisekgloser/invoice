@@ -11,16 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Percentage' %><br>
-    <%= f.text_field :percentage %>
-  </div>
-  <div class="field">
-    <%= f.label :'Country' %><br>
-    <%= f.collection_select(:country_id, current_user.countries.all, :id, :name) %>
-  </div>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'Percentage' %>
+      <%= f.text_field :percentage, size: 8 %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'Country' %>
+      <%= f.collection_select(:country_id, current_user.countries.all, :id, :name) %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

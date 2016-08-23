@@ -1,23 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Exchange rate:</strong>
-  <%= @exchange_rate.rate %>
-</p>
-<p>
-  <strong>Exchange rate date:</strong>
-  <%= @exchange_rate.date %>
-</p>
-<p>
-  <strong>Bank:</strong>
-  <%= if @exchange_rate.bank_id then @exchange_rate.bank.name end %>
-</p>
-<p>
-  <strong>Currency:</strong>
-  <%= if @exchange_rate.currency_id then @exchange_rate.currency.name end %>
-</p>
-
-<%= link_to 'Edit', edit_exchange_rate_path(@exchange_rate) %> |
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>Exchange rate:</strong>
+    <%= @exchange_rate.rate %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Exchange rate date:</strong>
+    <%= @exchange_rate.date %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Bank:</strong>
+    <%= if @exchange_rate.bank_id then @exchange_rate.bank.name end %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Currency:</strong>
+    <%= if @exchange_rate.currency_id then @exchange_rate.currency.name end %>
+  </span>
+</div>
 <br>
-<br>
-<%= link_to 'Back', exchange_rates_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_exchange_rate_path(@exchange_rate), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', exchange_rates_path, method: 'get' %>
+  </span>
+</div>

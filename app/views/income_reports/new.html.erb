@@ -1,6 +1,10 @@
-<h1>New income report</h1>
-
+<h2>New income report</h2>
+<br>
 <%= render 'form' %>
 <br>
 <br>
-<%= link_to 'Back', income_reports_path %>
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <%= button_to 'Back', income_reports_path, method: 'get' %>
+  </span>
+</div>

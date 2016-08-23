@@ -1,16 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Sequence:</strong>
-  <%= @insequence.name %>
-</p>
-<p>
-  <strong>Note:</strong>
-  <%= @insequence.note %>
-</p>
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>Sequence:</strong>
+    <%= @insequence.name %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Note:</strong>
+    <%= @insequence.note %>
+  </span>
+</div>
 <br>
-<br>
-<%= link_to 'Edit', edit_insequence_path(@insequence) %> |
-<br>
-<br>
-<%= link_to 'Back', insequences_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_insequence_path(@insequence), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', insequences_path, method: 'get' %>
+  </span>
+</div>

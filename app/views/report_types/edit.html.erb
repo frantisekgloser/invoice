@@ -1,9 +1,13 @@
-<h1>Editation of report type</h1>
-
+<h2>Editation of report type</h2>
+<br>
 <%= render 'form' %>
 <br>
 <br>
-<%= link_to 'Show', @report_type %>
-<br>
-<br>
-<%= link_to 'Back', report_types_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Show', @report_type, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', report_types_path, method: 'get' %>
+  </span>
+</div>

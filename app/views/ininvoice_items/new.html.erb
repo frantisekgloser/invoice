@@ -1,12 +1,16 @@
-<h1>New incomming invoice item</h1>
-
+<h2>New incomming invoice item</h2>
+<br>
 <%= render 'form' %>
 <br>
 <br>
-<%= link_to 'New incomming invoice', new_ininvoice_path %>
-<br>
-<br>
-<%= link_to 'New item', new_item_path %>
-<br>
-<br>
-<%= link_to 'Back', ininvoice_items_path %>
+<div class="row">   
+  <span class="col-sm-4 col-md-2 col-md-offset-1">
+    <%= button_to 'New incomming invoice', new_ininvoice_path, method: 'get' %>
+  </span>
+  <span class="col-sm-4 col-md-2">
+    <%= button_to 'New item', new_item_path, method: 'get' %>
+  </span>
+  <span class="col-sm-4 col-md-2">
+    <%= button_to 'Back', ininvoice_items_path, method: 'get' %>
+  </span>
+</div>

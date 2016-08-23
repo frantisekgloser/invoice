@@ -1,33 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Exchange rates</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Exchange rate</th>
-      <th>Exchange rate date</th>
-      <th>Bank</th>
-      <th>Currency</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-      <% @exchange_rates.each do |exchange_rate| %>
-        <tr>
-          <td><%= exchange_rate.rate %></td>
-          <td><%= exchange_rate.date %></td>
-          <td><%= if exchange_rate.bank_id then exchange_rate.bank.name end %></td>
-          <td><%= if exchange_rate.currency_id then exchange_rate.currency.name end %></td>
-          <td><%= link_to 'Show', exchange_rate %></td>
-          <td><%= link_to 'Edit', edit_exchange_rate_path(exchange_rate) %></td>
-          <td><%= link_to 'Destroy', exchange_rate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-  </tbody>
-</table>
-
+<h2>Exchange rates</h2>
 <br>
-    
-<%= link_to 'New exchange rate', new_exchange_rate_path %>
+<div class="row">
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <h4>Exchange rate</h4>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <h4>Exchange rate date</h4>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <h4>Bank</h4>
+  </span>
+  <span class="col-sm-12 col-md-1">
+    <h4>Currency</h4>
+  </span>
+</div>
+
+<% @exchange_rates.each do |exchange_rate| %>
+  <div class="row">
+    <span class="col-sm-12 col-md-2 col-md-offset-1">
+      <h5>
+        <%= exchange_rate.rate %>
+      </h5>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <h5>
+        <%= exchange_rate.date %>
+      </h5>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <h5>
+        <%= if exchange_rate.bank_id then exchange_rate.bank.name end %>
+      </h5>
+    </span>
+    <span class="col-sm-12 col-md-1">
+      <h5>
+        <%= if exchange_rate.currency_id then exchange_rate.currency.name end %>
+      </h5>
+    </span>    
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Show', exchange_rate, method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Edit', edit_exchange_rate_path(exchange_rate), method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Destroy', exchange_rate, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </span>
+  </div>
+<% end %>
+<br>
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <%= button_to 'New exchange rate', new_exchange_rate_path, method: 'get' %>
+  </span>
+</div>

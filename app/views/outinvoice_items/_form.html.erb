@@ -11,25 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Amount' %><br>
-    <%= f.text_field :amount %>
-  </div>
-  <div class="field">
-    <%= f.label :'Note' %><br>
-    <%= f.text_field :note %>
-  </div>
-  <div class="field">
-    <%= f.label :'Invoice' %><br>
+<div class="row">
+    <span class="col-sm-12 col-md-2 col-md-offset-1">
+      <%= f.label :'Amount' %>
+      <%= f.text_field :amount %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'Note' %>
+      <%= f.text_field :note %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'Invoice' %>
       <%= f.collection_select(:outinvoice_id, current_user.outinvoices.all, :id, :number) %>
-  </div>
-  <div class="field">
-    <%= f.label :'Item' %><br>
-    <%= f.collection_select(:item_id, current_user.items.all, :id, :name) %>
-  </div>
-  <br>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'Item' %>
+      <%= f.collection_select(:item_id, current_user.items.all, :id, :name) %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

@@ -1,23 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @task.name %>
-</p>
-<p>
-  <strong>Link:</strong>
-  <%= @task.link %>
-</p>
-<p>
-  <strong>Note:</strong>
-  <%= @task.note %>
-</p>
-<p>
-  <strong>Project:</strong>
-  <%= if @task.project_id then @task.project.name end %>
-</p>
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>Name:</strong>
+    <%= @task.name %>
+  </span>
+  <span class="col-sm-12 col-md-3">
+    <strong>Link:</strong>
+    <%= @task.link %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Note:</strong>
+    <%= @task.note %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Project:</strong>
+    <%= if @task.project_id then @task.project.name end %>
+  </span>
+</div>
 <br>
-<br>
-<%= link_to 'Back', tasks_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_task_path(@task), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', tasks_path, method: 'get' %>
+  </span>
+</div>

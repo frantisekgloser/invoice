@@ -1,33 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Reports</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>To pay</th>
-      <th>To receive</th>
-      <th>Report type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-      <% @reports.each do |report| %>
-        <tr>
-          <td><%= report.date %></td>
-          <td><%= report.to_pay %></td>
-          <td><%= report.to_receive %></td>
-          <td><%= if report.report_type_id then report.report_type.name end  %></td>
-          <td><%= link_to 'Show', report %></td>
-          <td><%= link_to 'Edit', edit_report_path(report) %></td>
-          <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-  </tbody>
-</table>
-
+<h2>Reports</h2>
 <br>
-    
-<%= link_to 'New report', new_report_path %>
+<div class="row">
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <h4>Date</h4>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <h4>To pay</h4>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <h4>To receive</h4>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <h4>Report type</h4>
+  </span>
+</div>
+
+<% @reports.each do |report| %>
+  <div class="row">
+    <span class="col-sm-12 col-md-2 col-md-offset-1">
+      <h5>
+        <%= report.date %>
+      </h5>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <h5>
+        <%= report.to_pay %>
+      </h5>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <h5>
+        <%= report.to_receive %>
+      </h5>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <h5>
+        <%= if report.report_type_id then report.report_type.name end  %>
+      </h5>
+    </span>    
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Show', report, method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Edit', edit_report_path(report), method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </span>
+  </div>
+<% end %>
+<br>
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <%= button_to 'New report', new_report_path, method: 'get' %>
+  </span>
+</div>

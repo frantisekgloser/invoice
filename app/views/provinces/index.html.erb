@@ -1,23 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Provinces</h1>
+<h2>Provinces</h1>
 
 <div class="row">
-  <span class="col-sm-3 col-md-2 col-md-offset-1"><h4>Name</h4></span>
-  <span class="col-sm-3 col-md-2"><h4>Country</h4></span>
+  <span class="col-sm-3 col-md-2 col-md-offset-1">
+    <h4>
+      Name
+    </h4>
+  </span>
+  <span class="col-sm-3 col-md-2">
+    <h4>
+      Country
+    </h4>
+  </span>
 </div>
 
 <% @provinces.each do |province| %>
   <div class="row">
-    <span class="col-sm-3 col-md-2 col-md-offset-1"><h5><%= province.name %></h5></span>
-    <span class="col-sm-3 col-md-2"><h5><%= if province.country_id then province.country.name end %></h5></span>
-    <span class="col-sm-2 col-md-1"><%= link_to 'Show', province %></span>
-    <span class="col-sm-2 col-md-1"><%= link_to 'Edit', edit_province_path(province) %></span>
-    <span class="col-sm-2 col-md-1"><%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+    <span class="col-sm-3 col-md-2 col-md-offset-1">
+      <h5>
+        <%= province.name %>
+      </h5>
+    </span>
+    <span class="col-sm-3 col-md-2">
+      <h5>
+        <%= if province.country_id then province.country.name end %>
+      </h5>
+    </span>    
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Show', province, method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Edit', edit_province_path(province), method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </span>
   </div>
 <% end %>
 <br>
-<br>
 <div class="row">   
-  <span class="col-sm-6 col-md-2 col-md-offset-1"><%= link_to 'New province', new_province_path %></span>
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <%= button_to 'New province', new_province_path, method: 'get' %>
+  </span>
 </div>

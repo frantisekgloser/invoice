@@ -1,19 +1,22 @@
-<h1>Editation of item</h1>
-
+<h2>Editation of item</h2>
+<br>
 <%= render 'form' %>
-
 <br>
 <br>
-<%= link_to 'New currency', new_currency_path %>
-<br>
-<br>
-<%= link_to 'New VAT charge', new_vat_charge_path %>
-<br>
-<br>
-<%= link_to 'New trade subject', new_trade_subject_path %>
-<br>
-<br>
-<%= link_to 'Show', @item %>
-<br>
-<br>
-<%= link_to 'Back', items_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'New currency', new_currency_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New VAT charge', new_vat_charge_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New trade subject', new_trade_subject_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Show', @item, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', items_path, method: 'get' %>
+  </span>
+</div>

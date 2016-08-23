@@ -1,13 +1,16 @@
-<h1>Editation of province</h1>
-
+<h2>Editation of province</h2>
+<br>
 <%= render 'form' %>
-
 <br>
 <br>
-<%= link_to 'New country', new_country_path %>
-<br>
-<br>
-<%= link_to 'Show', @province %>
-<br>
-<br>
-<%= link_to 'Back', provinces_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'New country', new_country_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Show', @province, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', provinces_path, method: 'get' %>
+  </span>
+</div>

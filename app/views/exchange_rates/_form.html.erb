@@ -11,25 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Exchange rate' %><br>
-    <%= f.text_field :rate %>
-  </div>
-  <div class="field">
-    <%= f.label :'Exchange rate date' %><br>
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :'Bank' %><br>
-    <%= f.collection_select(:bank_id, current_user.banks.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :'Currency' %><br>
-    <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>
-  </div>
-  <br>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <span class="col-sm-12 col-md-2 col-md-offset-1">
+      <%= f.label :'Exchange rate' %>
+      <%= f.text_field :rate, size: 8 %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'Exchange rate date' %>
+      <%= f.date_select :date %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'Bank' %>
+      <%= f.collection_select(:bank_id, current_user.banks.all, :id, :name) %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'Currency' %>
+      <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

@@ -11,25 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Date' %><br>
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :'To pay' %><br>
-    <%= f.text_field :to_pay %>
-  </div>
-  <div class="field">
-    <%= f.label :'To receive' %><br>
-    <%= f.text_field :to_receive %>
-  </div>
-  <div class="field">
-    <%= f.label :'Report type' %><br>
-    <%= f.collection_select(:report_type_id, current_user.report_types.all, :id, :name) %>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'Date' %>
+      <%= f.date_select :date %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'To pay' %>
+      <%= f.text_field :to_pay %>
+    </span>
   </div>
   <br>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'Report type' %>
+      <%= f.collection_select(:report_type_id, current_user.report_types.all, :id, :name) %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'To receive' %>
+      <%= f.text_field :to_receive %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

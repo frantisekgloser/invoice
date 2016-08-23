@@ -1,16 +1,19 @@
-<h1>Editation of outgoing invoice payment</h1>
-
+<h2>Editation of outgoing invoice payment</h2>
+<br>
 <%= render 'form' %>
-
 <br>
 <br>
-<%= link_to 'New outgoing invoice', new_outinvoice_path %>
-<br>
-<br>
-<%= link_to 'New exchange rate', new_exchange_rate_path %>
-<br>
-<br>
-<%= link_to 'Show', @outinvoice_payment %>
-<br>
-<br>
-<%= link_to 'Back', outinvoice_payments_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'New outgoing invoice', new_outinvoice_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New exchange rate', new_exchange_rate_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Show', @outinvoice_payment, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', outinvoice_payments_path, method: 'get' %>
+  </span>
+</div>

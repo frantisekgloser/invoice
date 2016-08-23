@@ -11,45 +11,51 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'Date' %><br>
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :'Amount' %><br>
-    <%= f.text_field :amount %>
-  </div>
-  <div class="field">
-    <%= f.label :'Note' %><br>
-    <%= f.text_field :note %>
-  </div>
-  <div class="field">
-    <%= f.label :'Payment type' %><br>
-    <%= f.collection_select(:payment_type_id, current_user.payment_types.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :'Currency' %><br>
-    <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :'Bank account' %><br>
-    <%= f.collection_select(:bank_account_id, current_user.bank_accounts.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :'Trade subject' %><br>
-    <%= f.collection_select(:trade_subject_id, current_user.trade_subjects.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :'VAT report' %><br>
-    <%= f.collection_select(:vat_report_id, current_user.vat_reports.all, :id, :number, :include_blank => true) %>
-  </div>
-  <div class="field">
-    <%= f.label :'Income report' %><br>
-    <%= f.collection_select(:income_report_id, current_user.income_reports.all, :id, :number, :include_blank => true) %>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'Date' %>
+      <%= f.date_select :date %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'Amount' %>
+      <%= f.text_field :amount, size: 8 %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'Currency' %>
+      <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <%= f.label :'Payment type' %>
+      <%= f.collection_select(:payment_type_id, current_user.payment_types.all, :id, :name) %>
+    </span>
   </div>
   <br>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'Trade subject' %>
+      <%= f.collection_select(:trade_subject_id, current_user.trade_subjects.all, :id, :name) %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'Bank account' %>
+      <%= f.collection_select(:bank_account_id, current_user.bank_accounts.all, :id, :name) %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'VAT report' %>
+      <%= f.collection_select(:vat_report_id, current_user.vat_reports.all, :id, :number, :include_blank => true) %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'Income report' %>
+      <%= f.collection_select(:income_report_id, current_user.income_reports.all, :id, :number, :include_blank => true) %>
+    </span>
+  </div>
   <br>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <span class="col-sm-12 col-md-5 col-md-offset-1">
+      <%= f.label :'Note' %><br>
+      <%= f.text_area :note, size: '40x3' %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

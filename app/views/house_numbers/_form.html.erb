@@ -11,23 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :'House number' %><br>
-    <%= f.text_field :house_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'City' %><br>
-    <%= f.collection_select(:city_id, current_user.cities.all, :id, :name) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'Street' %><br>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <%= f.label :'House number' %>
+      <%= f.text_field :house_number %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+      <%= f.label :'City' %>
+      <%= f.collection_select(:city_id, current_user.cities.all, :id, :name) %>
+    </span>
+    <span class="col-sm-12 col-md-2">
+    <%= f.label :'Street' %>
     <%= f.collection_select(:street_id, current_user.streets.all, :id, :name, :include_blank => true) %>
-  </div>
-  <br>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
   </div>
 <% end %>

@@ -1,29 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<h1>VAT charges</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Percentage</th>
-      <th>Country</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-      <% @vat_charges.each do |vat_charge| %>
-        <tr>
-          <td><%= vat_charge.percentage %></td>
-          <td><%= if vat_charge.country_id then vat_charge.country.name end %></td>
-          <td><%= link_to 'Show', vat_charge %></td>
-          <td><%= link_to 'Edit', edit_vat_charge_path(vat_charge) %></td>
-          <td><%= link_to 'Destroy', vat_charge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-  </tbody>
-</table>
-
+<h2>VAT charges</h2>
 <br>
-    
-<%= link_to 'New vat_charge', new_vat_charge_path %>
+<div class="row">
+  <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <h4>Percentage</h4>
+  </span>
+  <span class="col-sm-12 col-md-3">
+    <h4>Country</h4>
+  </span>
+</div>
+
+<% @vat_charges.each do |vat_charge| %>
+  <div class="row">
+    <span class="col-sm-12 col-md-3 col-md-offset-1">
+      <h5>
+        <%= vat_charge.percentage %>
+      </h5>
+    </span>
+    <span class="col-sm-12 col-md-3">
+      <h5>
+        <%= if vat_charge.country_id then vat_charge.country.name end %>
+      </h5>
+    </span>    
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Show', vat_charge, method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Edit', edit_vat_charge_path(vat_charge), method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Destroy', vat_charge, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </span>
+  </div>
+<% end %>
+<br>
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <%= button_to 'New vat_charge', new_vat_charge_path, method: 'get' %>
+  </span>
+</div>

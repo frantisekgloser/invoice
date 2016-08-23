@@ -1,23 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @report.date %>
-</p>
-<p>
-  <strong>To pay:</strong>
-  <%= @report.to_pay %>
-</p>
-<p>
-  <strong>To receive:</strong>
-  <%= @report.to_receive %>
-</p>
-<p>
-  <strong>Report type:</strong>
-  <%= if @report.report_type_id then @report.report_type.name end %>
-</p>
-
-<%= link_to 'Edit', edit_report_path(@report) %> |
+<div class="row">   
+  <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <strong>Date:</strong>
+    <%= @report.date %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>To pay:</strong>
+    <%= @report.to_pay %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>To receive:</strong>
+    <%= @report.to_receive %>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <strong>Report type:</strong>
+    <%= if @report.report_type_id then @report.report_type.name end %>
+  </span>
+</div>
 <br>
-<br>
-<%= link_to 'Back', reports_path %>
+<div class="row">
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'Edit', edit_report_path(@report), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', reports_path, method: 'get' %>
+  </span>
+</div>
