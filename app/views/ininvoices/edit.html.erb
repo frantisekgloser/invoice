@@ -1,28 +1,22 @@
-<h2>Editation of incomming invoice</h2>
-<br>
 <%= render 'form' %>
 <br>
-<br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
-    <%= button_to 'New incomming invoices sequence', new_insequence_path, method: 'get' %>
-  </span>
-  <span class="col-sm-6 col-md-2">
-    <%= button_to 'New trade subject', new_trade_subject_path, method: 'get' %>
-  </span>
-  <span class="col-sm-6 col-md-2">
-    <%= button_to 'New currency', new_currency_path, method: 'get' %>
-  </span>
-</div>
-<br>
-<div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
-    <%= button_to 'New exchange rate', new_exchange_rate_path, method: 'get' %>
-  </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'Show', @ininvoice, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'Back', ininvoices_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New currency', new_currency_path, method: 'get' %>  
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New trade subject', new_trade_subject_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New exchange rate', new_exchange_rate_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New incomming invoices sequence', new_insequence_path, method: 'get' %>
   </span>
 </div>

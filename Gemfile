@@ -52,5 +52,6 @@ group :development do
   gem 'rspec'
   gem 'autotest'
   gem 'blueprint'
+  gem 'redis-rails'
 end
 

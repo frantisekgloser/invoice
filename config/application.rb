@@ -24,5 +24,8 @@ module Invoice
     config.active_record.raise_in_transactional_callbacks = true
 #   config.force_ssl = true
 #   config.filter_parameters << :password
+
+    # added for Redis usage
+    config.cache_store = :redis_store, "redis://localhost:6379/0/cache", { expires_in: 90.minutes }
   end
 end
