@@ -3,38 +3,38 @@
 <h2>Exchange rates</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <h4>Exchange rate</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-3">
     <h4>Exchange rate date</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-4 col-md-3">
     <h4>Bank</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-4 col-md-1">
     <h4>Currency</h4>
   </span>
 </div>
 
 <% @exchange_rates.each do |exchange_rate| %>
   <div class="row">
-    <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= exchange_rate.rate %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-3">
       <h5>
         <%= exchange_rate.date %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-4 col-md-3">
       <h5>
         <%= if exchange_rate.bank_id then exchange_rate.bank.name end %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-4 col-md-1">
       <h5>
         <%= if exchange_rate.currency_id then exchange_rate.currency.name end %>
       </h5>
@@ -52,7 +52,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New exchange rate', new_exchange_rate_path, method: 'get' %>
   </span>
 </div>

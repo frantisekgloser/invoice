@@ -12,29 +12,29 @@
   <% end %>
 
   <div class="row">
-    <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'Item' %>
       <%= f.text_field :name %>
     </span>
-    <span class="col-sm-12 col-md-3">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'Note' %>
       <%= f.text_field :note %>
     </span>
-    <span class="col-sm-12 col-md-3">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'Unit price' %>
       <%= f.text_field :unit_price %>
     </span>
   </div>
   <br>
   <div class="row">
-    <span class="col-sm-12 col-md-3 col-md-offset-1">    
+    <span class="col-sm-4 col-md-3">    
       <%= f.label :'Trade subject' %><br>
       <%= f.collection_select(:trade_subject_id, current_user.trade_subjects.all, :id, :name) %>
-    <span class="col-sm-12 col-md-3">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'Currency' %>
       <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>
     </span>
-    <span class="col-sm-12 col-md-3">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'VAT charge' %>
       <%= f.collection_select(:vat_charge_id, current_user.vat_charges.all, :id, :percentage) %>
     </span>

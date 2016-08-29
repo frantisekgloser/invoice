@@ -1,26 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <strong>Day entry date:</strong>
     <%= @day_entry.date %>
   </span>
-  <span class="col-sm-12 col-md-3">
+  <span class="col-sm-6 col-md-3">
     <strong>Day entry from:</strong>
     <%= @day_entry.start %>
   </span>
-  <span class="col-sm-12 col-md-3">
+  <span class="col-sm-6 col-md-3">
     <strong>Day entry till:</strong>
     <%= @day_entry.stop %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-3 col-md-2">
     <strong>Invoiced?</strong>
     <%= @day_entry.invoiced %>
+  </span>
+  <span class="col-sm-3 col-md-2">
+    <strong>Task</strong>
+    <%= if @day_entry.task_id then @day_entry.task.name end %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_day_entry_path(@day_entry), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">

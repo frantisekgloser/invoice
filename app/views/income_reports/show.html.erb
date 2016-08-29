@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <strong>Number:</strong>
     <%= @income_report.number %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>Date:</strong>
     <%= @income_report.date %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>To pay:</strong>
     <%= @income_report.to_pay %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>To receive:</strong>
     <%= @income_report.to_receive %>
   </span>
@@ -24,7 +24,7 @@
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_income_report_path(@income_report), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">

@@ -12,29 +12,26 @@
   <% end %>
 
   <div class="row">
-    <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <span class="col-sm-6 col-md-3">
       <%= f.label :'Number' %>
       <%= f.text_field :number %>
     </span>
-    <span class="col-sm-12 col-md-3">
+    <span class="col-sm-6 col-md-3">
       <%= f.label :'Date' %>
       <%= f.date_select :date %>
     </span>
-  </div>
-  <br>
-  <div class="row">
-    <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <span class="col-sm-5 col-md-3">
       <%= f.label :'To pay' %>
       <%= f.text_field :to_pay %>
     </span>
-    <span class="col-sm-12 col-md-3">
+    <span class="col-sm-5 col-md-3">
       <%= f.label :'To receive' %>
       <%= f.text_field :to_receive %>
     </span>
   </div>
   <br>
   <div class="row">    
-    <span class="col-sm-12 col-md-4 col-md-offset-1">
+    <span class="col-sm-12 col-md-6">
       <%= f.label :'Note' %><br>
       <%= f.text_area :note, size: '40x3' %>
     </span>

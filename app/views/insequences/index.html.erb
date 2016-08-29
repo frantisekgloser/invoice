@@ -3,22 +3,22 @@
 <h2>Incomming invoices sequences</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-4 col-md-3">
     <h4>Sequence</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-4 col-md-3">
     <h4>Note</h4>
   </span>
 </div>
 
 <% @insequences.each do |insequence| %>
   <div class="row">
-    <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <span class="col-sm-4 col-md-3">
       <h5>
         <%= insequence.name %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-4 col-md-3">
       <h5>
         <%= insequence.note %>
       </h5>
@@ -36,7 +36,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New sequence', new_insequence_path, method: 'get' %>
   </span>
 </div>

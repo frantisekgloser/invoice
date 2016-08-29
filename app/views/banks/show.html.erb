@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-4 col-md-3">
     <strong>Bank:</strong>
     <%= @bank.name %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-4 col-md-2">
     <strong>Code:</strong>
     <%= @bank.code %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-4 col-md-3">
     <strong>SWIFT:</strong>
     <%= @bank.swift %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_bank_path(@bank), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">

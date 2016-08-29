@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-4 col-md-3">
     <strong>House number:</strong>
     <%= @house_number.house_number %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-4 col-md-3">
     <strong>City:</strong>
     <%= if @house_number.city_id then @house_number.city.name end %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-4 col-md-3">
     <strong>Street:</strong>
     <%= if @house_number.street_id then @house_number.street.name end %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_house_number_path(@house_number), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">

@@ -3,25 +3,35 @@
 <h2>Incomming invoice items</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
+    <h4>Item</h4>
+  </span>
+  <span class="col-sm-3 col-md-2">
     <h4>Amount</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
-    <h4>Note</h4>
-  </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-3 col-md-2">
     <h4>Incomming invoice</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
-    <h4>Item</h4>
+  <span class="col-sm-10 col-md-2">
+    <h4>Note</h4>
   </span>
 </div>
 
 <% @ininvoice_items.each do |ininvoice_item| %>
   <div class="row">
-    <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <span class="col-sm-6 col-md-2">
+      <h5>
+        <%= if ininvoice_item.item_id then ininvoice_item.item.name end %>
+      </h5>
+    </span>    
+    <span class="col-sm-3 col-md-2">
       <h5>
         <%= ininvoice_item.amount %></td>
+      </h5>
+    </span>
+    <span class="col-sm-3 col-md-2">
+      <h5>
+        <%= if ininvoice_item.ininvoice_id then ininvoice_item.ininvoice.number end %>
       </h5>
     </span>
     <span class="col-sm-12 col-md-2">
@@ -29,16 +39,6 @@
         <%= ininvoice_item.note %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
-      <h5>
-        <%= if ininvoice_item.ininvoice_id then ininvoice_item.ininvoice.number end %>
-      </h5>
-    </span>
-    <span class="col-sm-12 col-md-2">
-      <h5>
-        <%= if ininvoice_item.item_id then ininvoice_item.item.name end %>
-      </h5>
-    </span>    
     <span class="col-sm-4 col-md-1">
       <%= button_to 'Show', ininvoice_item, method: 'get' %>
     </span>
@@ -52,7 +52,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New ininvoice item', new_ininvoice_item_path, method: 'get' %>
   </span>
 </div>

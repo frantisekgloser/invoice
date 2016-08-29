@@ -4,16 +4,16 @@
 <br>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
-    <%= button_to 'New city', new_city_path, method: 'get' %>
-  </span>
-  <span class="col-sm-6 col-md-2">
-    <%= button_to 'New street', new_street_path, method: 'get' %>
-  </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'Show', @house_number, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'Back', house_numbers_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New city', new_city_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New street', new_street_path, method: 'get' %>
   </span>
 </div>

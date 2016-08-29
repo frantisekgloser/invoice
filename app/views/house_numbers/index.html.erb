@@ -3,31 +3,35 @@
 <h2>Addresses</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-3 col-md-3">
     <h4>House number</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-3 col-md-3">
     <h4>City</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-3 col-md-3">
     <h4>Street</h4>
   </span>
 </div>
 
 <% @house_numbers.each do |house_number| %>
   <div class="row">
-    <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <span class="col-sm-3 col-md-3">
       <h5>
-        <%= house_number.house_number %></td>
-          <td><%= if house_number.city_id then house_number.city.name end  %>
+        <%= house_number.house_number %>
       </h5>
     </span> 
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-3 col-md-3">
+      <h5>
+        <%= if house_number.city_id then house_number.city.name end  %>
+      </h5>
+    </span> 
+    <span class="col-sm-3 col-md-3">
       <h5>
         <%= if house_number.street_id then house_number.street.name end %>
       </h5>
     </span>    
-    <span class="col-sm-4 col-md-1">
+    <span class="col-sm-3 col-md-1">
       <%= button_to 'Show', house_number, method: 'get' %>
     </span>
     <span class="col-sm-4 col-md-1">
@@ -40,7 +44,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New address', new_house_number_path, method: 'get' %>
   </span>
 </div>

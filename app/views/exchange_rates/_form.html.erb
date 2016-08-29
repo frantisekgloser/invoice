@@ -12,19 +12,22 @@
   <% end %>
 
   <div class="row">
-    <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <span class="col-sm-6 col-md-4">
       <%= f.label :'Exchange rate' %>
       <%= f.text_field :rate, size: 8 %>
     </span>
-    <span class="col-sm-12 col-md-3">
+    <span class="col-sm-6 col-md-4">
       <%= f.label :'Exchange rate date' %>
       <%= f.date_select :date %>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-4 col-md-4">
       <%= f.label :'Bank' %>
       <%= f.collection_select(:bank_id, current_user.banks.all, :id, :name) %>
     </span>
-    <span class="col-sm-12 col-md-2">
+  </div>
+  <br>
+  <div class="row">
+    <span class="col-sm-4 col-md-4">
       <%= f.label :'Currency' %>
       <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>
     </span>

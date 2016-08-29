@@ -3,14 +3,30 @@
 <h2>Items</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <h4>Item</h4>
   </span>
+  <span class="col-sm-12 col-md-2">
+    <h4>Note</h4>
+  </span>
+  <span class="col-sm-12 col-md-1">
+    <h4>Unit price</h4>
+  </span>
+  <span class="col-sm-12 col-md-1">
+    <h4>Currency</h4>
+  </span>
+  <span class="col-sm-12 col-md-1">
+    <h4>VAT</h4>
+  </span>
+  <span class="col-sm-12 col-md-2">
+    <h4>Trade subject</h4>
+  </span>
+
 </div>
 
 <% @items.each do |item| %>
   <div class="row">
-    <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <span class="col-sm-12 col-md-2">
       <h5>
         <%= item.name %>
       </h5>
@@ -20,17 +36,17 @@
         <%= item.note %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-12 col-md-1">
       <h5>
         <%= item.unit_price %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-12 col-md-1">
       <h5>
         <%= if item.currency_id then item.currency.name end %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-12 col-md-1">
       <h5>
         <%= if item.vat_charge_id then item.vat_charge.percentage end %>
       </h5>
@@ -53,7 +69,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New item', new_item_path, method: 'get' %>
   </span>
 </div>

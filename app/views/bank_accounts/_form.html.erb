@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="row">
-    <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'Bank account' %>
       <%= f.text_field :name %>
     </span>
-    <span class="col-sm-12 col-md-3">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'Number' %>
       <%= f.text_field :number %>
     </span>
-    <span class="col-sm-12 col-md-3">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'IBAN' %>
       <%= f.text_field :iban %>
     </span>
   </div>
   <br>
   <div class="row">
-    <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'Bank' %>
       <%= f.collection_select(:bank_id, current_user.banks.all, :id, :name) %>
     </span>
-    <span class="col-sm-12 col-md-3">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'Currency' %>
       <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>
     </span>

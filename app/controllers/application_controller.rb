@@ -1,5 +1,4 @@
 require 'redis'
-require 'pry'
 
 class ApplicationController < ActionController::Base 
 

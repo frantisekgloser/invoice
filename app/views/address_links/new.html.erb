@@ -4,13 +4,13 @@
 <br>
 <br>
 <div class="row">   
-  <span class="col-sm-4 col-md-2 col-md-offset-1">
+  <span class="col-sm-4 col-md-2">
+    <%= button_to 'Back', address_links_path, method: 'get' %>
+  </span>
+  <span class="col-sm-4 col-md-2">
     <%= button_to 'New address type', new_address_type_path, method: 'get' %>
   </span>
   <span class="col-sm-4 col-md-2">
     <%= button_to 'New address', new_house_number_path, method: 'get' %>
-  </span>
-  <span class="col-sm-4 col-md-2">
-    <%= button_to 'Back', address_links_path, method: 'get' %>
   </span>
 </div>

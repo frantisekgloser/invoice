@@ -4,16 +4,16 @@
 <br>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
-    <%= button_to 'New incomming invoice', new_ininvoice_path, method: 'get' %>
-  </span>
-  <span class="col-sm-6 col-md-2">
-    <%= button_to 'New item', new_item_path, method: 'get' %>
-  </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'Show', @ininvoice_item, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'Back', ininvoice_items_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New incomming invoice', new_ininvoice_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New item', new_item_path, method: 'get' %>
   </span>
 </div>

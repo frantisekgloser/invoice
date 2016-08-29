@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <strong>Address type: </strong>
     <%= if @address_link.address_type_id then @address_link.address_type.name end %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>House number:</strong>
     <%= if @address_link.house_number_id then @address_link.house_number.house_number end %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_address_link_path(@address_link), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">

@@ -1,26 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-3">
     <strong>City:</strong>
     <%= @city.name %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>Postal code:</strong>
     <%= @city.postal_code %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>Country:</strong>
     <%= if @city.country_id then @city.country.name end %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>Province:</strong>
     <%= if @city.province_id then @city.province.name end %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_city_path(@city), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">

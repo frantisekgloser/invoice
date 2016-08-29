@@ -1,26 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <strong>Amount:</strong>
     <%= @ininvoice_payment.amount %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>Payment:</strong>
     <%= @ininvoice_payment.payment_id %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>Incomming invoice:</strong>
     <%= if @ininvoice_payment.ininvoice_id then @ininvoice_payment.ininvoice.number end %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>Exchange rate:</strong>
     <%= if @ininvoice_payment.exchange_rate_id then @ininvoice_payment.exchange_rate.rate end %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_ininvoice_payment_path(@ininvoice_payment), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">

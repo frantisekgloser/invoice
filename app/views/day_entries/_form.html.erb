@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="row">
-    <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <span class="col-sm-4 col-md-4">
       <%= f.label :'Day entry date' %>
       <%= f.date_select :date %>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'Day entry from' %>
       <%= f.time_select :start %>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'Day entry till' %>
       <%= f.time_select :stop %>
     </span>
   </div>
   <br>
   <div class="row">
-    <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <span class="col-sm-4 col-md-4">
       <%= f.label :'Invoiced?' %>
       <%= f.check_box :invoiced %>
     </span>
-    <span class="col-sm-4 col-md-5">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'Task' %>
       <%= f.collection_select(:task_id, current_user.tasks.all, :id, :name) %>
     </span>

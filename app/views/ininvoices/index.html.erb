@@ -3,26 +3,23 @@
 <h2>Incomming invoice</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-1 col-md-offset-1">
-    <h4>Sequence</h4>
-  </span>
   <span class="col-sm-12 col-md-1">
     <h4>Number</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-12 col-md-2">
     <h4>Trade subject</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-12 col-md-2">
     <h4>Due date</h4>
   </span>
   <span class="col-sm-12 col-md-1">
     <h4>Currency</h4>
   </span>
   <span class="col-sm-12 col-md-1">
-    <h4>Total corrected base</h4>
+    <h4>Base</h4>
   </span>
   <span class="col-sm-12 col-md-1">
-    <h4>Total corrected VAT</h4>
+    <h4>VAT</h4>
   </span>
   <span class="col-sm-12 col-md-1">
     <h4>Paid</h4>
@@ -31,22 +28,18 @@
 
 <% @ininvoices.each do |ininvoice| %>
   <div class="row">
-    <span class="col-sm-12 col-md-1 col-md-offset-1">
-      <h5>
-        <%= if ininvoice.insequence_id then ininvoice.insequence.name end %>
-      </h5>
-    </span>
     <span class="col-sm-12 col-md-1">
       <h5>
+        <%= if ininvoice.insequence_id then ininvoice.insequence.name end %>
         <%= ininvoice.number %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-12 col-md-2">
       <h5>
         <%= if ininvoice.trade_subject_id then ininvoice.trade_subject.name end %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-12 col-md-2">
       <h5>
         <%= ininvoice.due_date %>
       </h5>
@@ -84,7 +77,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New incomming invoice', new_ininvoice_path, method: 'get' %>
   </span>
 </div>

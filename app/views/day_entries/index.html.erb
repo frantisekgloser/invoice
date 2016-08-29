@@ -3,46 +3,46 @@
 <h2>Day entries</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-1 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <h4>Day entry date</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <h4>Day entry from</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <h4>Day entry till</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-3 col-md-1">
     <h4>Invoiced?</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-3 col-md-2">
     <h4>Task</h4>
   </span>
 </div>
 
 <% @day_entries.each do |day_entry| %>
   <div class="row">
-    <span class="col-sm-12 col-md-1 col-md-offset-1">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= day_entry.date %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= day_entry.start %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= day_entry.stop %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-3 col-md-1">
       <h5>
         <%= day_entry.invoiced %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-3 col-md-2">
       <h5>
         <%= if day_entry.task_id then day_entry.task.name end %>
       </h5>
@@ -60,7 +60,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New day entry', new_day_entry_path, method: 'get' %>
   </span>
 </div>

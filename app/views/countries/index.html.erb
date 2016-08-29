@@ -4,7 +4,7 @@
 
 <% @countries.each do |country| %>
   <div class="row">
-    <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <span class="col-sm-12 col-md-4">
       <h5>
         <%= country.name %>
      </h5>
@@ -22,7 +22,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New country', new_country_path, method: 'get' %>
   </span>
 </div>

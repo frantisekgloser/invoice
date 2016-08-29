@@ -4,16 +4,16 @@
 <br>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
-    <%= button_to 'New country', new_country_path, method: 'get' %>
-  </span>
-  <span class="col-sm-6 col-md-2">
-    <%= button_to 'New province', new_province_path, method: 'get' %>
-  </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'Show', @city, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'Back', cities_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New country', new_country_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New province', new_province_path, method: 'get' %>
   </span>
 </div>

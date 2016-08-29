@@ -3,7 +3,7 @@
 <h2>Address links</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <h4>Address type</h4>
   </span>
   <span class="col-sm-12 col-md-2">
@@ -19,7 +19,7 @@
 
 <% @address_links.each do |address_link| %>
   <div class="row">
-    <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <span class="col-sm-12 col-md-2">
       <h5>
         <%= if address_link.address_type_id then address_link.address_type.name end %>
       </h5>
@@ -52,7 +52,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New address link', new_address_link_path, method: 'get' %>
   </span>
 </div>

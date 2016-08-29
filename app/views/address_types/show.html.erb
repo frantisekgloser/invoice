@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-4">
     <strong>Address type:</strong>
     <%= @address_type.name %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-4">
     <%= button_to 'Edit', edit_address_type_path(@address_type), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">

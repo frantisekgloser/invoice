@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <strong>Sequence:</strong>
     <%= if @ininvoice.insequence_id then @ininvoice.insequence.name end %>
   </span>
@@ -16,7 +16,7 @@
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-5 col-md-offset-1">
+  <span class="col-sm-12 col-md-5">
     <strong>Trade subject:</strong>
     <%= if @ininvoice.trade_subject_id then @ininvoice.trade_subject.name end %>
   </span>
@@ -27,7 +27,7 @@
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-3 col-md-offset-1">
+  <span class="col-sm-12 col-md-3">
     <strong>Reverse charge:</strong>
     <%= @ininvoice.reverse_charge %>
   </span>
@@ -42,7 +42,7 @@
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-5 col-md-offset-1">
+  <span class="col-sm-12 col-md-5">
     <strong>Original invoice:</strong>
     <%= @ininvoice.original_invoice %>
   </span>
@@ -57,7 +57,7 @@
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-5 col-md-offset-1">
+  <span class="col-sm-12 col-md-5">
     <strong>Original invoice md5:</strong>
     <%= @ininvoice.original_invoice_md5 %>
   </span>
@@ -72,7 +72,7 @@
 </div>
 <br>
 <div class="row">  
-  <span class="col-sm-12 col-md-5 col-md-offset-1">
+  <span class="col-sm-12 col-md-5">
     <strong>Translated invoice:</strong>
     <%= @ininvoice.translated_invoice %>
   </span>
@@ -87,7 +87,7 @@
 </div>
 <br>
 <div class="row">  
-  <span class="col-sm-12 col-md-5 col-md-offset-1">
+  <span class="col-sm-12 col-md-5">
     <strong>Translated invoice:</strong>
     <%= @ininvoice.translated_invoice_md5 %>
   </span>
@@ -98,7 +98,7 @@
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_ininvoice_path(@ininvoice), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
