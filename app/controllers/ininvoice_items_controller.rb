@@ -6,7 +6,6 @@ class IninvoiceItemsController < ApplicationController
   def index
     @ininvoice = Ininvoice.find(params[:ininvoice_id])
     @ininvoice.ininvoice_items.find params[:ininvoice_item_id]
-#   @ininvoice_items = policy_scope(IninvoiceItem)
   end
 
   def show
@@ -18,6 +17,7 @@ class IninvoiceItemsController < ApplicationController
   end
 
   def edit
+    @ininvoice = Ininvoice.find(params[:ininvoice_id])
   end
 
   def create
@@ -35,9 +35,8 @@ class IninvoiceItemsController < ApplicationController
   end
 
  def update
-    @ininvoice = Ininvoice.find(params[:ininvoice_id])
     respond_to do |format|
-      if @ininvoice.ininvoice_item.update(ininvoice_item_params)
+      if @ininvoice_item.update(ininvoice_item_params)
         format.html { redirect_to request.referrer, notice: 'Incomming invoice item was successfully updated.' }
         format.json { render :show, status: :ok, location: @ininvoice.ininvoice_item }
       else
@@ -48,8 +47,7 @@ class IninvoiceItemsController < ApplicationController
   end
 
   def destroy
-    @ininvoice = Ininvoice.find(params[:ininvoice_id])
-    @ininvoice.ininvoice_item.destroy
+    @ininvoice_item.destroy
     respond_to do |format|
       format.html { redirect_to request.referrer, notice: 'Incomming invoice item was successfully destroyed.' }
       format.json { head :no_content }

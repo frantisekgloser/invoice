@@ -21,7 +21,7 @@
 <br>
 <div class="row">
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Edit', edit_outinvoice_item_path(@outinvoice_item), method: 'get' %>
+    <%= button_to 'Edit', edit_outinvoice_outinvoice_item_path(@outinvoice_item.outinvoice_id, @outinvoice_item.id), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'Back', request.referrer, method: 'get' %>

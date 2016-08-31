@@ -1,5 +1,5 @@
-<%= form_for(@ininvoice_ininvoice_item) do |f| %>
-  <% if @ininvoice.ininvoice_item.errors.any? %>
+<%= form_for([@ininvoice, @ininvoice_item]) do |f| %>
+  <% if @ininvoice_item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ininvoice_item.errors.count, "error") %> prohibited this post from being saved:</h2>
 

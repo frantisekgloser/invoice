@@ -12,21 +12,24 @@ class OutinvoiceItemsController < ApplicationController
   end
 
   def new
-    @outinvoice_item = current_user.outinvoice_items.build
+    @outinvoice = Outinvoice.find(params[:outinvoice_id])
+    @outinvoice_item = @outinvoice.outinvoice_items.build
   end
 
   def edit
+    @outinvoice = Outinvoice.find(params[:outinvoice_id])
   end
 
   def create
-    @outinvoice_item = current_user.outinvoice_items.build(outinvoice_item_params)
+    @outinvoice = Outinvoice.find(params[:outinvoice_id])
+    @outinvoice_item = @outinvoice.outinvoice_items.build(outinvoice_item_params)
     respond_to do |format|
       if @outinvoice_item.save
-        format.html { redirect_to @outinvoice_item, notice: 'Outgoing invoice item successfully created.' }
-        format.json { render :show, status: :created, location: @outinvoice_item }
+        format.html { redirect_to "http://localhost:3000/outinvoices/#{@outinvoice.id}/edit?", notice: 'Incomming invoice item successfully created.' }
+        format.json { render :show, status: :created, location: @outinvoice.outinvoice_item }
       else
         format.html { render :new }
-        format.json { render json: @outinvoice_item.errors, status: :unprocessable_entity }
+        format.json { render json: @outinvoice.outinvoice_item.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -34,7 +37,7 @@ class OutinvoiceItemsController < ApplicationController
  def update
     respond_to do |format|
       if @outinvoice_item.update(outinvoice_item_params)
-        format.html { redirect_to outinvoice_outinvoice_items_url, notice: 'Outgoing invoice item was successfully updated.' }
+        format.html { redirect_to request.referrer, notice: 'Incomming invoice item was successfully updated.' }
         format.json { render :show, status: :ok, location: @outinvoice.outinvoice_item }
       else
         format.html { render :edit }
@@ -44,9 +47,9 @@ class OutinvoiceItemsController < ApplicationController
   end
 
   def destroy
-    @outinvoice.outinvoice_item.destroy
+    @outinvoice_item.destroy
     respond_to do |format|
-      format.html { redirect_to outinvoice.outinvoice_items_url, notice: 'Outgoing invoice item was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Incomming invoice item was successfully destroyed.' }
       format.json { head :no_content }
   end
 end
