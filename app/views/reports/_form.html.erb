@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="row">
-    <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <span class="col-sm-6 col-md-3">
       <%= f.label :'Date' %>
       <%= f.date_select :date %>
     </span>
-    <span class="col-sm-12 col-md-3">
+    <span class="col-sm-6 col-md-3">
       <%= f.label :'To pay' %>
       <%= f.text_field :to_pay %>
     </span>
   </div>
   <br>
   <div class="row">
-    <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <span class="col-sm-6 col-md-3">
       <%= f.label :'Report type' %>
       <%= f.collection_select(:report_type_id, current_user.report_types.all, :id, :name) %>
     </span>
-    <span class="col-sm-12 col-md-3">
+    <span class="col-sm-6 col-md-3">
       <%= f.label :'To receive' %>
       <%= f.text_field :to_receive %>
     </span>

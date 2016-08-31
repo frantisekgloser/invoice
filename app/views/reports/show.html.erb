@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-3">
     <strong>Date:</strong>
     <%= @report.date %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-3">
     <strong>To pay:</strong>
     <%= @report.to_pay %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-3">
     <strong>To receive:</strong>
     <%= @report.to_receive %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-3">
     <strong>Report type:</strong>
     <%= if @report.report_type_id then @report.report_type.name end %>
   </span>
@@ -24,6 +24,6 @@
     <%= button_to 'Edit', edit_report_path(@report), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', reports_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
 </div>

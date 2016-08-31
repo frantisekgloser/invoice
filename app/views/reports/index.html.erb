@@ -3,38 +3,38 @@
 <h2>Reports</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <h4>Date</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <h4>To pay</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <h4>To receive</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <h4>Report type</h4>
   </span>
 </div>
 
 <% @reports.each do |report| %>
   <div class="row">
-    <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= report.date %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= report.to_pay %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= report.to_receive %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= if report.report_type_id then report.report_type.name end  %>
       </h5>
@@ -52,7 +52,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New report', new_report_path, method: 'get' %>
   </span>
 </div>

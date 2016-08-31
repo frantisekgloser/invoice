@@ -8,7 +8,7 @@
     <%= button_to 'Show', @bank_account, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', bank_accounts_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'New bank', new_bank_path, method: 'get' %>

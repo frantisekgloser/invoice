@@ -3,70 +3,63 @@
 <h2>Outgoing invoices</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-1 col-md-offset-1">
-    <h4>Sequence</h4>
-  </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-6 col-md-1">
     <h4>Number</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-6 col-md-2">
     <h4>Trade subject</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-6 col-md-2">
     <h4>Due date</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-6 col-md-1">
     <h4>Currency</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
-    <h4>Total corrected base</h4>
+  <span class="col-sm-6 col-md-1">
+    <h4>Base</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
-    <h4>Total corrected VAT</h4>
+  <span class="col-sm-3 col-md-1">
+    <h4>VAT</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-3 col-md-1">
     <h4>Paid</h4>
   </span>
 </div>
 
 <% @outinvoices.each do |outinvoice| %>
   <div class="row">
-    <span class="col-sm-12 col-md-1 col-md-offset-1">
+    <span class="col-sm-6 col-md-1">
       <h5>
         <%= if outinvoice.outsequence_id then outinvoice.outsequence.name end %>
-      </h5>
-    </span>
-    <span class="col-sm-12 col-md-1">
-      <h5>
         <%= outinvoice.number %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= if outinvoice.trade_subject_id then outinvoice.trade_subject.name end %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= outinvoice.due_date %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-6 col-md-1">
       <h5>
         <%= if outinvoice.currency_id then outinvoice.currency.name end %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-6 col-md-1">
       <h5>
         <%= outinvoice.total_corrected_base %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-3 col-md-1">
       <h5>
         <%= outinvoice.total_corrected_vat %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-3 col-md-1">
       <h5>
         <%= outinvoice.paid %>
       </h5>
@@ -84,7 +77,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New outgoing invoice', new_outinvoice_path, method: 'get' %>
   </span>
 </div>

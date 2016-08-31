@@ -5,15 +5,15 @@
 <br>
 <div class="row">
   <span class="col-sm-6 col-md-2">
+    <%= button_to 'Show', @street, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', request.referrer, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'New city', new_city_path, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'New city part', new_city_part_path, method: 'get' %>
-  </span>
-  <span class="col-sm-6 col-md-2">
-    <%= button_to 'Show', @street, method: 'get' %>
-  </span>
-  <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', streets_path, method: 'get' %>
   </span>
 </div>

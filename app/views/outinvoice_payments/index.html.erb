@@ -3,38 +3,38 @@
 <h2>Outgoing invoice payments</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <h4>Amount</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <h4>Payment</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <h4>Outgoing invoice</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <h4>Exchange rate</h4>
   </span>
 </div>
 
 <% @outinvoice_payments.each do |outinvoice_payment| %>
   <div class="row">
-    <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= outinvoice_payment.amount %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= outinvoice_payment.payment_id %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= if outinvoice_payment.outinvoice_id then outinvoice_payment.outinvoice.number end %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= if outinvoice_payment.exchange_rate_id then outinvoice_payment.exchange_rate.rate end %>
       </h5>

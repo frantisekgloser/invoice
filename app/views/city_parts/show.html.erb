@@ -20,6 +20,6 @@
     <%= button_to 'Edit', edit_city_part_path(@city_part), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', city_parts_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
 </div>

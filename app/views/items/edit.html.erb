@@ -9,7 +9,7 @@
     <%= button_to 'Show', @item, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', items_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'New currency', new_currency_path, method: 'get' %>

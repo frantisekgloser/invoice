@@ -12,19 +12,19 @@
   <% end %>
 
   <div class="row">
-    <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <span class="col-sm-6 col-md-2">
       <%= f.label :'Amount' %>
       <%= f.text_field :amount %>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-2">
       <%= f.label :'Payment' %>
       <%= f.collection_select(:payment_id, current_user.payments.all, :id, :amount) %>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-2">
       <%= f.label :'Outgoing invoice' %>
       <%= f.collection_select(:outinvoice_id, current_user.outinvoices.all, :id, :number) %>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-2">
       <%= f.label :'Exchange rate' %>
       <%= f.collection_select(:exchange_rate_id, current_user.exchange_rates.all, :id, :rate) %>
     </span>

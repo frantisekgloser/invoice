@@ -3,14 +3,14 @@
 <h2>Payment types</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-4 col-md-offset-1">
+  <span class="col-sm-8 col-md-4">
     <h4>Payment type</h4>
   </span>
 </div>
 
 <% @payment_types.each do |payment_type| %>
   <div class="row">
-    <span class="col-sm-12 col-md-4 col-md-offset-1">
+    <span class="col-sm-8 col-md-4">
       <h5>
         <%= payment_type.name %>
       </h5>
@@ -28,7 +28,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New payment type', new_payment_type_path, method: 'get' %>
   </span>
 </div>

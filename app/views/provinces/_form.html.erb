@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="row">
-    <span class="col-sm-5 col-md-3 col-md-offset-1">
+    <span class="col-sm-6 col-md-4">
       <%= f.label :'Name' %>
       <%= f.text_field :name, size: 30 %>
     </span>
-    <span class="col-sm-4 col-md-3">
+    <span class="col-sm-4 col-md-4">
       <%= f.label :'Country' %>
       <%= f.collection_select(:country_id, current_user.countries.all, :id, :name) %>
     </span>

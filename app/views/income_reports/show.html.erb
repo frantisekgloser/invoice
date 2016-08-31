@@ -28,6 +28,6 @@
     <%= button_to 'Edit', edit_income_report_path(@income_report), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', income_reports_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
 </div>

@@ -1,26 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-3 col-md-offset-1">
+  <span class="col-sm-6 col-md-4">
     <strong>Date:</strong>
     <%= @payment.date %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>Amount:</strong>
     <%= @payment.amount %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>Currency:</strong>
     <%= if @payment.currency_id then @payment.currency.name end %>
   </span>
-  <span class="col-sm-12 col-md-3">
+  <span class="col-sm-6 col-md-4">
     <strong>Payment type:</strong>
     <%= if @payment.payment_type_id then @payment.payment_type.name end %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-3 col-md-offset-1">
+  <span class="col-sm-6 col-md-4">
     <strong>Trade subject:</strong>
     <%= if @payment.trade_subject_id then @payment.trade_subject.name end %>
   </span>
@@ -32,24 +32,24 @@
     <strong>VAT report:</strong>
     <%= if @payment.vat_report_id then @payment.vat_report.number end %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-12 col-md-4">
     <strong>Income report:</strong>
     <%= if @payment.income_report_id then @payment.income_report.number end %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-5 col-md-offset-1">
+  <span class="col-sm-12 col-md-4">
     <strong>Note:</strong>
     <%= @payment.note %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_payment_path(@payment), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', payments_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
 </div>

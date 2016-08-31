@@ -4,16 +4,16 @@
 <br>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
-    <%= button_to 'New Outgoing invoice', new_outinvoice_path, method: 'get' %>
-  </span>
-  <span class="col-sm-6 col-md-2">
-    <%= button_to 'New item', new_item_path, method: 'get' %>
-  </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'Show', @outinvoice_item, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', outinvoice_items_path, method: 'get' %>
+    <<%= button_to 'Back', request.referrer, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'New item', new_item_path, method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2 col-md-offset-1">
+    <%= button_to 'New Outgoing invoice', new_outinvoice_path, method: 'get' %>
   </span>
 </div>

@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-3">
     <strong>Name:</strong>
     <%= @trade_subject.name %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-3">
     <strong>Identification number:</strong>
     <%= @trade_subject.identification_number %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-3">
     <strong>VAT:</strong>
     <%= @trade_subject.vat %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_trade_subject_path(@trade_subject), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', trade_subjects_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
 </div>

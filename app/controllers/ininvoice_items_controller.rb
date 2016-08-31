@@ -4,49 +4,54 @@ class IninvoiceItemsController < ApplicationController
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @ininvoice_items = policy_scope(IninvoiceItem)
+    @ininvoice = Ininvoice.find(params[:ininvoice_id])
+    @ininvoice.ininvoice_items.find params[:ininvoice_item_id]
+#   @ininvoice_items = policy_scope(IninvoiceItem)
   end
 
   def show
   end
 
   def new
-    @ininvoice_item = current_user.ininvoice_items.build
+    @ininvoice = Ininvoice.find(params[:ininvoice_id])
+    @ininvoice_item = @ininvoice.ininvoice_items.build
   end
 
   def edit
   end
 
   def create
-    @ininvoice_item = current_user.ininvoice_items.build(ininvoice_item_params)
+    @ininvoice = Ininvoice.find(params[:ininvoice_id])
+    @ininvoice_item = @ininvoice.ininvoice_items.build(ininvoice_item_params)
     respond_to do |format|
       if @ininvoice_item.save
-        format.html { redirect_to @ininvoice_item, notice: 'Incomming invoice item successfully created.' }
-        format.json { render :show, status: :created, location: @ininvoice_item }
+        format.html { redirect_to "http://localhost:3000/ininvoices/#{@ininvoice.id}/edit?", notice: 'Incomming invoice item successfully created.' }
+        format.json { render :show, status: :created, location: @ininvoice.ininvoice_item }
       else
         format.html { render :new }
-        format.json { render json: @ininvoice_item.errors, status: :unprocessable_entity }
+        format.json { render json: @ininvoice.ininvoice_item.errors, status: :unprocessable_entity }
       end
     end
   end
 
  def update
+    @ininvoice = Ininvoice.find(params[:ininvoice_id])
     respond_to do |format|
-      if @ininvoice_item.update(ininvoice_item_params)
-        format.html { redirect_to ininvoice_items_url, notice: 'Incomming invoice item was successfully updated.' }
-#        format.html { redirect_to @ininvoice_item, notice: 'Incomming invoice was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ininvoice_item }
+      if @ininvoice.ininvoice_item.update(ininvoice_item_params)
+        format.html { redirect_to request.referrer, notice: 'Incomming invoice item was successfully updated.' }
+        format.json { render :show, status: :ok, location: @ininvoice.ininvoice_item }
       else
         format.html { render :edit }
-        format.json { render json: @ininvoice_item.errors, status: :unprocessable_entity }
+        format.json { render json: @ininvoice.ininvoice_item.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @ininvoice_item.destroy
+    @ininvoice = Ininvoice.find(params[:ininvoice_id])
+    @ininvoice.ininvoice_item.destroy
     respond_to do |format|
-      format.html { redirect_to ininvoice_items_url, notice: 'Incomming invoice item was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Incomming invoice item was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

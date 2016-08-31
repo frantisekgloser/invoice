@@ -3,14 +3,14 @@
 <h2>Report types</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-3 col-md-offset-1">
+  <span class="col-sm-12 col-md-6">
     <h4>Report type</h4>
   </span>
 </div>
 
 <% @report_types.each do |report_type| %>
   <div class="row">
-    <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <span class="col-sm-12 col-md-6">
       <h5>
         <%= report_type.name %>
       </h5>
@@ -28,7 +28,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New report type', new_report_type_path, method: 'get' %>
   </span>
 </div>

@@ -3,14 +3,14 @@
 <h2>Task types</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-9 col-md-4">
     <h4>Task type</h4>
   </span>
 </div>
 
 <% @task_types.each do |task_type| %>
   <div class="row">
-    <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <span class="col-sm-9 col-md-4">
       <h5>
         <%= task_type.name %>
       </h5>
@@ -28,7 +28,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New task type', new_task_type_path, method: 'get' %>
   </span>
 </div>

@@ -24,6 +24,6 @@
     <%= button_to 'Edit', edit_ininvoice_item_path(@ininvoice_item), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', ininvoice_items_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
 </div>

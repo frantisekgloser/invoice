@@ -1,97 +1,97 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-4 col-md-3">
     <strong>Sequence:</strong>
     <%= if @ininvoice.insequence_id then @ininvoice.insequence.name end %>
   </span>
-  <span class="col-sm-12 col-md-3">
+  <span class="col-sm-4 col-md-3">
     <strong>Number:</strong>
     <%= @ininvoice.number %>
   </span>
-  <span class="col-sm-12 col-md-3">
+  <span class="col-sm-4 col-md-3">
     <strong>Generated on date:</strong>
     <%= @ininvoice.generated_on_date %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-5">
+  <span class="col-sm-6 col-md-6">
     <strong>Trade subject:</strong>
     <%= if @ininvoice.trade_subject_id then @ininvoice.trade_subject.name end %>
   </span>
-  <span class="col-sm-12 col-md-3">
+  <span class="col-sm-6 col-md-3">
     <strong>Taxable supply date:</strong>
     <%= @ininvoice.taxable_supply_date %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-3">
+  <span class="col-sm-4 col-md-4">
     <strong>Reverse charge:</strong>
     <%= @ininvoice.reverse_charge %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-4 col-md-2">
     <strong>Paid:</strong>
     <%= @ininvoice.paid %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-4 col-md-2">
     <strong>Due date:</strong>
     <%= @ininvoice.due_date %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-5">
+  <span class="col-sm-4 col-md-6">
     <strong>Original invoice:</strong>
     <%= @ininvoice.original_invoice %>
   </span>
-  <span class="col-sm-12 col-md-3">
+  <span class="col-sm-4 col-md-3">
     <strong>Currency:</strong>
     <%= if @ininvoice.currency_id then @ininvoice.currency.name end %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-4 col-md-2">
     <strong>Exchange rate:</strong>
     <%= if @ininvoice.exchange_rate_id then @ininvoice.exchange_rate.rate end %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-5">
+  <span class="col-sm-4 col-md-6">
     <strong>Original invoice md5:</strong>
     <%= @ininvoice.original_invoice_md5 %>
   </span>
-  <span class="col-sm-12 col-md-3">
+  <span class="col-sm-4 col-md-3">
     <strong>Total computed base:</strong>
     <%= @ininvoice.total_computed_base %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-4 col-md-2">
     <strong>Total computed VAT:</strong>
     <%= @ininvoice.total_computed_vat %>
   </span>
 </div>
 <br>
 <div class="row">  
-  <span class="col-sm-12 col-md-5">
+  <span class="col-sm-4 col-md-6">
     <strong>Translated invoice:</strong>
     <%= @ininvoice.translated_invoice %>
   </span>
-  <span class="col-sm-12 col-md-3">
+  <span class="col-sm-4 col-md-3">
     <strong>Total corrected base:</strong>
     <%= @ininvoice.total_corrected_base %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-4 col-md-2">
     <strong>Total corrected VAT:</strong>
     <%= @ininvoice.total_corrected_vat %>
   </span>
 </div>
 <br>
 <div class="row">  
-  <span class="col-sm-12 col-md-5">
+  <span class="col-sm-6 col-md-6">
     <strong>Translated invoice:</strong>
     <%= @ininvoice.translated_invoice_md5 %>
   </span>
-  <span class="col-sm-12 col-md-5">
+  <span class="col-sm-6 col-md-5">
     <strong>Note:</strong>
     <%= @ininvoice.note %>
   </span>
@@ -102,6 +102,5 @@
     <%= button_to 'Edit', edit_ininvoice_path(@ininvoice), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', ininvoices_path, method: 'get' %>
-  </span>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
 </div>

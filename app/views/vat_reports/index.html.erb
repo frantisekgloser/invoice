@@ -3,16 +3,16 @@
 <h2>VAT reports</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-1 col-md-offset-1">
+  <span class="col-sm-6 col-md-1">
     <h4>Number</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-6 col-md-2">
     <h4>Date</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-6 col-md-1">
     <h4>To pay</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-6 col-md-2">
     <h4>To receive</h4>
   </span>
   <span class="col-sm-12 col-md-3">
@@ -22,22 +22,22 @@
 
 <% @vat_reports.each do |vat_report| %>
  <div class="row">
-    <span class="col-sm-12 col-md-1 col-md-offset-1">
+    <span class="col-sm-6 col-md-1">
       <h5>
         <%= vat_report.number %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= vat_report.date %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-6 col-md-1">
       <h5>
         <%= vat_report.to_pay %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= vat_report.to_receive %>
       </h5>
@@ -60,7 +60,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New VAT report', new_vat_report_path, method: 'get' %>
   </span>
 </div>

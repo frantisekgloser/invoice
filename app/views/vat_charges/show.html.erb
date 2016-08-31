@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-4">
     <strong>Percentage:</strong>
     <%= @vat_charge.percentage %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-4">
     <strong>Country:</strong>
     <%= if @vat_charge.country_id then @vat_charge.country.name end %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_vat_charge_path(@vat_charge), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', vat_charges_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
 </div>

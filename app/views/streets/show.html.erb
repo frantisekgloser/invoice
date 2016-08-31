@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-3">
     <strong>Name:</strong>
     <%= @street.name %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-3">
     <strong>City:</strong>
     <%= if @street.city_id then @street.city.name end %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-3">
     <strong>City part:</strong>
     <%= if @street.city_part_id then @street.city_part.name end %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_street_path(@street), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', streets_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
 </div>

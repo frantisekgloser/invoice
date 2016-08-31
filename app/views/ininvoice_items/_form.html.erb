@@ -1,5 +1,5 @@
-<%= form_for(@ininvoice_item) do |f| %>
-  <% if @ininvoice_item.errors.any? %>
+<%= form_for(@ininvoice_ininvoice_item) do |f| %>
+  <% if @ininvoice.ininvoice_item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ininvoice_item.errors.count, "error") %> prohibited this post from being saved:</h2>
 
@@ -16,17 +16,13 @@
       <%= f.label :'Item' %>
       <%= f.collection_select(:item_id, current_user.items.all, :id, :name) %>
     </span>
-    <span class="col-sm-4 col-md-2">
+    <span class="col-sm-4 col-md-3">
       <%= f.label :'Amount' %>
       <%= f.text_field :amount %>
     </span>
-    <span class="col-sm-3 col-md-2">
-      <%= f.label :'Incomming invoice' %>
-      <%= f.collection_select(:ininvoice_id, current_user.ininvoices.all, :id, :number) %>
-    </span>
-    <span class="col-sm-4 col-md-3">
-      <%= f.label :'Note' %>
-      <%= f.text_field :note %>
+    <span class="col-sm-3 col-md-3">
+      <%= f.label :'Note' %><br>
+      <%= f.text_area :note %>
     </span>
     <span class="actions">
       <%= f.submit %>

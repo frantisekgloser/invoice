@@ -1,16 +1,16 @@
-<h2>New outgoing invoice item</h2>
+<h4>New outgoing invoice item</h4>
 <br>
 <%= render 'form' %>
 <br>
 <br>
 <div class="row">   
-  <span class="col-sm-4 col-md-2 col-md-offset-1">
+  <span class="col-sm-4 col-md-2">
     <%= button_to 'New Outgoing invoice', new_outinvoice_path, method: 'get' %>
   </span>
   <span class="col-sm-4 col-md-2">
     <%= button_to 'New item', new_item_path, method: 'get' %>
   </span>
   <span class="col-sm-4 col-md-2">
-    <%= button_to 'Back', outinvoice_items_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
 </div>

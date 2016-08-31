@@ -3,63 +3,63 @@
 <h2>Incomming invoice</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-6 col-md-1">
     <h4>Number</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <h4>Trade subject</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <h4>Due date</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-6 col-md-1">
     <h4>Currency</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-6 col-md-1">
     <h4>Base</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-3 col-md-1">
     <h4>VAT</h4>
   </span>
-  <span class="col-sm-12 col-md-1">
+  <span class="col-sm-3 col-md-1">
     <h4>Paid</h4>
   </span>
 </div>
 
 <% @ininvoices.each do |ininvoice| %>
   <div class="row">
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-6 col-md-1">
       <h5>
         <%= if ininvoice.insequence_id then ininvoice.insequence.name end %>
         <%= ininvoice.number %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= if ininvoice.trade_subject_id then ininvoice.trade_subject.name end %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-2">
       <h5>
         <%= ininvoice.due_date %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-6 col-md-1">
       <h5>
         <%= if ininvoice.currency_id then ininvoice.currency.name end %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-6 col-md-1">
       <h5>
         <%= ininvoice.total_corrected_base %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-3 col-md-1">
       <h5>
         <%= ininvoice.total_corrected_vat %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-1">
+    <span class="col-sm-3 col-md-1">
       <h5>
         <%= ininvoice.paid %>
       </h5>

@@ -4,13 +4,13 @@
 <br>
 <br>
 <div class="row">   
-  <span class="col-sm-4 col-md-2 col-md-offset-1">
-    <%= button_to 'New outgoing invoice', new_outinvoice_path, method: 'get' %>
+  <span class="col-sm-4 col-md-2">
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
   <span class="col-sm-4 col-md-2">
     <%= button_to 'New exchange rate', new_exchange_rate_path, method: 'get' %>
   </span>
   <span class="col-sm-4 col-md-2">
-    <%= button_to 'Back', outinvoice_payments_path, method: 'get' %>
+    <%= button_to 'New outgoing invoice', new_outinvoice_path, method: 'get' %>
   </span>
 </div>

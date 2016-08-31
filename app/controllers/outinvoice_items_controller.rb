@@ -4,7 +4,8 @@ class OutinvoiceItemsController < ApplicationController
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @outinvoice_items = policy_scope(OutinvoiceItem)
+    @outinvoice = Outinvoice.find(params[:outinvoice_id])
+    @outinvoice.outinvoice_items.find params[:outinvoice_item_id]
   end
 
   def show
@@ -33,19 +34,19 @@ class OutinvoiceItemsController < ApplicationController
  def update
     respond_to do |format|
       if @outinvoice_item.update(outinvoice_item_params)
-        format.html { redirect_to outinvoice_items_url, notice: 'Outgoing invoice item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @outinvoice_item }
+        format.html { redirect_to outinvoice_outinvoice_items_url, notice: 'Outgoing invoice item was successfully updated.' }
+        format.json { render :show, status: :ok, location: @outinvoice.outinvoice_item }
       else
         format.html { render :edit }
-        format.json { render json: @outinvoice_item.errors, status: :unprocessable_entity }
+        format.json { render json: @outinvoice.outinvoice_item.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @outinvoice_item.destroy
+    @outinvoice.outinvoice_item.destroy
     respond_to do |format|
-      format.html { redirect_to outinvoice_items_url, notice: 'Outgoing invoice item was successfully destroyed.' }
+      format.html { redirect_to outinvoice.outinvoice_items_url, notice: 'Outgoing invoice item was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

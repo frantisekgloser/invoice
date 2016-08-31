@@ -1,11 +1,12 @@
 <%= render 'form' %>
+<%= render 'outinvoice_items/index' %>
 <br>
 <div class="row">
   <span class="col-sm-6 col-md-2">
     <%= button_to 'Show', @outinvoice, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', outinvoices_path, method: 'get' %>
+   <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'New currency', new_currency_path, method: 'get' %>  

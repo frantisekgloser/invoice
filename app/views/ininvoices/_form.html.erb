@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="row">
-    <h3>
+    <h4>
       <span class="col-sm-12 col-md-8">
         Editation of incomming invoice
       </span>
@@ -21,7 +21,7 @@
         <%= f.collection_select(:insequence_id, current_user.insequences.all, :id, :name) %>
         <%= f.text_field :number, size: 6 %>
       </span>
-    </h3>
+    </h4>
   </div>
   <br>
   <div class="row">
@@ -155,7 +155,7 @@
     </span>
     <br>
     <div class="row">
-      <span class="col-sm-12 col-md-1">
+      <span class="col-sm-12 col-md-1 col-md-offset-10">
         <span class="actions">
           <%= f.submit %>
         </span>

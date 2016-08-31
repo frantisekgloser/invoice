@@ -28,8 +28,9 @@
   <br>
   <div class="row">
     <span class="col-sm-4 col-md-3">    
-      <%= f.label :'Trade subject' %><br>
+      <%= f.label :'Trade subject' %>
       <%= f.collection_select(:trade_subject_id, current_user.trade_subjects.all, :id, :name) %>
+    </span>
     <span class="col-sm-4 col-md-3">
       <%= f.label :'Currency' %>
       <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>

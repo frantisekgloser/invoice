@@ -4,7 +4,9 @@ class IninvoicesController < ApplicationController
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @ininvoices = policy_scope(Ininvoice)
+    params[:from] == nil ? nil : $from=params[:from]
+    params[:till] == nil ? nil : $till=params[:till]
+    @ininvoices = policy_scope(Ininvoice).where(generated_on_date: $from.to_date..$till.to_date)
   end
 
   def show

@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-3">
+    <strong>Item:</strong>
+    <%= if @outinvoice_item.item_id then @outinvoice_item.item.name end %>
+  </span>
+  <span class="col-sm-3 col-md-3">
     <strong>Amount:</strong>
     <%= @outinvoice_item.amount %>
   </span>
-  <span class="col-sm-12 col-md-2">
-    <strong>Note:</strong>
-    <%= @outinvoice_item.note %>
-  </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-3 col-md-3">
     <strong>Outgoing invoice:</strong>
     <%= if @outinvoice_item.outinvoice_id then @outinvoice_item.outinvoice.number end %>
   </span>
-  <span class="col-sm-12 col-md-2">
-    <strong>Item:</strong>
-    <%= if @outinvoice_item.item_id then @outinvoice_item.item.name end %>
+  <span class="col-sm-12 col-md-3">
+    <strong>Note:</strong>
+    <%= @outinvoice_item.note %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_outinvoice_item_path(@outinvoice_item), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', outinvoice_items_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
 </div>

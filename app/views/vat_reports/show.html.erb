@@ -1,33 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <strong>Number:</strong>
     <%= @vat_report.number %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>Date:</strong>
     <%= @vat_report.date %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>To pay:</strong>
     <%= @vat_report.to_pay %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-2">
     <strong>To receive:</strong>
     <%= @vat_report.to_receive %>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-12 col-md-4">
     <strong>Note:</strong>
     <%= @vat_report.note %>
   </span>
 </div>
 <br>
 <div class="row">
-  <span class="col-sm-6 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-2">
     <%= button_to 'Edit', edit_vat_report_path(@vat_report), method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', vat_reports_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
 </div>

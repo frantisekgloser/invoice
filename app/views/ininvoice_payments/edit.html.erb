@@ -8,7 +8,7 @@
     <%= button_to 'Show', @ininvoice_payment, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', ininvoice_payments_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'New exchange rate', new_exchange_rate_path, method: 'get' %>

@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="row">
-    <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <span class="col-sm-6 col-md-3">
       <%= f.label :'Name' %>
       <%= f.text_field :name %>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-3">
       <%= f.label :'City' %>
       <%= f.collection_select(:city_id, current_user.cities.all, :id, :name) %>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-3">
       <%= f.label :'City part' %>
       <%= f.collection_select(:city_part_id, current_user.city_parts.all, :id, :name, :include_blank => true) %>
     </span>

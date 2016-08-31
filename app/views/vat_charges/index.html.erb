@@ -3,22 +3,22 @@
 <h2>VAT charges</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-3 col-md-offset-1">
+  <span class="col-sm-6 col-md-4">
     <h4>Percentage</h4>
   </span>
-  <span class="col-sm-12 col-md-3">
+  <span class="col-sm-6 col-md-4">
     <h4>Country</h4>
   </span>
 </div>
 
 <% @vat_charges.each do |vat_charge| %>
   <div class="row">
-    <span class="col-sm-12 col-md-3 col-md-offset-1">
+    <span class="col-sm-6 col-md-4">
       <h5>
         <%= vat_charge.percentage %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-3">
+    <span class="col-sm-6 col-md-4">
       <h5>
         <%= if vat_charge.country_id then vat_charge.country.name end %>
       </h5>
@@ -36,7 +36,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New vat_charge', new_vat_charge_path, method: 'get' %>
   </span>
 </div>

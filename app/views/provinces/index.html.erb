@@ -3,12 +3,12 @@
 <h2>Provinces</h1>
 
 <div class="row">
-  <span class="col-sm-3 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-4">
     <h4>
       Name
     </h4>
   </span>
-  <span class="col-sm-3 col-md-2">
+  <span class="col-sm-6 col-md-4">
     <h4>
       Country
     </h4>
@@ -17,12 +17,12 @@
 
 <% @provinces.each do |province| %>
   <div class="row">
-    <span class="col-sm-3 col-md-2 col-md-offset-1">
+    <span class="col-sm-6 col-md-4">
       <h5>
         <%= province.name %>
       </h5>
     </span>
-    <span class="col-sm-3 col-md-2">
+    <span class="col-sm-6 col-md-4">
       <h5>
         <%= if province.country_id then province.country.name end %>
       </h5>
@@ -40,7 +40,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New province', new_province_path, method: 'get' %>
   </span>
 </div>

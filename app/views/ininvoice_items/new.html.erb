@@ -1,4 +1,4 @@
-<h2>New incomming invoice item</h2>
+<h4>New incomming invoice item</h4>
 <br>
 <%= render 'form' %>
 <br>
@@ -11,6 +11,6 @@
     <%= button_to 'New item', new_item_path, method: 'get' %>
   </span>
   <span class="col-sm-4 col-md-2">
-    <%= button_to 'Back', ininvoice_items_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
 </div>

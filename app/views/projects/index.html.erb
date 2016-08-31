@@ -3,30 +3,30 @@
 <h2>Projects</h2>
 <br>
 <div class="row">
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-6 col-md-3">
     <h4>Name</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-3">
     <h4>Note</h4>
   </span>
-  <span class="col-sm-12 col-md-2">
+  <span class="col-sm-6 col-md-3">
     <h4>Trade subject</h4>
   </span>
 </div>
 
 <% @projects.each do |project| %>
   <div class="row">
-    <span class="col-sm-12 col-md-2 col-md-offset-1">
+    <span class="col-sm-6 col-md-3">
       <h5>
         <%= project.name %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-3">
       <h5>
         <%= project.note %>
       </h5>
     </span>
-    <span class="col-sm-12 col-md-2">
+    <span class="col-sm-6 col-md-3">
       <h5>
         <%= if project.trade_subject_id then project.trade_subject.name end %>
       </h5>
@@ -44,7 +44,7 @@
 <% end %>
 <br>
 <div class="row">   
-  <span class="col-sm-12 col-md-2 col-md-offset-1">
+  <span class="col-sm-12 col-md-2">
     <%= button_to 'New project', new_project_path, method: 'get' %>
   </span>
 </div>

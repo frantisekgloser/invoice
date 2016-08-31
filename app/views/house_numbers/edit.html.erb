@@ -8,7 +8,7 @@
     <%= button_to 'Show', @house_number, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
-    <%= button_to 'Back', house_numbers_path, method: 'get' %>
+    <%= button_to 'Back', request.referrer, method: 'get' %>
   </span>
   <span class="col-sm-6 col-md-2">
     <%= button_to 'New city', new_city_path, method: 'get' %>
