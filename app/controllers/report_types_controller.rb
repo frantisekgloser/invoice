@@ -21,7 +21,7 @@ class ReportTypesController < ApplicationController
     @report_type = current_user.report_types.build(report_type_params)
     respond_to do |format|
       if @report_type.save
-        format.html { redirect_to @report_type, notice: 'Report type successfully created.' }
+        format.html { redirect_to report_types_url, notice: 'Report type successfully created.' }
         format.json { render :show, status: :created, location: @report_type }
       else
         format.html { render :new }
@@ -34,7 +34,6 @@ class ReportTypesController < ApplicationController
     respond_to do |format|
       if @report_type.update(report_type_params)
         format.html { redirect_to report_types_url, notice: 'Report type was successfully updated.' }
-#        format.html { redirect_to @report_type, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @report_type }
       else
         format.html { render :edit }
@@ -46,7 +45,7 @@ class ReportTypesController < ApplicationController
   def destroy
     @report_type.destroy
     respond_to do |format|
-      format.html { redirect_to report_types_url, notice: 'Report type was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Report type was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

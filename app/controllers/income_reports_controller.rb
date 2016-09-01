@@ -21,7 +21,7 @@ class IncomeReportsController < ApplicationController
     @income_report = current_user.income_reports.build(income_report_params)
     respond_to do |format|
       if @income_report.save
-        format.html { redirect_to @income_report, notice: 'Income report successfully created.' }
+        format.html { redirect_to income_reports_url, notice: 'Income report successfully created.' }
         format.json { render :show, status: :created, location: @income_report }
       else
         format.html { render :new }
@@ -34,7 +34,6 @@ class IncomeReportsController < ApplicationController
     respond_to do |format|
       if @income_report.update(income_report_params)
         format.html { redirect_to income_reports_url, notice: 'Income report was successfully updated.' }
-#        format.html { redirect_to @income_report, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @income_report }
       else
         format.html { render :edit }
@@ -46,7 +45,7 @@ class IncomeReportsController < ApplicationController
   def destroy
     @income_report.destroy
     respond_to do |format|
-      format.html { redirect_to income_reports_url, notice: 'Income report was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Income report was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

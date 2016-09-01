@@ -21,7 +21,7 @@ class VatChargesController < ApplicationController
     @vat_charge = current_user.vat_charges.build(vat_charge_params)
     respond_to do |format|
       if @vat_charge.save
-        format.html { redirect_to @vat_charge, notice: 'VAT charge successfully created.' }
+        format.html { redirect_to vat_charges_url, notice: 'VAT charge successfully created.' }
         format.json { render :show, status: :created, location: @vat_charge }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class VatChargesController < ApplicationController
   def destroy
     @vat_charge.destroy
     respond_to do |format|
-      format.html { redirect_to vat_charges_url, notice: 'VAT charge was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'VAT charge was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

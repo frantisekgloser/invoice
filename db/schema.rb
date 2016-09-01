@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830054934) do
+ActiveRecord::Schema.define(version: 20160901152051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,36 +161,46 @@ ActiveRecord::Schema.define(version: 20160830054934) do
 
   add_index "income_reports", ["user_id"], name: "index_income_reports_on_user_id", using: :btree
 
-  create_table "ininvoice_items", force: :cascade do |t|
+  create_table "incomming_invoice_items", force: :cascade do |t|
     t.float    "amount"
     t.text     "note"
-    t.integer  "ininvoice_id"
+    t.integer  "incomming_invoice_id"
     t.integer  "item_id"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  add_index "ininvoice_items", ["ininvoice_id"], name: "index_ininvoice_items_on_ininvoice_id", using: :btree
-  add_index "ininvoice_items", ["item_id"], name: "index_ininvoice_items_on_item_id", using: :btree
-  add_index "ininvoice_items", ["user_id"], name: "index_ininvoice_items_on_user_id", using: :btree
+  add_index "incomming_invoice_items", ["incomming_invoice_id"], name: "index_incomming_invoice_items_on_incomming_invoice_id", using: :btree
+  add_index "incomming_invoice_items", ["item_id"], name: "index_incomming_invoice_items_on_item_id", using: :btree
+  add_index "incomming_invoice_items", ["user_id"], name: "index_incomming_invoice_items_on_user_id", using: :btree
 
-  create_table "ininvoice_payments", force: :cascade do |t|
+  create_table "incomming_invoice_payments", force: :cascade do |t|
     t.float    "amount"
     t.integer  "payment_id"
-    t.integer  "ininvoice_id"
+    t.integer  "incomming_invoice_id"
     t.integer  "exchange_rate_id"
     t.integer  "user_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  add_index "ininvoice_payments", ["exchange_rate_id"], name: "index_ininvoice_payments_on_exchange_rate_id", using: :btree
-  add_index "ininvoice_payments", ["ininvoice_id"], name: "index_ininvoice_payments_on_ininvoice_id", using: :btree
-  add_index "ininvoice_payments", ["payment_id"], name: "index_ininvoice_payments_on_payment_id", using: :btree
-  add_index "ininvoice_payments", ["user_id"], name: "index_ininvoice_payments_on_user_id", using: :btree
+  add_index "incomming_invoice_payments", ["exchange_rate_id"], name: "index_incomming_invoice_payments_on_exchange_rate_id", using: :btree
+  add_index "incomming_invoice_payments", ["incomming_invoice_id"], name: "index_incomming_invoice_payments_on_incomming_invoice_id", using: :btree
+  add_index "incomming_invoice_payments", ["payment_id"], name: "index_incomming_invoice_payments_on_payment_id", using: :btree
+  add_index "incomming_invoice_payments", ["user_id"], name: "index_incomming_invoice_payments_on_user_id", using: :btree
 
-  create_table "ininvoices", force: :cascade do |t|
+  create_table "incomming_invoice_sequences", force: :cascade do |t|
+    t.string   "name"
+    t.text     "note"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "incomming_invoice_sequences", ["user_id"], name: "index_incomming_invoice_sequences_on_user_id", using: :btree
+
+  create_table "incomming_invoices", force: :cascade do |t|
     t.integer  "number"
     t.date     "generated_on_date"
     t.date     "taxable_supply_date"
@@ -206,30 +216,20 @@ ActiveRecord::Schema.define(version: 20160830054934) do
     t.string   "original_invoice_md5"
     t.binary   "translated_invoice"
     t.string   "translated_invoice_md5"
-    t.integer  "insequence_id"
+    t.integer  "incomming_invoice_sequence_id"
     t.integer  "trade_subject_id"
     t.integer  "currency_id"
     t.integer  "exchange_rate_id"
     t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
-  add_index "ininvoices", ["currency_id"], name: "index_ininvoices_on_currency_id", using: :btree
-  add_index "ininvoices", ["exchange_rate_id"], name: "index_ininvoices_on_exchange_rate_id", using: :btree
-  add_index "ininvoices", ["insequence_id"], name: "index_ininvoices_on_insequence_id", using: :btree
-  add_index "ininvoices", ["trade_subject_id"], name: "index_ininvoices_on_trade_subject_id", using: :btree
-  add_index "ininvoices", ["user_id"], name: "index_ininvoices_on_user_id", using: :btree
-
-  create_table "insequences", force: :cascade do |t|
-    t.string   "name"
-    t.text     "note"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "insequences", ["user_id"], name: "index_insequences_on_user_id", using: :btree
+  add_index "incomming_invoices", ["currency_id"], name: "index_incomming_invoices_on_currency_id", using: :btree
+  add_index "incomming_invoices", ["exchange_rate_id"], name: "index_incomming_invoices_on_exchange_rate_id", using: :btree
+  add_index "incomming_invoices", ["incomming_invoice_sequence_id"], name: "index_incomming_invoices_on_incomming_invoice_sequence_id", using: :btree
+  add_index "incomming_invoices", ["trade_subject_id"], name: "index_incomming_invoices_on_trade_subject_id", using: :btree
+  add_index "incomming_invoices", ["user_id"], name: "index_incomming_invoices_on_user_id", using: :btree
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -248,36 +248,46 @@ ActiveRecord::Schema.define(version: 20160830054934) do
   add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
   add_index "items", ["vat_charge_id"], name: "index_items_on_vat_charge_id", using: :btree
 
-  create_table "outinvoice_items", force: :cascade do |t|
+  create_table "outgoing_invoice_items", force: :cascade do |t|
     t.float    "amount"
     t.text     "note"
-    t.integer  "outinvoice_id"
+    t.integer  "outgoing_invoice_id"
     t.integer  "item_id"
     t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
-  add_index "outinvoice_items", ["item_id"], name: "index_outinvoice_items_on_item_id", using: :btree
-  add_index "outinvoice_items", ["outinvoice_id"], name: "index_outinvoice_items_on_outinvoice_id", using: :btree
-  add_index "outinvoice_items", ["user_id"], name: "index_outinvoice_items_on_user_id", using: :btree
+  add_index "outgoing_invoice_items", ["item_id"], name: "index_outgoing_invoice_items_on_item_id", using: :btree
+  add_index "outgoing_invoice_items", ["outgoing_invoice_id"], name: "index_outgoing_invoice_items_on_outgoing_invoice_id", using: :btree
+  add_index "outgoing_invoice_items", ["user_id"], name: "index_outgoing_invoice_items_on_user_id", using: :btree
 
-  create_table "outinvoice_payments", force: :cascade do |t|
+  create_table "outgoing_invoice_payments", force: :cascade do |t|
     t.float    "amount"
     t.integer  "payment_id"
-    t.integer  "outinvoice_id"
+    t.integer  "outgoing_invoice_id"
     t.integer  "exchange_rate_id"
     t.integer  "user_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
-  add_index "outinvoice_payments", ["exchange_rate_id"], name: "index_outinvoice_payments_on_exchange_rate_id", using: :btree
-  add_index "outinvoice_payments", ["outinvoice_id"], name: "index_outinvoice_payments_on_outinvoice_id", using: :btree
-  add_index "outinvoice_payments", ["payment_id"], name: "index_outinvoice_payments_on_payment_id", using: :btree
-  add_index "outinvoice_payments", ["user_id"], name: "index_outinvoice_payments_on_user_id", using: :btree
+  add_index "outgoing_invoice_payments", ["exchange_rate_id"], name: "index_outgoing_invoice_payments_on_exchange_rate_id", using: :btree
+  add_index "outgoing_invoice_payments", ["outgoing_invoice_id"], name: "index_outgoing_invoice_payments_on_outgoing_invoice_id", using: :btree
+  add_index "outgoing_invoice_payments", ["payment_id"], name: "index_outgoing_invoice_payments_on_payment_id", using: :btree
+  add_index "outgoing_invoice_payments", ["user_id"], name: "index_outgoing_invoice_payments_on_user_id", using: :btree
 
-  create_table "outinvoices", force: :cascade do |t|
+  create_table "outgoing_invoice_sequences", force: :cascade do |t|
+    t.string   "name"
+    t.text     "note"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "outgoing_invoice_sequences", ["user_id"], name: "index_outgoing_invoice_sequences_on_user_id", using: :btree
+
+  create_table "outgoing_invoices", force: :cascade do |t|
     t.integer  "number"
     t.date     "generated_on_date"
     t.date     "taxable_supply_date"
@@ -293,30 +303,20 @@ ActiveRecord::Schema.define(version: 20160830054934) do
     t.string   "original_invoice_md5"
     t.binary   "translated_invoice"
     t.string   "translated_invoice_md5"
-    t.integer  "outsequence_id"
+    t.integer  "outgoing_invoice_sequence_id"
     t.integer  "trade_subject_id"
     t.integer  "currency_id"
     t.integer  "exchange_rate_id"
     t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
-  add_index "outinvoices", ["currency_id"], name: "index_outinvoices_on_currency_id", using: :btree
-  add_index "outinvoices", ["exchange_rate_id"], name: "index_outinvoices_on_exchange_rate_id", using: :btree
-  add_index "outinvoices", ["outsequence_id"], name: "index_outinvoices_on_outsequence_id", using: :btree
-  add_index "outinvoices", ["trade_subject_id"], name: "index_outinvoices_on_trade_subject_id", using: :btree
-  add_index "outinvoices", ["user_id"], name: "index_outinvoices_on_user_id", using: :btree
-
-  create_table "outsequences", force: :cascade do |t|
-    t.string   "name"
-    t.text     "note"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "outsequences", ["user_id"], name: "index_outsequences_on_user_id", using: :btree
+  add_index "outgoing_invoices", ["currency_id"], name: "index_outgoing_invoices_on_currency_id", using: :btree
+  add_index "outgoing_invoices", ["exchange_rate_id"], name: "index_outgoing_invoices_on_exchange_rate_id", using: :btree
+  add_index "outgoing_invoices", ["outgoing_invoice_sequence_id"], name: "index_outgoing_invoices_on_outgoing_invoice_sequence_id", using: :btree
+  add_index "outgoing_invoices", ["trade_subject_id"], name: "index_outgoing_invoices_on_trade_subject_id", using: :btree
+  add_index "outgoing_invoices", ["user_id"], name: "index_outgoing_invoices_on_user_id", using: :btree
 
   create_table "payment_types", force: :cascade do |t|
     t.string   "name"
@@ -525,36 +525,36 @@ ActiveRecord::Schema.define(version: 20160830054934) do
   add_foreign_key "house_numbers", "streets"
   add_foreign_key "house_numbers", "users"
   add_foreign_key "income_reports", "users"
-  add_foreign_key "ininvoice_items", "ininvoices"
-  add_foreign_key "ininvoice_items", "items"
-  add_foreign_key "ininvoice_items", "users"
-  add_foreign_key "ininvoice_payments", "exchange_rates"
-  add_foreign_key "ininvoice_payments", "ininvoices"
-  add_foreign_key "ininvoice_payments", "payments"
-  add_foreign_key "ininvoice_payments", "users"
-  add_foreign_key "ininvoices", "currencies"
-  add_foreign_key "ininvoices", "exchange_rates"
-  add_foreign_key "ininvoices", "insequences"
-  add_foreign_key "ininvoices", "trade_subjects"
-  add_foreign_key "ininvoices", "users"
-  add_foreign_key "insequences", "users"
+  add_foreign_key "incomming_invoice_items", "incomming_invoices"
+  add_foreign_key "incomming_invoice_items", "items"
+  add_foreign_key "incomming_invoice_items", "users"
+  add_foreign_key "incomming_invoice_payments", "exchange_rates"
+  add_foreign_key "incomming_invoice_payments", "incomming_invoices"
+  add_foreign_key "incomming_invoice_payments", "payments"
+  add_foreign_key "incomming_invoice_payments", "users"
+  add_foreign_key "incomming_invoice_sequences", "users"
+  add_foreign_key "incomming_invoices", "currencies"
+  add_foreign_key "incomming_invoices", "exchange_rates"
+  add_foreign_key "incomming_invoices", "incomming_invoice_sequences"
+  add_foreign_key "incomming_invoices", "trade_subjects"
+  add_foreign_key "incomming_invoices", "users"
   add_foreign_key "items", "currencies"
   add_foreign_key "items", "trade_subjects"
   add_foreign_key "items", "users"
   add_foreign_key "items", "vat_charges"
-  add_foreign_key "outinvoice_items", "items"
-  add_foreign_key "outinvoice_items", "outinvoices"
-  add_foreign_key "outinvoice_items", "users"
-  add_foreign_key "outinvoice_payments", "exchange_rates"
-  add_foreign_key "outinvoice_payments", "outinvoices"
-  add_foreign_key "outinvoice_payments", "payments"
-  add_foreign_key "outinvoice_payments", "users"
-  add_foreign_key "outinvoices", "currencies"
-  add_foreign_key "outinvoices", "exchange_rates"
-  add_foreign_key "outinvoices", "outsequences"
-  add_foreign_key "outinvoices", "trade_subjects"
-  add_foreign_key "outinvoices", "users"
-  add_foreign_key "outsequences", "users"
+  add_foreign_key "outgoing_invoice_items", "items"
+  add_foreign_key "outgoing_invoice_items", "outgoing_invoices"
+  add_foreign_key "outgoing_invoice_items", "users"
+  add_foreign_key "outgoing_invoice_payments", "exchange_rates"
+  add_foreign_key "outgoing_invoice_payments", "outgoing_invoices"
+  add_foreign_key "outgoing_invoice_payments", "payments"
+  add_foreign_key "outgoing_invoice_payments", "users"
+  add_foreign_key "outgoing_invoice_sequences", "users"
+  add_foreign_key "outgoing_invoices", "currencies"
+  add_foreign_key "outgoing_invoices", "exchange_rates"
+  add_foreign_key "outgoing_invoices", "outgoing_invoice_sequences"
+  add_foreign_key "outgoing_invoices", "trade_subjects"
+  add_foreign_key "outgoing_invoices", "users"
   add_foreign_key "payment_types", "users"
   add_foreign_key "payments", "bank_accounts"
   add_foreign_key "payments", "currencies"

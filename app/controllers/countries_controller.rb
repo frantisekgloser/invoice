@@ -21,7 +21,7 @@ class CountriesController < ApplicationController
     @country = current_user.countries.build(country_params)
     respond_to do |format|
       if @country.save
-        format.html { redirect_to @country, notice: 'Country successfully created.' }
+        format.html { redirect_to countries_url, notice: 'Country successfully created.' }
         format.json { render :show, status: :created, location: @country }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class CountriesController < ApplicationController
   def destroy
     @country.destroy
     respond_to do |format|
-      format.html { redirect_to countries_url, notice: 'Country was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Country was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

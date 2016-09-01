@@ -21,7 +21,7 @@ class AddressLinksController < ApplicationController
     @address_link = current_user.address_links.build(address_link_params)
     respond_to do |format|
       if @address_link.save
-        format.html { redirect_to @address_link, notice: 'Address link successfully created.' }
+        format.html { redirect_to address_links_url, notice: 'Address link successfully created.' }
         format.json { render :show, status: :created, location: @address_link }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class AddressLinksController < ApplicationController
   def destroy
     @address_link.destroy
     respond_to do |format|
-      format.html { redirect_to address_links_url, notice: 'Address link was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Address link was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

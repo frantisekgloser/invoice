@@ -21,7 +21,7 @@ class TaskTypesController < ApplicationController
     @task_type = current_user.task_types.build(task_type_params)
     respond_to do |format|
       if @task_type.save
-        format.html { redirect_to @task_type, notice: 'Task type successfully created.' }
+        format.html { redirect_to task_types_url, notice: 'Task type successfully created.' }
         format.json { render :show, status: :created, location: @task_type }
       else
         format.html { render :new }
@@ -34,7 +34,6 @@ class TaskTypesController < ApplicationController
     respond_to do |format|
       if @task_type.update(task_type_params)
         format.html { redirect_to task_types_url, notice: 'Task type was successfully updated.' }
-#        format.html { redirect_to @task_type, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @task_type }
       else
         format.html { render :edit }
@@ -46,7 +45,7 @@ class TaskTypesController < ApplicationController
   def destroy
     @task_type.destroy
     respond_to do |format|
-      format.html { redirect_to task_types_url, notice: 'Task type was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Task type was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

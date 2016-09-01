@@ -1,21 +1,20 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :address_links
-  #, controller: 'address_links'
-  resources :address_types, :banks, :bank_accounts, :cities, :city_parts
-  resources :countries, :currencies, :day_entries, :exchange_rates, :house_numbers
-  resources :income_reports, :ininvoice_payments, :insequences, :items
-  resources :outinvoice_payments, :outsequences, :payments, :payment_types, :projects
+  resources :address_links, :address_types, :banks, :bank_accounts, :cities
+  resources :city_parts, :countries, :currencies, :day_entries, :exchange_rates
+  resources :house_numbers, :income_reports, :incomming_invoice_payments
+  resources :incomming_invoice_sequences, :items, :outgoing_invoice_payments
+  resources :outgoing_invoice_sequences, :payments, :payment_types, :projects
   resources :provinces, :reports, :report_types, :streets, :tasks, :task_types 
   resources :trade_subjects, :users, :vat_charges, :vat_reports
   
-  resources :ininvoices do
-    resources :ininvoice_items
+  resources :incomming_invoices do
+    resources :incomming_invoice_items
   end
   
-  resources :outinvoices do
-    resources :outinvoice_items
+  resources :outgoing_invoices do
+    resources :outgoing_invoice_items
   end 
 
   get 'home/index'

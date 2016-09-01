@@ -1,3 +1,0 @@
-class OutinvoicePaymentPolicy < ApplicationPolicy
-
-end

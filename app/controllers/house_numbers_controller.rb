@@ -21,7 +21,7 @@ class HouseNumbersController < ApplicationController
     @house_number = current_user.house_numbers.build(house_number_params)
     respond_to do |format|
       if @house_number.save
-        format.html { redirect_to @house_number, notice: 'Address link successfully created.' }
+        format.html { redirect_to house_numbers_url, notice: 'Address link successfully created.' }
         format.json { render :show, status: :created, location: @house_number }
       else
         format.html { render :new }
@@ -34,7 +34,6 @@ class HouseNumbersController < ApplicationController
     respond_to do |format|
       if @house_number.update(house_number_params)
         format.html { redirect_to house_numbers_url, notice: 'Address link was successfully updated.' }
-#        format.html { redirect_to @house_number, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @house_number }
       else
         format.html { render :edit }
@@ -46,7 +45,7 @@ class HouseNumbersController < ApplicationController
   def destroy
     @house_number.destroy
     respond_to do |format|
-      format.html { redirect_to house_numbers_url, notice: 'Address link was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Address link was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

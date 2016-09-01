@@ -1,3 +1,0 @@
-class InsequencePolicy < ApplicationPolicy
-
-end

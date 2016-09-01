@@ -1,3 +1,0 @@
-class IninvoiceItemPolicy < ApplicationPolicy
-
-end

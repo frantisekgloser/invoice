@@ -21,7 +21,7 @@ class TradeSubjectsController < ApplicationController
     @trade_subject = current_user.trade_subjects.build(trade_subject_params)
     respond_to do |format|
       if @trade_subject.save
-        format.html { redirect_to @trade_subject, notice: 'Trade subject successfully created.' }
+        format.html { redirect_to trade_subjects_url, notice: 'Trade subject successfully created.' }
         format.json { render :show, status: :created, location: @trade_subject }
       else
         format.html { render :new }
@@ -34,7 +34,6 @@ class TradeSubjectsController < ApplicationController
     respond_to do |format|
       if @trade_subject.update(trade_subject_params)
         format.html { redirect_to trade_subjects_url, notice: 'Trade subject was successfully updated.' }
-#        format.html { redirect_to @trade_subject, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @trade_subject }
       else
         format.html { render :edit }
@@ -46,7 +45,7 @@ class TradeSubjectsController < ApplicationController
   def destroy
     @trade_subject.destroy
     respond_to do |format|
-      format.html { redirect_to trade_subjects_url, notice: 'Trade subject was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Trade subject was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

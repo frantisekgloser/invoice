@@ -21,7 +21,7 @@ class ExchangeRatesController < ApplicationController
     @exchange_rate = current_user.exchange_rates.build(exchange_rate_params)
     respond_to do |format|
       if @exchange_rate.save
-        format.html { redirect_to @exchange_rate, notice: 'Exchange rate successfully created.' }
+        format.html { redirect_to exchange_rates_url, notice: 'Exchange rate successfully created.' }
         format.json { render :show, status: :created, location: @exchange_rate }
       else
         format.html { render :new }
@@ -34,7 +34,6 @@ class ExchangeRatesController < ApplicationController
     respond_to do |format|
       if @exchange_rate.update(exchange_rate_params)
         format.html { redirect_to exchange_rates_url, notice: 'Exchange rate was successfully updated.' }
-#        format.html { redirect_to @exchange_rate, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @exchange_rate }
       else
         format.html { render :edit }
@@ -46,7 +45,7 @@ class ExchangeRatesController < ApplicationController
   def destroy
     @exchange_rate.destroy
     respond_to do |format|
-      format.html { redirect_to exchange_rates_url, notice: 'Exchange rate was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Exchange rate was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

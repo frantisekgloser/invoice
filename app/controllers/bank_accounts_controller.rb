@@ -21,7 +21,7 @@ class BankAccountsController < ApplicationController
     @bank_account = current_user.bank_accounts.build(bank_account_params)
     respond_to do |format|
       if @bank_account.save
-        format.html { redirect_to @bank_account, notice: 'Bank account successfully created.' }
+        format.html { redirect_to bank_accounts_url, notice: 'Bank account successfully created.' }
         format.json { render :show, status: :created, location: @bank_account }
       else
         format.html { render :new }
@@ -34,7 +34,6 @@ class BankAccountsController < ApplicationController
     respond_to do |format|
       if @bank_account.update(bank_account_params)
         format.html { redirect_to bank_accounts_url, notice: 'Bank account was successfully updated.' }
-#        format.html { redirect_to @bank_account, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @bank_account }
       else
         format.html { render :edit }
@@ -46,7 +45,7 @@ class BankAccountsController < ApplicationController
   def destroy
     @bank_account.destroy
     respond_to do |format|
-      format.html { redirect_to bank_accounts_url, notice: 'Bank account was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Bank account was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

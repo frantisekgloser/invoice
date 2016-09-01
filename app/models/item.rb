@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
   belongs_to :trade_subject
   belongs_to :user
 
-  has_many :ininvoice_items, :dependent => :destroy
-  has_many :outinvoice_items, :dependent => :destroy
+  has_many :incomming_invoice_items, :dependent => :destroy
+  has_many :outgoing_invoice_items, :dependent => :destroy
 
 end

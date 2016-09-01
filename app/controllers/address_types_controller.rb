@@ -21,7 +21,7 @@ class AddressTypesController < ApplicationController
     @address_type = current_user.address_types.build(address_type_params)
     respond_to do |format|
       if @address_type.save
-        format.html { redirect_to @address_type, notice: 'Address type successfully created.' }
+        format.html { redirect_to address_types_url, notice: 'Address type successfully created.' }
         format.json { render :show, status: :created, location: @address_type }
       else
         format.html { render :new }
@@ -34,7 +34,6 @@ class AddressTypesController < ApplicationController
     respond_to do |format|
       if @address_type.update(address_type_params)
         format.html { redirect_to address_types_url, notice: 'Address type was successfully updated.' }
-#        format.html { redirect_to @address_type, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @address_type }
       else
         format.html { render :edit }
@@ -46,7 +45,7 @@ class AddressTypesController < ApplicationController
   def destroy
     @address_type.destroy
     respond_to do |format|
-      format.html { redirect_to address_types_url, notice: 'Address type was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Address type was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

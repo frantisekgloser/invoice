@@ -21,7 +21,7 @@ class StreetsController < ApplicationController
     @street = current_user.streets.build(street_params)
     respond_to do |format|
       if @street.save
-        format.html { redirect_to @street, notice: 'Street was successfully created.' }
+        format.html { redirect_to streets_url, notice: 'Street was successfully created.' }
         format.json { render :show, status: :created, location: @street }
       else
         format.html { render :new }
@@ -34,7 +34,6 @@ class StreetsController < ApplicationController
     respond_to do |format|
       if @street.update(street_params)
         format.html { redirect_to streets_url, notice: 'Street was successfully updated.' }
-#        format.html { redirect_to @street, notice: 'Street was successfully updated.' }
         format.json { render :show, status: :ok, location: @street }
       else
         format.html { render :edit }
@@ -46,7 +45,7 @@ class StreetsController < ApplicationController
   def destroy
     @street.destroy
     respond_to do |format|
-      format.html { redirect_to streets_url, notice: 'Street was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Street was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

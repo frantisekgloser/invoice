@@ -7,7 +7,7 @@ class Payment < ActiveRecord::Base
   belongs_to :income_report
   belongs_to :user
 
-  has_many :ininvoice_payments, :dependent => :destroy
-  has_many :outinvoice_payments, :dependent => :destroy
+  has_many :incomming_invoice_payments, :dependent => :destroy
+  has_many :outgoing_invoice_payments, :dependent => :destroy
 
 end

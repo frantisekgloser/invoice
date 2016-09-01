@@ -21,7 +21,7 @@ class VatReportsController < ApplicationController
     @vat_report = current_user.vat_reports.build(vat_report_params)
     respond_to do |format|
       if @vat_report.save
-        format.html { redirect_to @vat_report, notice: 'Vat report successfully created.' }
+        format.html { redirect_to vat_reports_url, notice: 'Vat report successfully created.' }
         format.json { render :show, status: :created, location: @vat_report }
       else
         format.html { render :new }
@@ -34,7 +34,6 @@ class VatReportsController < ApplicationController
     respond_to do |format|
       if @vat_report.update(vat_report_params)
         format.html { redirect_to vat_reports_url, notice: 'Vat report was successfully updated.' }
-#        format.html { redirect_to @vat_report, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @vat_report }
       else
         format.html { render :edit }
@@ -46,7 +45,7 @@ class VatReportsController < ApplicationController
   def destroy
     @vat_report.destroy
     respond_to do |format|
-      format.html { redirect_to vat_reports_url, notice: 'Vat report was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Vat report was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

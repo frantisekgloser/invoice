@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-#  after_action :verify_authorized
+  after_action :verify_authorized
 
   def show
     sign_out :user

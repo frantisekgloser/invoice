@@ -21,7 +21,7 @@ class DayEntriesController < ApplicationController
     @day_entry = current_user.day_entries.build(day_entry_params)
     respond_to do |format|
       if @day_entry.save
-        format.html { redirect_to @day_entry, notice: 'Day entry successfully created.' }
+        format.html { redirect_to day_entries_url, notice: 'Day entry successfully created.' }
         format.json { render :show, status: :created, location: @day_entry }
       else
         format.html { render :new }
@@ -34,7 +34,6 @@ class DayEntriesController < ApplicationController
     respond_to do |format|
       if @day_entry.update(day_entry_params)
         format.html { redirect_to day_entries_url, notice: 'Day entry was successfully updated.' }
-#        format.html { redirect_to @day_entry, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @day_entry }
       else
         format.html { render :edit }
@@ -46,7 +45,7 @@ class DayEntriesController < ApplicationController
   def destroy
     @day_entry.destroy
     respond_to do |format|
-      format.html { redirect_to day_entries_url, notice: 'Day entry was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Day entry was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

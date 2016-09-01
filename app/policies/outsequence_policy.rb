@@ -1,3 +1,0 @@
-class OutsequencePolicy < ApplicationPolicy
-
-end

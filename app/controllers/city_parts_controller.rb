@@ -21,7 +21,7 @@ class CityPartsController < ApplicationController
     @city_part = current_user.city_parts.build(city_part_params)
     respond_to do |format|
       if @city_part.save
-        format.html { redirect_to @city_part, notice: 'City part successfully created.' }
+        format.html { redirect_to city_parts_url, notice: 'City part successfully created.' }
         format.json { render :show, status: :created, location: @city_part }
       else
         format.html { render :new }
@@ -34,7 +34,6 @@ class CityPartsController < ApplicationController
     respond_to do |format|
       if @city_part.update(city_part_params)
         format.html { redirect_to city_parts_url, notice: 'City part was successfully updated.' }
-#        format.html { redirect_to @city_part, notice: 'Incomming invoice was successfully updated.' }
         format.json { render :show, status: :ok, location: @city_part }
       else
         format.html { render :edit }
@@ -46,7 +45,7 @@ class CityPartsController < ApplicationController
   def destroy
     @city_part.destroy
     respond_to do |format|
-      format.html { redirect_to city_parts_url, notice: 'City part was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'City part was successfully destroyed.' }
       format.json { head :no_content }
   end
 end

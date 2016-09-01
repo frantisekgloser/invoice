@@ -21,7 +21,7 @@ class CitiesController < ApplicationController
     @city = current_user.cities.build(city_params)
     respond_to do |format|
       if @city.save
-        format.html { redirect_to @city, notice: 'City successfully created.' }
+        format.html { redirect_to cities_url, notice: 'City successfully created.' }
         format.json { render :show, status: :created, location: @city }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class CitiesController < ApplicationController
   def destroy
     @city.destroy
     respond_to do |format|
-      format.html { redirect_to cities_url, notice: 'City was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'City was successfully destroyed.' }
       format.json { head :no_content }
   end
 end
