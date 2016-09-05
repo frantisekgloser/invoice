@@ -1,4 +1,5 @@
 class Currency < ActiveRecord::Base
+
   belongs_to :user
 
   has_many :bank_accounts, :dependent => :destroy
@@ -7,5 +8,7 @@ class Currency < ActiveRecord::Base
   has_many :items, :dependent => :destroy 
   has_many :outgoing_invoices, :dependent => :destroy 
   has_many :payments, :dependent => :destroy
+
+  validates_presence_of :name, :user_id
 
 end

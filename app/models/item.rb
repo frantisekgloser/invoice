@@ -7,4 +7,6 @@ class Item < ActiveRecord::Base
   has_many :incomming_invoice_items, :dependent => :destroy
   has_many :outgoing_invoice_items, :dependent => :destroy
 
+  validates_presence_of :name, :unit_price, :currency_id, :vat_charge_id, :trade_subject_id, :user_id
+
 end

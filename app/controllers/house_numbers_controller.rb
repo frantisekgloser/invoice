@@ -48,6 +48,12 @@ class HouseNumbersController < ApplicationController
       format.html { redirect_to request.referrer, notice: 'Address link was successfully destroyed.' }
       format.json { head :no_content }
   end
+
+  def address_complete
+    if street_id then "#{street.name} #{house_number}, #{city.name}" 
+      else "#{city.name} #{house_number}" end
+  end
+
 end
 
   private

@@ -38,4 +38,6 @@ class User < ActiveRecord::Base
   has_many :vat_charges, :dependent => :destroy   
   has_many :vat_reports, :dependent => :destroy
 
+  validates_presence_of :email, :trade_subject, :identification_number, :house_number, :city, :postal_code, :country
+
 end

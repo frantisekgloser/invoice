@@ -1,4 +1,5 @@
 class TradeSubject < ActiveRecord::Base
+
   belongs_to :user
 
   has_many :incomming_invoices, :dependent => :destroy 
@@ -7,4 +8,6 @@ class TradeSubject < ActiveRecord::Base
   has_many :payments, :dependent => :destroy 
   has_many :projects, :dependent => :destroy
   
+  validates_presence_of :name, :identification_number, :user_id
+
 end
