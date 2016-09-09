@@ -45,8 +45,12 @@ class VatChargesController < ApplicationController
   def destroy
     @vat_charge.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'VAT charge was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to vat_charges_url, notice: 'VAT charge was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'VAT charge was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

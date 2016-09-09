@@ -45,8 +45,12 @@ class IncomeReportsController < ApplicationController
   def destroy
     @income_report.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Income report was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to income_reports_url, notice: 'Income report was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Income report was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

@@ -45,8 +45,12 @@ class VatReportsController < ApplicationController
   def destroy
     @vat_report.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Vat report was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to vat_reports_url, notice: 'VAT report was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'VAT report was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

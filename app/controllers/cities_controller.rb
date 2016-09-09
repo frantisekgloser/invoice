@@ -45,8 +45,12 @@ class CitiesController < ApplicationController
   def destroy
     @city.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'City was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to cities_url, notice: 'City was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'City was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

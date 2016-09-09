@@ -45,8 +45,12 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Item was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

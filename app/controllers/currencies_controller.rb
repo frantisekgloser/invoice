@@ -45,8 +45,12 @@ class CurrenciesController < ApplicationController
   def destroy
     @currency.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Currency was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to currencies_url, notice: 'Currency was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Currency was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

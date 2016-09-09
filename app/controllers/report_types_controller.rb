@@ -45,8 +45,12 @@ class ReportTypesController < ApplicationController
   def destroy
     @report_type.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Report type was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to report_types_url, notice: 'Report type was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Report type was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

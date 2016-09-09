@@ -8,4 +8,12 @@ class HouseNumber < ActiveRecord::Base
 
   validates_presence_of :house_number, :city_id, :user_id  
 
+  def address_complete
+    if street_id
+      "#{street.name} #{house_number}, #{city.name}" 
+    else 
+      "#{city.name} #{house_number}" 
+    end
+  end
+
 end

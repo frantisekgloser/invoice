@@ -45,8 +45,12 @@ class ExchangeRatesController < ApplicationController
   def destroy
     @exchange_rate.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Exchange rate was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to exchange_rates_url, notice: 'Exchange rate was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Exchange rate was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

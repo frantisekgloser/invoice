@@ -45,8 +45,12 @@ class ProvincesController < ApplicationController
   def destroy
     @province.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Province was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to provinces_url, notice: 'Province was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Province was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

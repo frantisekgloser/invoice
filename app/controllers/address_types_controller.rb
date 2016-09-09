@@ -45,7 +45,11 @@ class AddressTypesController < ApplicationController
   def destroy
     @address_type.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Address type was successfully destroyed.' }
+      if request.referrer == nil
+        format.html { redirect_to address_types_url, notice: 'Address type was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Address type was successfully destroyed.' }    
+    end
       format.json { head :no_content }
   end
 end

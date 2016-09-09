@@ -45,8 +45,12 @@ class StreetsController < ApplicationController
   def destroy
     @street.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Street was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to streets_url, notice: 'Street was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Street was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

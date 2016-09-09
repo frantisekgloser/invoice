@@ -45,8 +45,12 @@ class DayEntriesController < ApplicationController
   def destroy
     @day_entry.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Day entry was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to day_entries_url, notice: 'Day entry was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Day entry was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

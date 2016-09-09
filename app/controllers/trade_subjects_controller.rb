@@ -45,8 +45,12 @@ class TradeSubjectsController < ApplicationController
   def destroy
     @trade_subject.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Trade subject was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to trade_subjects_url, notice: 'Trade subject was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Trade subject was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

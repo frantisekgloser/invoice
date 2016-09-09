@@ -45,8 +45,12 @@ class PaymentsController < ApplicationController
   def destroy
     @payment.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Payment was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to payments_url, notice: 'Payment was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Payment was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

@@ -45,8 +45,12 @@ class AddressLinksController < ApplicationController
   def destroy
     @address_link.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Address link was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to address_links_url, notice: 'Address link was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Address link was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

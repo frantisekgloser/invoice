@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :address_links, :address_types, :banks, :bank_accounts, :cities
   resources :city_parts, :countries, :currencies, :day_entries, :exchange_rates
-  resources :house_numbers, :income_reports, :incomming_invoice_payments
+  resources :income_reports, :incomming_invoice_payments
   resources :incomming_invoice_sequences, :items, :outgoing_invoice_payments
   resources :outgoing_invoice_sequences, :payments, :payment_types, :projects
   resources :provinces, :reports, :report_types, :streets, :tasks, :task_types 
@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     resources :outgoing_invoice_items
   end 
 
+  resources :house_numbers do
+    resources :streets, :cities
+  end
+  
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

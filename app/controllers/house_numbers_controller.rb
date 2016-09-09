@@ -1,5 +1,5 @@
 class HouseNumbersController < ApplicationController
-  before_action :set_house_number, only: [:show, :edit, :update, :destroy]
+  before_action :set_house_number, only: [:show, :edit, :update, :destroy, :address_complete]
   after_action :verify_policy_scoped, only: :index
   skip_after_action :verify_authorized, only: :index
 
@@ -45,15 +45,13 @@ class HouseNumbersController < ApplicationController
   def destroy
     @house_number.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Address link was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to house_numbers_url, notice: 'House number was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'House number was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
-
-  def address_complete
-    if street_id then "#{street.name} #{house_number}, #{city.name}" 
-      else "#{city.name} #{house_number}" end
-  end
-
 end
 
   private

@@ -45,8 +45,12 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Task was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Task was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 

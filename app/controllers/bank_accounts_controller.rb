@@ -45,8 +45,12 @@ class BankAccountsController < ApplicationController
   def destroy
     @bank_account.destroy
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Bank account was successfully destroyed.' }
-      format.json { head :no_content }
+    if request.referrer == nil
+      format.html { redirect_to bank_accounts_url, notice: 'Bank account was successfully destroyed.' }
+    else
+      format.html { redirect_to request.referrer, notice: 'Bank account was successfully destroyed.' }    
+    end
+    format.json { head :no_content }
   end
 end
 
