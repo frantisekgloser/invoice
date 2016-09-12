@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Incomming_invoice payments</h2>
+<br>
+<div class="row">
+  <span class="col-sm-6 col-md-2">
+    <h4>Amount</h4>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <h4>Payment</h4>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <h4>Incomming invoice</h4>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <h4>Exchange rate</h4>
+  </span>
+</div>
+
+<% @incomming_invoice_payments.each do |incomming_invoice_payment| %>
+  <div class="row">
+    <span class="col-sm-6 col-md-2">
+      <h5>
+        <%= incomming_invoice_payment.amount %>
+      </h5>
+    </span>
+    <span class="col-sm-6 col-md-2">
+      <h5>
+        <%= incomming_invoice_payment.payment_id %>
+      </h5>
+    </span>
+    <span class="col-sm-6 col-md-2">
+      <h5>
+        <%= if incomming_invoice_payment.incomming_invoice_id then incomming_invoice_payment.incomming_invoice.number end %>
+      </h5>
+    </span>
+    <span class="col-sm-6 col-md-2">
+      <h5>
+        <%= if incomming_invoice_payment.exchange_rate_id then incomming_invoice_payment.exchange_rate.rate end %>
+      </h5>
+    </span>    
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Show', incomming_invoice_payment, method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Edit', edit_incomming_invoice_payment_path(incomming_invoice_payment), method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Destroy', incomming_invoice_payment, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </span>
+  </div>
+<% end %>
+<br>
+<div class="row">   
+  <span class="col-sm-12 col-md-2">
+    <%= button_to 'New incomming invoice payment', new_incomming_invoice_payment_path, method: 'get' %>
+  </span>
+</div>

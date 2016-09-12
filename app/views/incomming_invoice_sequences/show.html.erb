@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">   
+  <span class="col-sm-6 col-md-3">
+    <strong>Sequence:</strong>
+    <%= @incomming_invoice_sequence.name %>
+  </span>
+  <span class="col-sm-6 col-md-3">
+    <strong>Note:</strong>
+    <%= @incomming_invoice_sequence.note %>
+  </span>
+</div>
+<br>
+<div class="row">
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Edit', edit_incomming_invoice_sequence_path(@incomming_invoice_sequence), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', request.referrer, method: 'get' %>
+  </span>
+</div>

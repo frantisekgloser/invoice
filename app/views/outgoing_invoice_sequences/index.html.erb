@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Outgoing invoices sequences</h2>
+<br>
+<div class="row">
+  <span class="col-sm-4 col-md-3">
+    <h4>Sequence</h4>
+  </span>
+  <span class="col-sm-4 col-md-3">
+    <h4>Note</h4>
+  </span>
+</div>
+
+<% @outgoing_invoice_sequences.each do |outgoing_invoice_sequence| %>
+  <div class="row">
+    <span class="col-sm-4 col-md-3">
+      <h5>
+        <%= outgoing_invoice_sequence.name %>
+      </h5>
+    </span>
+    <span class="col-sm-4 col-md-3">
+      <h5>
+        <%= outgoing_invoice_sequence.note %>
+      </h5>
+    </span>    
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Show', outgoing_invoice_sequence, method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Edit', edit_outgoing_invoice_sequence_path(outgoing_invoice_sequence), method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Destroy', outgoing_invoice_sequence, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </span>
+  </div>
+<% end %>
+<br>
+<div class="row">   
+  <span class="col-sm-12 col-md-2">
+    <%= button_to 'New sequence', new_outgoing_invoice_sequence_path, method: 'get' %>
+  </span>
+</div>

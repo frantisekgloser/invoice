@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">   
+  <span class="col-sm-6 col-md-2">
+    <strong>Amount:</strong>
+    <%= @incomming_invoice_payment.amount %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <strong>Payment:</strong>
+    <%= @incomming_invoice_payment.payment_id %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <strong>Incomming invoice:</strong>
+    <%= if @incomming_invoice_payment.incomming_invoice_id then @incomming_invoice_payment.incomming_invoice.number end %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <strong>Exchange rate:</strong>
+    <%= if @incomming_invoice_payment.exchange_rate_id then @incomming_invoice_payment.exchange_rate.rate end %>
+  </span>
+</div>
+<br>
+<div class="row">
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Edit', edit_incomming_invoice_payment_path(@incomming_invoice_payment), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', incomming_invoice_payments_path, method: 'get' %>
+  </span>
+</div>

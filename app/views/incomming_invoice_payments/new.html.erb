@@ -1,0 +1,16 @@
+<h2>New incomming invoice payment</h2>
+<br>
+<%= render 'form' %>
+<br>
+<br>
+<div class="row">   
+  <span class="col-sm-4 col-md-2">
+    <%= button_to 'Back', incomming_invoice_payments_path, method: 'get' %>
+  </span>
+  <span class="col-sm-4 col-md-2">
+    <%= button_to 'Exchange rates', exchange_rates_path, method: 'get' %>
+  </span>
+  <span class="col-sm-4 col-md-2">
+    <%= button_to 'Incomming invoices', incomming_invoices_path, method: 'get' %>
+  </span>
+</div>

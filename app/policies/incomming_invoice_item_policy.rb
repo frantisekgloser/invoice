@@ -1,0 +1,3 @@
+class IncommingInvoiceItemPolicy < ApplicationPolicy
+
+end

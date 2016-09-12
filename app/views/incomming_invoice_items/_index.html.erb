@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<h4>Incomming invoice items</h4>
+<br>
+<div class="row">
+  <b>
+    <span class="col-sm-6 col-md-3">
+      Item
+    </span>
+    <span class="col-sm-3 col-md-1">
+      Amount
+    </span>  
+    <span class="col-sm-3 col-md-1">
+      Unit price
+    </span>
+    <span class="col-sm-3 col-md-1">
+      Total price
+    </span>
+    <span class="col-sm-3 col-md-1">
+      VAT %
+    </span>
+    <span class="col-sm-3 col-md-1">
+      VAT
+    </span>
+    <span class="col-sm-3 col-md-1">
+      Note
+    </span>
+  </b>
+</div>
+
+<% @incomming_invoice.incomming_invoice_items.each do |incomming_invoice_item| %>
+  <div class="row">
+    <span class="col-sm-6 col-md-3">
+      <h6>
+        <%= if incomming_invoice_item.item_id then incomming_invoice_item.item.name end %>
+      </h6>
+    </span>    
+    <span class="col-sm-3 col-md-1">
+      <h6>
+        <%= incomming_invoice_item.amount %>
+      </h6>
+    </span>
+    <span class="col-sm-3 col-md-1">
+      <h6>
+        <%= if incomming_invoice_item.item_id then incomming_invoice_item.item.unit_price end %>
+      </h6>
+    </span>
+    <span class="col-sm-3 col-md-1">
+      <h6>
+        <%= if incomming_invoice_item.item_id then incomming_invoice_item.item.unit_price*incomming_invoice_item.amount end %>
+      </h6>
+    </span>
+    <span class="col-sm-3 col-md-1">
+      <h6>
+        <%= if incomming_invoice_item.item_id then incomming_invoice_item.item.vat_charge.percentage end %>
+      </h6>
+    </span>
+    <span class="col-sm-3 col-md-1">
+      <h6>
+        <%= if incomming_invoice_item.item_id then incomming_invoice_item.item.unit_price*incomming_invoice_item.amount*incomming_invoice_item.item.vat_charge.percentage/100 end %>
+      </h6>
+    </span>
+    <span class="col-sm-3 col-md-1">
+      <h6>
+        <%= incomming_invoice_item.note %>
+      </h6>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Show', incomming_invoice_incomming_invoice_item_path(incomming_invoice_item.incomming_invoice_id, incomming_invoice_item.id), method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Edit', edit_incomming_invoice_incomming_invoice_item_path(incomming_invoice_item.incomming_invoice_id, incomming_invoice_item.id), method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Destroy', incomming_invoice_incomming_invoice_item_path(incomming_invoice_item.incomming_invoice_id, incomming_invoice_item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </span>
+  </div>
+<% end %>
+<br>
+<div class="row">   
+  <span class="col-sm-12 col-md-2">
+    <%= button_to 'New incomming_invoice item', new_incomming_invoice_incomming_invoice_item_path(@incomming_invoice), method: 'get' %>
+  </span>
+</div>

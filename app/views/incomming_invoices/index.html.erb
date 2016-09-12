@@ -1,0 +1,83 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Incomming invoice</h2>
+<br>
+<div class="row">
+  <span class="col-sm-6 col-md-1">
+    <h4>Number</h4>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <h4>Trade subject</h4>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <h4>Due date</h4>
+  </span>
+  <span class="col-sm-6 col-md-1">
+    <h4>Currency</h4>
+  </span>
+  <span class="col-sm-6 col-md-1">
+    <h4>Base</h4>
+  </span>
+  <span class="col-sm-3 col-md-1">
+    <h4>VAT</h4>
+  </span>
+  <span class="col-sm-3 col-md-1">
+    <h4>Paid</h4>
+  </span>
+</div>
+
+<% @incomming_invoices.each do |incomming_invoice| %>
+  <div class="row">
+    <span class="col-sm-6 col-md-1">
+      <h5>
+        <%= if incomming_invoice.incomming_invoice_sequence_id then incomming_invoice.incomming_invoice_sequence.name end %>
+        <%= incomming_invoice.number %>
+      </h5>
+    </span>
+    <span class="col-sm-6 col-md-2">
+      <h5>
+        <%= if incomming_invoice.trade_subject_id then incomming_invoice.trade_subject.name end %>
+      </h5>
+    </span>
+    <span class="col-sm-6 col-md-2">
+      <h5>
+        <%= incomming_invoice.due_date %>
+      </h5>
+    </span>
+    <span class="col-sm-6 col-md-1">
+      <h5>
+        <%= if incomming_invoice.currency_id then incomming_invoice.currency.name end %>
+      </h5>
+    </span>
+    <span class="col-sm-6 col-md-1">
+      <h5>
+        <%= incomming_invoice.total_corrected_base %>
+      </h5>
+    </span>
+    <span class="col-sm-3 col-md-1">
+      <h5>
+        <%= incomming_invoice.total_corrected_vat %>
+      </h5>
+    </span>
+    <span class="col-sm-3 col-md-1">
+      <h5>
+        <%= incomming_invoice.paid %>
+      </h5>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Show', incomming_invoice, method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Edit', edit_incomming_invoice_path(incomming_invoice), method: 'get' %>
+    </span>
+    <span class="col-sm-4 col-md-1">
+      <%= button_to 'Destroy', incomming_invoice, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </span>
+  </div>
+<% end %>
+<br>
+<div class="row">   
+  <span class="col-sm-12 col-md-2">
+    <%= button_to 'New incomming invoice', new_incomming_invoice_path, method: 'get' %>
+  </span>
+</div>

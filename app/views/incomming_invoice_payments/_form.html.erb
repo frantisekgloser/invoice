@@ -1,0 +1,35 @@
+<%= form_for(@incomming_invoice_payment) do |f| %>
+  <% if @incomming_invoice_payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@incomming_invoice_payment.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @incomming_invoice_payment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <span class="col-sm-6 col-md-2">
+      <%= f.label :'Amount' %>
+      <%= f.text_field :amount %>
+    </span>
+    <span class="col-sm-6 col-md-2">
+      <%= f.label :'Payment' %>
+      <%= f.collection_select(:payment_id, current_user.payments.all, :id, :amount) %>
+    </span>
+    <span class="col-sm-6 col-md-2">
+      <%= f.label :'Incomming invoice' %>
+      <%= f.collection_select(:incomming_invoice_id, current_user.incomming_invoices.all, :id, :number) %>
+    </span>
+    <span class="col-sm-6 col-md-2">
+      <%= f.label :'Exchange rate' %>
+      <%= f.collection_select(:exchange_rate_id, current_user.exchange_rates.all, :id, :rate) %>
+    </span>
+    <span class="actions">
+      <%= f.submit %>
+    </span>
+  </div>
+<% end %>

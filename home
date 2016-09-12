@@ -1,0 +1,101 @@
+[1m[1;34mObject.methods[0m[0m: yaml_tag
+[1m[1;34mActiveSupport::Configurable::ClassMethods#methods[0m[0m: 
+  config  config_accessor  configure
+[1m[1;34mActiveSupport::DescendantsTracker#methods[0m[0m: descendants  direct_descendants
+[1m[1;34mAbstractController::Base.methods[0m[0m: 
+  abstract   abstract?              controller_path   method_added  
+  abstract!  clear_action_methods!  internal_methods  supports_path?
+[1m[1;34mActionController::Metal.methods[0m[0m: 
+  action  controller_name  middleware_stack=  use
+  call    middleware       middleware_stack?
+[1m[1;34mActionView::ViewPaths::ClassMethods#methods[0m[0m: 
+  _prefixes  append_view_path  prepend_view_path  view_paths  view_paths=
+[1m[1;34mAbstractController::Helpers::ClassMethods#methods[0m[0m: 
+  clear_helpers  helper  helper_method
+[1m[1;34mActionController::Helpers::ClassMethods#methods[0m[0m: 
+  all_helpers_from_path  helper_attr  helpers  modules_for_helpers
+[1m[1;34mActionController::HideActions::ClassMethods#methods[0m[0m: 
+  hide_action  visible_action?
+[1m[1;34mAbstractController::UrlFor::ClassMethods#methods[0m[0m: action_methods
+[1m[1;34mActionView::Rendering::ClassMethods#methods[0m[0m: view_context_class
+[1m[1;34mActionView::Layouts::ClassMethods#methods[0m[0m: _write_layout_method  layout
+[1m[1;34mActionController::Renderers::ClassMethods#methods[0m[0m: use_renderer  use_renderers
+[1m[1;34mActionController::ConditionalGet::ClassMethods#methods[0m[0m: etag
+[1m[1;34mActiveSupport::Callbacks::ClassMethods#methods[0m[0m: 
+  __update_callbacks  normalize_callback_params  set_callback 
+  define_callbacks    reset_callbacks            skip_callback
+[1m[1;34mAbstractController::Callbacks::ClassMethods#methods[0m[0m: 
+  _insert_callbacks            append_before_filter   prepend_before_filter
+  _normalize_callback_option   around_action          skip_action_callback 
+  _normalize_callback_options  around_filter          skip_after_action    
+  after_action                 before_action          skip_after_filter    
+  after_filter                 before_filter          skip_around_action   
+  append_after_action          prepend_after_action   skip_around_filter   
+  append_after_filter          prepend_after_filter   skip_before_action   
+  append_around_action         prepend_around_action  skip_before_filter   
+  append_around_filter         prepend_around_filter  skip_filter          
+  append_before_action         prepend_before_action
+[1m[1;34mActionController::Caching::ClassMethods#methods[0m[0m: view_cache_dependency
+[1m[1;34mActionController::Caching::ConfigMethods#methods[0m[0m: cache_store  cache_store=
+[1m[1;34mActiveSupport::Rescuable::ClassMethods#methods[0m[0m: rescue_from
+[1m[1;34mActionController::Flash::ClassMethods#methods[0m[0m: add_flash_types
+[1m[1;34mActionController::RequestForgeryProtection::ClassMethods#methods[0m[0m: 
+  protect_from_forgery
+[1m[1;34mActionController::ForceSSL::ClassMethods#methods[0m[0m: force_ssl
+[1m[1;34mActionController::HttpAuthentication::Basic::ControllerMethods::ClassMethods#methods[0m[0m: 
+  http_basic_authenticate_with
+[1m[1;34mActionController::ParamsWrapper::ClassMethods#methods[0m[0m: 
+  _set_wrapper_options  wrap_parameters
+[1m[1;34mResponders::ControllerMethod#methods[0m[0m: responders
+[1m[1;34mActionController::RespondWith::ClassMethods#methods[0m[0m: 
+  clear_respond_to  respond_to
+[1m[1;34mActionController::Railties::Helpers#methods[0m[0m: inherited
+[1m[1;34mDevise::Controllers::Helpers::ClassMethods#methods[0m[0m: 
+  devise_group  log_process_action
+[1m[1;34mActionController::Base.methods[0m[0m: 
+  _flash_types                  etag_with_template_digest=       
+  _flash_types=                 etag_with_template_digest?       
+  _flash_types?                 etaggers                         
+  _helper_methods=              etaggers=                        
+  _helper_methods?              etaggers?                        
+  _helpers=                     forgery_protection_strategy      
+  _helpers?                     forgery_protection_strategy=     
+  _layout                       helpers_path=                    
+  _layout=                      helpers_path?                    
+  _layout?                      hidden_actions=                  
+  _layout_conditions            hidden_actions?                  
+  _layout_conditions=           include_all_helpers              
+  _layout_conditions?           include_all_helpers=             
+  _process_action_callbacks=    include_all_helpers?             
+  _process_action_callbacks?    javascripts_dir                  
+  _renderers                    javascripts_dir=                 
+  _renderers=                   log_warning_on_csrf_failure      
+  _renderers?                   log_warning_on_csrf_failure=     
+  _view_cache_dependencies      logger                           
+  _view_cache_dependencies=     logger=                          
+  _view_cache_dependencies?     mimes_for_respond_to             
+  _view_paths                   mimes_for_respond_to=            
+  _view_paths=                  mimes_for_respond_to?            
+  _view_paths?                  perform_caching                  
+  _wrapper_options=             perform_caching=                 
+  _wrapper_options?             protected_instance_variables     
+  allow_forgery_protection      relative_url_root                
+  allow_forgery_protection=     relative_url_root=               
+  asset_host                    request_forgery_protection_token 
+  asset_host=                   request_forgery_protection_token=
+  assets_dir                    rescue_handlers                  
+  assets_dir=                   rescue_handlers=                 
+  default_asset_host_protocol   rescue_handlers?                 
+  default_asset_host_protocol=  responder                        
+  default_static_extension      responder=                       
+  default_static_extension=     responder?                       
+  default_url_options           stylesheets_dir                  
+  default_url_options=          stylesheets_dir=                 
+  default_url_options?          without_modules                  
+  etag_with_template_digest   
+[1m[1;34mApplicationController.methods[0m[0m: 
+  _helper_methods  _process_action_callbacks  hidden_actions
+[1m[1;34mHomeController.methods[0m[0m: 
+  _helpers  _routes  _wrapper_options  helpers_path  middleware_stack
+[1m[1;34minstance variables[0m[0m: [0;34m@abstract[0m  [0;34m@action_methods[0m  [0;34m@controller_path[0m  [0;34m@parent_name[0m
+[1m[1;34mlocals[0m[0m: _  __  _dir_  _ex_  _file_  _in_  _out_  _pry_

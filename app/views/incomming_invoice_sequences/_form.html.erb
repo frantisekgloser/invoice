@@ -1,0 +1,27 @@
+<%= form_for(@incomming_invoice_sequence) do |f| %>
+  <% if @incomming_invoice_sequence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@incomming_invoice_sequence.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @incomming_invoice_sequence.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+    <span class="col-sm-6 col-md-4">
+      <%= f.label :'Incomming invoices sequence' %>
+      <%= f.text_field :name %>
+    </span>
+    <span class="col-sm-6 col-md-4">
+      <%= f.label :'Note' %><br>
+      <%= f.text_area :note, size: '40x3' %>
+    </span>
+    <span class="actions">
+      <%= f.submit 'Update incomming invoices sequence'%>
+    </span>
+  </div>
+<% end %>

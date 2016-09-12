@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<h4>Outgoing invoice items</h4>
+<br>
+<div class="row">
+  <b>
+    <span class="col-sm-6 col-md-3">
+      Item
+    </span>
+    <span class="col-sm-3 col-md-1">
+      Amount
+    </span>  
+    <span class="col-sm-3 col-md-1">
+      Unit price
+    </span>
+    <span class="col-sm-3 col-md-1">
+      Total price
+    </span>
+    <span class="col-sm-3 col-md-1">
+      VAT %
+    </span>
+    <span class="col-sm-3 col-md-1">
+      VAT
+    </span>
+    <span class="col-sm-3 col-md-1">
+      Note
+    </span>
+  </b>
+</div>
+
+<% @outgoing_invoice.outgoing_invoice_items.each do |outgoing_invoice_item| %>
+  <div class="row">
+    <span class="col-sm-6 col-md-3">
+      <h6>
+        <%= if outgoing_invoice_item.item_id then outgoing_invoice_item.item.name end %>
+      </h6>
+    </span>    
+    <span class="col-sm-3 col-md-1">
+      <h6>
+        <%= outgoing_invoice_item.amount %>
+      </h6>
+    </span>
+    <span class="col-sm-3 col-md-1">
+      <h6>
+        <%= if outgoing_invoice_item.item_id then outgoing_invoice_item.item.unit_price end %>
+      </h6>
+    </span>
+    <span class="col-sm-3 col-md-1">
+      <h6>
+        <%= if outgoing_invoice_item.item_id then outgoing_invoice_item.item.unit_price*outgoing_invoice_item.amount end %>
+      </h6>
+    </span>
+    <span class="col-sm-3 col-md-1">
+      <h6>
+        <%= if outgoing_invoice_item.item_id then outgoing_invoice_item.item.vat_charge.percentage end %>
+      </h6>
+    </span>
+    <span class="col-sm-3 col-md-1">
+      <h6>
+        <%= if outgoing_invoice_item.item_id then outgoing_invoice_item.item.unit_price*outgoing_invoice_item.amount*outgoing_invoice_item.item.vat_charge.percentage/100 end %>
+      </h6>
+    </span>
+    <span class="col-sm-3 col-md-1">
+      <h6>
+        <%= outgoing_invoice_item.note %>
+      </h6>
+    </span>
+  </div>
+<% end %>

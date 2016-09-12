@@ -1,0 +1,3 @@
+class OutgoingInvoicePaymentPolicy < ApplicationPolicy
+
+end

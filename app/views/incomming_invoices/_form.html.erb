@@ -1,0 +1,164 @@
+<%= form_for(@incomming_invoice) do |f| %>
+  <% if @incomming_invoice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@incomming_invoice.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @incomming_invoice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <h4>
+      <span class="col-sm-12 col-md-8">
+        Editation of incomming invoice
+      </span>
+      <span class="col-sm-12 col-md-4"> 
+        <%= f.label :Number %>
+        <%= f.collection_select(:incomming_invoice_sequence_id, current_user.incomming_invoice_sequences.all, :id, :name) %>
+        <%= f.text_field :number, size: 6 %>
+      </span>
+    </h4>
+  </div>
+  <br>
+  <div class="row">
+    <span class="col-sm-12 col-md-8">
+      <div class="row">
+        <span class="col-sm-12 col-md-3">
+          <%= f.label :'Trade subject' %>
+        </span>
+        <span class="col-sm-12 col-md-4">
+          <%= f.collection_select(:trade_subject_id, current_user.trade_subjects.all, :id, :name) %>
+        </span>
+        <span class="col-sm-12 col-md-3">
+          <%= f.label :'Currency' %>
+        </span>
+        <span class="col-sm-12 col-md-2">
+          <%= f.collection_select(:currency_id, current_user.currencies.all, :id, :name) %>
+        </span>
+      </div>
+      <div class="row">  
+        <span class="col-sm-12 col-md-3">
+          <%= f.label :'Original invoice' %>
+        </span>
+        <span class="col-sm-12 col-md-4">
+          <%= f.file_field :original_invoice %>
+        </span>
+        <span class="col-sm-12 col-md-3">
+          <%= f.label :'Exchange rate' %>
+        </span>
+        <span class="col-sm-12 col-md-2">          
+          <%= f.collection_select(:exchange_rate_id, current_user.exchange_rates.all, :id, :rate) %>
+        </span>
+      </div>
+      <div class="row">  
+        <span class="col-sm-12 col-md-3">
+          <%= f.label :'Original invoice md5' %>
+        </span>
+        <span class="col-sm-12 col-md-4">
+          <%= f.text_field :original_invoice_md5, size: 15 %>
+        </span>
+        <span class="col-sm-12 col-md-3">
+          <%= f.label :'Total computed base' %>
+        </span>
+        <span class="col-sm-12 col-md-2">
+          <%= f.text_field :total_computed_base, size: 8 %>
+        </span>
+      </div>
+      <div class="row">  
+        <span class="col-sm-12 col-md-3">
+          <%= f.label :'Translated invoice' %>
+        </span>
+        <span class="col-sm-12 col-md-4">
+          <%= f.file_field :translated_invoice %>
+        </span>
+        <span class="col-sm-4 col-md-3">
+          <%= f.label :'Total computed VAT' %>
+        </span>
+        <span class="col-sm-12 col-md-2">         
+          <%= f.text_field :total_computed_vat, size: 8 %>
+        </span>
+      </div>
+      <div class="row">
+        <span class="col-sm-12 col-md-3">
+          <%= f.label :'Translated invoice md5' %>
+        </span>
+        <span class="col-sm-12 col-md-4">
+          <%= f.text_field :translated_invoice_md5, size: 15 %>
+        </span>
+        <span class="col-sm-12 col-md-3">
+          <%= f.label :'Total corrected base' %>
+        </span>
+        <span class="col-sm-12 col-md-2">
+          <%= f.text_field :total_corrected_base, size: 8 %>
+        </span>
+      </div>
+      <div class="row">  
+        <span class="col-sm-12 col-md-1">
+          <%= f.label :Note %>
+        </span>
+        <span class="col-sm-12 col-md-6">
+          <%= f.text_area :note, size: '42x3' %>
+        </span>
+        <span class="col-sm-12 col-md-3">
+          <%= f.label :'Total corrected VAT' %>
+        </span>
+        <span class="col-sm-12 col-md-2">
+          <%= f.text_field :total_corrected_vat, size: 8 %>
+        </span>
+      </div>
+    </span>
+    <span class="col-sm-12 col-md-4">
+      <div class="row">
+        <span class="col-sm-12 col-md-5">
+          <%= f.label :'Generated on date' %>
+        </span>
+        <span class="col-sm-12 col-md-7">
+          <%= f.date_select :generated_on_date %>
+        </span>
+      </div>
+      <div class="row">
+        <span class="col-sm-12 col-md-5">
+          <%= f.label :'Taxable supply date' %>
+        </span>
+        <span class="col-sm-12 col-md-7">
+          <%= f.date_select :taxable_supply_date %>
+        </span>
+      </div>
+      <div class="row">
+        <span class="col-sm-12 col-md-5">
+          <%= f.label :'Due date' %>
+        </span>
+        <span class="col-sm-12 col-md-7">
+          <%= f.date_select :due_date %>
+        </span>
+      </div>
+      <div class="row">
+        <span class="col-sm-12 col-md-5">
+          <%= f.label :'Reverse charge' %>
+        </span>
+        <span class="col-sm-12 col-md-7">
+          <%= f.check_box :reverse_charge %>
+        </span>
+      </div>
+      <div class="row">
+        <span class="col-sm-12 col-md-5">
+          <%= f.label :'Paid' %>
+        </span>
+        <span class="col-sm-12 col-md-7">
+          <%= f.check_box :paid %>
+        </span>
+      </div>
+    </span>
+    <div class="row">
+      <span class="col-sm-12 col-md-1 col-md-offset-10">
+        <span class="actions">
+          <%= f.submit %>
+        </span>
+      </span>
+    </div>
+  </div>
+<% end %>

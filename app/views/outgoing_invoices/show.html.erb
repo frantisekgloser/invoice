@@ -1,0 +1,152 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">  
+  <h4>
+    <span class="col-sm-12 col-md-4 col-md-offset-8 ">
+      <strong>Number:</strong>
+      <%= if @outgoing_invoice.outgoing_invoice_sequence_id then @outgoing_invoice.outgoing_invoice_sequence.name end %>
+      <%= @outgoing_invoice.number %>
+    </span>
+  </h4>
+</div>
+<br>
+<div class="row">
+  <span class="col-sm-12 col-md-8">
+    <div class="row">
+      <span class="col-sm-12 col-md-3">
+        <strong>Trade subject:</strong>
+      </span>
+      <span class="col-sm-12 col-md-4">
+        <%= if @outgoing_invoice.trade_subject_id then @outgoing_invoice.trade_subject.name end %>
+      </span>
+      <span class="col-sm-12 col-md-3">
+        <strong>Currency:</strong>
+      </span>
+      <span class="col-sm-12 col-md-2">
+        <%= if @outgoing_invoice.currency_id then @outgoing_invoice.currency.name end %>
+      </span>
+    </div>
+    <div class="row">  
+      <span class="col-sm-12 col-md-3">
+        <strong>Original invoice:</strong>
+      </span>
+      <span class="col-sm-12 col-md-4">
+        <%= @outgoing_invoice.original_invoice %>
+      </span>
+      <span class="col-sm-12 col-md-3">
+        <strong>Exchange rate:</strong>
+      </span>
+      <span class="col-sm-12 col-md-2">          
+        <%= if @outgoing_invoice.exchange_rate_id then @outgoing_invoice.exchange_rate.rate end %>
+      </span>
+    </div>
+    <div class="row">  
+      <span class="col-sm-12 col-md-3">
+        <strong>Original invoice md5:</strong>
+      </span>
+      <span class="col-sm-12 col-md-4">
+        <%= @outgoing_invoice.original_invoice_md5 %>
+      </span>
+      <span class="col-sm-12 col-md-3">
+        <strong>Total computed base:</strong>
+      </span>
+      <span class="col-sm-12 col-md-2">
+        <%= @outgoing_invoice.total_computed_base %>
+      </span>
+    </div>
+    <div class="row">  
+      <span class="col-sm-12 col-md-3">
+        <strong>Translated invoice:</strong>
+      </span>
+      <span class="col-sm-12 col-md-4">
+        <%= @outgoing_invoice.translated_invoice %>
+      </span>
+      <span class="col-sm-4 col-md-3">
+        <strong>Total computed VAT:</strong>
+      </span>
+      <span class="col-sm-12 col-md-2">         
+        <%= @outgoing_invoice.total_computed_vat %>
+      </span>
+    </div>
+    <div class="row">
+      <span class="col-sm-12 col-md-3">
+        <strong>Translated invoice md5:</strong>
+      </span>
+      <span class="col-sm-12 col-md-4">
+        <%= @outgoing_invoice.translated_invoice_md5 %>
+      </span>
+      <span class="col-sm-12 col-md-3">
+        <strong>Total corrected base:</strong>
+      </span>
+      <span class="col-sm-12 col-md-2">
+        <%= @outgoing_invoice.total_corrected_base %>
+      </span>    
+    </div>
+    <div class="row">  
+      <span class="col-sm-12 col-md-1">
+        <strong>Note:</strong>
+      </span>
+      <span class="col-sm-12 col-md-6">
+        <%= @outgoing_invoice.note %>
+      </span>
+      <span class="col-sm-12 col-md-3">
+        <strong>Total corrected VAT:</strong>
+      </span>
+      <span class="col-sm-12 col-md-2">
+        <%= @outgoing_invoice.total_corrected_vat %>
+      </span>
+    </div>
+  </span>
+  <span class="col-sm-12 col-md-4">
+    <div class="row">
+      <span class="col-sm-12 col-md-5">
+        <strong>Generated on date:</strong>
+      </span>
+      <span class="col-sm-12 col-md-7">
+        <%= @outgoing_invoice.generated_on_date %>
+      </span>
+    </div>
+    <div class="row">
+      <span class="col-sm-12 col-md-5">
+        <strong>Taxable supply date:</strong>
+      </span>
+      <span class="col-sm-12 col-md-7">
+        <%= @outgoing_invoice.taxable_supply_date %>
+      </span>
+    </div>
+    <div class="row">
+      <span class="col-sm-12 col-md-5">
+        <strong>Due date:</strong>
+      </span>
+      <span class="col-sm-12 col-md-7">
+        <%= @outgoing_invoice.due_date %>
+      </span>
+    </div>
+    <div class="row">
+      <span class="col-sm-12 col-md-5">
+        <strong>Reverse charge:</strong>
+      </span>
+      <span class="col-sm-12 col-md-7">
+       <%= @outgoing_invoice.reverse_charge %>
+      </span>
+    </div>
+    <div class="row">
+      <span class="col-sm-12 col-md-5">
+        <strong>Paid:</strong>
+      </span>
+      <span class="col-sm-12 col-md-7">
+        <%= @outgoing_invoice.paid %>
+      </span>
+    </div>
+  </span>
+</div>
+<%= render 'outgoing_invoice_items/index2' %>
+<br>
+<div class="row">
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Edit', edit_outgoing_invoice_path(@outgoing_invoice), method: 'get' %>
+  </span>
+  <span class="col-sm-6 col-md-2">
+    <%= button_to 'Back', request.referrer, method: 'get' %>
+  </span>
+</div>
