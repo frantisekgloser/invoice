@@ -1,18 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe OutgoingInvoiceSequencesController, type: :controller do
+  let(:user) {FactoryGirl.create(:user)}
+  let(:outgoing_invoice_sequence) {FactoryGirl.create(:outgoing_invoice_sequence)}
 
   before do
-    @request.env["devise.mapping"] = Devise.mappings[:user]
-    
-    if User.where(:email ==  "test@test.com") == []
-      @user = User.create!(email: 'test@test.com', password: '12test34', trade_subject: 'test', identification_number: '123', house_number: 1, city: 'test_city', postal_code: '123', country: 'test_country')
-    else
-      @user = User.where(:email ==  "test@test.com")
-    end
-
-    sign_in @user
-    @outgoing_invoice_sequence = OutgoingInvoiceSequence.create!(name: 'test_outgoing_invoice_sequence_name', note: 'test_outgoing_invoice_sequence_note', user_id: @user.id)
+    sign_in user
   end
 
   describe "GET #index" do
@@ -24,7 +17,7 @@ RSpec.describe OutgoingInvoiceSequencesController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
-      get :show, id: @outgoing_invoice_sequence.id
+      get :show, id: outgoing_invoice_sequence.id
       expect(response).to have_http_status(:success)
     end
   end
@@ -38,28 +31,28 @@ RSpec.describe OutgoingInvoiceSequencesController, type: :controller do
 
   describe "GET #edit" do
     it "returns http success" do
-      get :edit, id: @outgoing_invoice_sequence.id
+      get :edit, id: outgoing_invoice_sequence.id
       expect(response).to have_http_status(:success)
     end
   end
 
     describe "POST #create" do
     it "returns http success" do
-      post :create, outgoing_invoice_sequence: { "name"=>@outgoing_invoice_sequence.name, "note"=>@outgoing_invoice_sequence.note }
+      post :create, outgoing_invoice_sequence: { "name"=>outgoing_invoice_sequence.name, "note"=>outgoing_invoice_sequence.note }
       expect(response).to have_http_status(:found)
     end
   end
 
   describe "PATCH #update" do
     it "returns http success" do
-      put :update, id: @outgoing_invoice_sequence.id, outgoing_invoice_sequence: { "name"=>@outgoing_invoice_sequence.name, "note"=>@outgoing_invoice_sequence.note }
+      put :update, id: outgoing_invoice_sequence.id, outgoing_invoice_sequence: { "name"=>outgoing_invoice_sequence.name, "note"=>outgoing_invoice_sequence.note }
       expect(response).to have_http_status(:found)
     end
   end
 
   describe "GET #destroy" do
     it "returns http success" do
-      get :destroy, id: @outgoing_invoice_sequence.id
+      get :destroy, id: outgoing_invoice_sequence.id
       expect(response).to have_http_status(:found)
     end
   end
