@@ -1,7 +1,7 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <span class="col-sm-12 col-md-3 col-md-offset-1">
+  <span class="col-sm-12 col-md-4">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, size: 28 %>
   </span>
@@ -23,6 +23,6 @@
   <% end -%>
 <% end %>
 <br>
-<span class="col-sm-12 col-md-4 col-md-offset-1">
+<span class="col-sm-12 col-md-4">
   <%= render "devise/shared/links" %>
 </span>
